@@ -1,0 +1,47 @@
+Code	Description
+$STORAGE_FORMAT	The on-disk storage format of a data set
+GENDER	Gender of a patient.
+INJECT_TYPE	Type of MC_INJECT experiment.
+NMR_TECHNOLOGY_TYPE	Type of NMR technology
+Q_ANTIBODY	List of antibodies used in different sample preparations
+Q_ATTACHMENT_TYPES	Different types of unstructured data attachments, for example results or experimental design data
+Q_BMI_MODALITIES	Distinguishes imaging experiments with respect to their modality (CT guided biopsy, dynamic CT, MR, PET, MR-PET).
+Q_BMI_PET_TRACERS	In case of PET, several tracers can be employed. This CV enumerates available PET tracer compounds.
+Q_CELL_LINES	Vocabulary for different cell lines
+Q_CHROMATOGRAPHY_TYPES	A list of chromatography-based separation techniques.
+Q_DEMUX_SOFTWARES	A list of demultiplexing software solutions and versions.
+Q_DIGESTION_PROTEASES	Common proteases or other chemicals used to digest proteins into peptides. Used in MS experiments.
+Q_EXPERIMENT_STATES	Describes the current status of the experiment's progress.
+Q_HLA_CLASSES	Exisiting HLA classes
+Q_HLA_TYPING_METHODS	Available experimental HLA Typing methods.
+Q_ILLUMINA_RUN_MODES	List of Illumina-specific operating modes.
+Q_IONIZATION_MODES	Plainly offers positive and negative mode ionization as options.
+Q_LABELING_TYPES	Labeling of samples using isotopes, fluorescence or other methods.
+Q_LIBRARY_PREPKITS	A list of library preparation kits for sequencing.
+Q_MEASUREMENT_DEVICE	Device used for experiment measurements
+Q_MS_CONTROL_SOFTWARES	A list of MS instrument control softwares and their versions.
+Q_MS_CONVERSION_SOFTWARES	A list of softwares (and versions) used for MS data conversion.
+Q_MS_DEVICES	A list of mass spectrometers available to QBiC.
+Q_MS_ENRICHMENT_PROTOCOLS	Enrichment of peptides or proteins of different characteristics
+Q_MS_FRACTIONATION_PROTOCOLS	Different methods of fractionating mass spectrometry samples
+Q_MS_LCMS_METHODS	Labratory specific methods for LCMS measurements
+Q_MS_PROTOCOLS	A list of common MS protocols.
+Q_MS_RAW_VENDOR_TYPES	Raw data types produced by the different vendor types. Used for conversion and workflow purposes. Marc Rurik: von den 5 großen Herstellern von Massenspektrometern gibt es mindestens die folgenden Rohdatenformate: AB SCIEX: WIFF, T2D (DataExplorer) Agilent: .d Verzeichnis (MassHunter) Bruker: .d Verzeichnis (Compass), YEP, BAF, FID Thermo: RAW Waters: RAW Verzeichnis (MassLynx) Wichtig ist wahrscheinlich nur das für jeden Hersteller zuerst genannte Format, zumindest hab ich die anderen noch nie gesehen. Drei der Formate sind tatsächlich Verzeichnisse, können beim Konvertieren aber wie Dateien betrachtet werden und erzeugen auch nur eine .mzML. Das .d-Format von Agilent und das .d-Format von Bruker sind übrigens nicht das gleiche und genauso auch nicht die beiden RAW-Formate von Thermo und Waters. Außerdem müssen beim .wiff-Format ggf. weitere Dateien (.wiff.scan) neben der .wiff-Datei im gleichen Verzeichnis liegen. Hier kann es leicht zu Problemen kommen, wenn Dateien nachträglich umbenannt werden.
+Q_NCBI_TAXONOMY	Specifies the studied organism according to the NCBI taxonomy (http://www.ncbi.nlm.nih.gov/Taxonomy).
+Q_PRIMARY_TISSUES	A list of tissues and body fluids a taken can be taken from.
+Q_PROTEIN_PURIFICATION_METHODS	
+Q_SAMPLE_PROCESS_STATES	This is a CV containing names of process states that a sample (usually only physical samples such as Q_BIOLOGICAL_SAMPLE and Q_TEST_SAMPLE) can pass through. Each state has a prefix to distinguish the process it belongs to (e.g., the MSH prefix is used for MultiscaleHCC-related processes).
+Q_SAMPLE_TYPES	List of sample content types that are commonly extracted/enriched to suit a specific analytic method (e.g. protein extract for proteomics studies).
+Q_SEQUENCER_DEVICES	A regularly updated list of all sequencer devices QBiC has access to.
+Q_SEQUENCER_SOFTWARES	Specifies the sequencer's control software version (e.g., HiSeq Control Software) that was used for the measurement.
+Q_SEQUENCING_CHEMISTRY_TYPES	A list of chemistry types that can be used for sequencing.
+Q_SEQUENCING_MODES	Allows the selection of single-end or paired-end.
+Q_SEQUENCING_TYPES	A list of sequencing types.
+Q_TIMEPOINTS	A simple CV to model an ordinal variable representing time of measurement (T0, T1, ...)
+Q_TUMOR_TYPE	Type of a tumor
+Q_WORKFLOW_STATES	Possible states of a workflow
+RMA_FORMAT	
+SEQUENCING_TYPE	The type of the sequencing experiment: RNA or Exome
+SEX	Sex of a patient
+STATUS	
+TREATMENT_TYPE	Type of treatment of a biological sample.

@@ -1,0 +1,81 @@
+Code	Description
+ARR	The ARR file contains any sample attributes and array information of an affymetrix microarray.
+AUDIT	An Audit file is an XML file that tracks the processing of each physical array processed by AGCC. An Audit file is produced for each physical array and tracks all the processing steps that were performed on the array, including multiple scannings and regridding. The audit file has the same root name as the physical array.
+CEL	Affymetrix CEL format raw file. The CEL file stores the results of the intensity calculations on the pixel values of the DAT file. This includes an intensity value, standard deviation of the intensity, the number of pixels used to calculate the intensity value, a flag to indicate an outlier as calculated by the algorithm and a user defined flag indicating the feature should be excluded from future analysis. This data is used by the CHP writer software to extract the actual data of interest.
+CSV	A Comma-Separated Values file.
+EXPERIMENTAL_DESIGN	Contains TSV of the experimental design format used by the wizard. To be attached to single experimental layers, namely the ones containing data to be analyzed with respect to the experimental design.
+EXPRESSION_MATRIX	Contains a CSV file measuring expression of some kind (genes, proteins). It should contain references to IDs used in openbis or the experimental design.
+FASTQ	A FASTQ file of a NGS experiment.
+FEATUREXML	featureXML file
+GZ	GZ archive file
+IDXML	IdXML file
+JPG	
+MAT	
+MZML	Mass spectrometry data format. Unifiying mzXML and mzData formats, as released at the 2008 American Society for Mass Spectrometry Meeting.
+PDF	Portable Document Format
+PNG	
+Q_BMI_IMAGING_DATA	Imaging data (set of DICOM files) packaged as tarball. This tarball comprises all imaging sequences (could be modeled separately in the future).
+Q_DOCUMENT	A document file carrying metainformation about one or more samples or sample sources
+Q_EXT_MS_QUALITYCONTROL_RESULTS	Results produced by OpenMS QC as qcML.
+Q_EXT_NGS_QUALITYCONTROL_RESULTS	Results produced by the FastQC.
+Q_FASTA_DATA	Dataset holding fasta file which can contain protein sequences or nucleotide sequences.
+Q_HT_QPCR_DATA	Data of a high-throughput qPCR run
+Q_MA_AGILENT_DATA	Agilent text format for microarrays
+Q_MA_CHIP_IMAGE	Images or Pseudo-images of microarray chips. Can for example be used for quality control.
+Q_MA_RAW_DATA	Designates the raw data generated during an MicroArray run. Such data is for example stored in a vendor-specific format (e.g., CEL files).
+Q_MS_MZML_DATA	Raw microspectrometry data that has been converted to mzML format.
+Q_MS_RAW_DATA	Designates the raw data generated during an MS run. Such data is either stored in a vendor-specific format (e.g., binary RAW files for Thermo Orbitraps) or in the open mzML standard.
+Q_MTB_ARCHIVE	A ZIP file containing the reported somatic and germline SNVs and CNVs, plus the additional diagnosis. The content are 6 tab-separated files, following the specification with CeGaT, IMGAG and ZPM. This is the information that gets redirected to the CentraXX system and is stored here as additional backup.
+Q_NGS_HLATYPING_DATA	Dataset holding data of an HLA Typing experiment
+Q_NGS_IMMUNE_MONITORING_DATA	Dataset holding data of an immune monitoring experiment
+Q_NGS_IONTORRENT_DATA	Torrent Suite data folder packaged as tar. This data folder is intended to be re-imported to the Torrent Suite cloud solution at Pathology if needed. VCF/XLS files are stored separately (as children).
+Q_NGS_MAPPING_DATA	Dataset holding aligned genomic data
+Q_NGS_MTB_DATA	Variant information and diagnosis data for the molecular tumor board.
+Q_NGS_RAW_DATA	Dataset holding raw data of an Next Generation Sequencing experiment
+Q_NGS_READ_MATCH_ARCHIVE	Files ending in .rma are in a compressed binary format called RMA (read-match archive) produced by MALT (MEGAN alignment tool). There are multiple versions, e.g. RMA2, RMA3, RMA6
+Q_NGS_VARIANT_CALLING_DATA	Dataset holding data of a variant calling experiment
+Q_NMR_RAW_DATA	Data set for NMR measurements raw data.
+Q_PEPTIDE_DATA	Dataset to hold peptide data stored in different file formats. Peptide data may be stored as fasta file, simple peptide list or a tab-separated file with an identifier and a sequence column e.g..
+Q_PROJECT_DATA	Datasets that are attached to an instance of Q_Attachment_Sample and should be presented to the user on the project level. This should only include datasets that are not specific workflow results.
+Q_TEST	this is just for quick testing
+Q_VACCINE_CONSTRUCT_DATA	Dataset to hold vaccine construct data such as the list of selected epitopes
+Q_WF_EDDA_BENCHMARK_LOGS	
+Q_WF_EDDA_BENCHMARK_RESULTS	
+Q_WF_MA_QUALITYCONTROL_LOGS	Log files of a microarray quality control run.
+Q_WF_MA_QUALITYCONTROL_RESULTS	Results of a microarray quality control run.
+Q_WF_MS_INDIVIDUALIZED_PROTEOME_LOGS	
+Q_WF_MS_INDIVIDUALIZED_PROTEOME_RESULTS	
+Q_WF_MS_LIGANDOMICS_ID_LOGS	
+Q_WF_MS_LIGANDOMICS_ID_RESULTS	
+Q_WF_MS_LIGANDOMICS_QC_LOGS	
+Q_WF_MS_LIGANDOMICS_QC_RESULTS	
+Q_WF_MS_MAXQUANT_LOGS	Log files of a maxquant run.
+Q_WF_MS_MAXQUANT_ORIGINAL_OUT	This data set type holds all the files that a MaxQuant run produces, except the input raw files. Data is held inside a tar.gz.
+Q_WF_MS_MAXQUANT_RESULTS	The result files generated by MaxQuant. Depending the operational mode of MaxQuant, the results may or may not contain protein quantification results.
+Q_WF_MS_PEAKPICKING_LOGS	Peak Picking of one or more mzml files done using openMS.
+Q_WF_MS_PEPTIDEID_LOGS	Log files created by the Peptide Identification Workflow run
+Q_WF_MS_PEPTIDEID_RESULTS	Results produced by the Peptide Identification Workflow
+Q_WF_MS_QUALITYCONTROL_LOGS	Log files produced by the OpenMS QC workflow.
+Q_WF_MS_QUALITYCONTROL_RESULTS	Results produced by the OpenMS QC workflow as qcML.
+Q_WF_NGS_16S_TAXONOMIC_PROFILING_LOGS	
+Q_WF_NGS_EPITOPE_PREDICTION_LOGS	Logs of a peptide prediction workflow run. Peptides are analyzed with respect to MHC binding for a specific set of MHC alleles.
+Q_WF_NGS_EPITOPE_PREDICTION_RESULTS	Results of a peptide prediction workflow run. Peptides are analyzed with respect to MHC binding for a specific set of MHC alleles.
+Q_WF_NGS_HLATYPING_LOGS	Logs of an HLA typing workflow run. The prediction of HLA alleles is based on WGS/WES or RNA-Seq data.
+Q_WF_NGS_HLATYPING_RESULTS	Results of an HLA typing workflow run. The prediction of HLA alleles is based on WGS/WES or RNA-Seq data. Results contain the predicted six HLA alleles and a coverage plot.
+Q_WF_NGS_MAPPING_LOGS	Logs of an NGS read mapping workflow run. Reads are aligned to the selected reference genome.
+Q_WF_NGS_MAPPING_RESULTS	Results of an NGS read mapping workflow run. Reads are aligned to the selected reference genome. The results contain the generated BAM file.
+Q_WF_NGS_QUALITYCONTROL_LOGS	Logs of a FastQC workflow run.
+Q_WF_NGS_QUALITYCONTROL_RESULTS	Results of a FastQC workflow run.
+Q_WF_NGS_RNAEXPRESSIONANALYSIS_LOGS	Logs of an RNA expression analysis workflow run. RNA reads are mapped to the corresponding reference and feature counts are generated.
+Q_WF_NGS_RNAEXPRESSIONANALYSIS_RESULTS	Results of an RNA expression analysis workflow run. RNA reads are mapped to the corresponding reference and feature counts are generated.
+Q_WF_NGS_SHRNA_COUNTING_LOGS	Logs of a shRNA counting workflow run.
+Q_WF_NGS_SHRNA_COUNTING_RESULTS	Results of a shRNA counting workflow run. Given a set of reads from shRNA sequencing, we count how often each reference shRNA sequence occurs at the expected position in the reads. Each read should contain a barcode at a specified position. We divide the reads according to those barcodes.
+Q_WF_NGS_VARIANT_ANNOTATION_LOGS	Logs of a variant annotation run. Provided variants in VCF format are annotated using the respective variant annotation software based on the selected reference genome.
+Q_WF_NGS_VARIANT_ANNOTATION_RESULTS	Results of a variant annotation run. Provided variants in VCF format are annotated using the respective variant annotation software based on the selected reference genome.
+Q_WF_NGS_VARIANT_CALLING_LOGS	Logs of a variant calling workflow run.
+Q_WF_NGS_VARIANT_CALLING_RESULTS	Results of a variant calling workflow run. Variants are called based on provided NGS reads. Variants (not annotated) are provided as VCF file.
+RAW	Raw data file
+SHA256SUM	Checksum for registered data files
+TAR	
+UNKNOWN	Unknown
+VCF	A Variant Call Format (VCF) file

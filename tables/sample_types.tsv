@@ -1,0 +1,51 @@
+Code	Description
+BIOLOGICAL	A biological sample.
+DNA	Complete DNA measured by sequencing
+HCC_SAMPLE	Sample from hepatocellular carcinoma (HCC).
+MS_INJECTION	Injection of a biological sample into a MS
+NMR_INJECTION	Biological sample prepared for injection to NMR.
+PROTEIN	a protein sample
+Q_ATTACHMENT_SAMPLE	Sample to store datasets on a project- or experiment-wide level. Used for datasets that can not be derived from specific samples or workflows or for experimental protocols uploaded in the beginning of a project. The code should look like this: Q[XXXX]000 for samples for a project with code QXXXX and Q[XXXX][E] for samples for a specific experiment with code E.
+Q_BIOLOGICAL_ENTITY	The biological entity (e.g., human, mouse) to be studied. With this data object, information specific to the subject (e.g., age or BMI in the case of patient data) can be stored.
+Q_BIOLOGICAL_SAMPLE	The biological sample that is extracted from the corresponding biological entity. This is the raw sample material that can be later prepared for specific analytical methods such as MS or NGS.
+Q_BMI_GENERIC_IMAGING_RUN	This sample type represents an actual imaging run. Currently, different imaging sequences are collected within one such run (could be separated in future versions).
+Q_EDDA_BENCHMARK	Result sample of the EDDA benchmark, with attached results file(s)
+Q_EXT_MS_QUALITYCONTROL_RUN	Corresponds to an instance of a quality control run as produced by OpenMS QC. Should be linked with MS measurement runs (mzML input).
+Q_EXT_NGS_QUALITYCONTROL_RUN	Corresponds to an instance of a quality control run as produced by FastQC. Should be linked with NGS measurement runs.
+Q_FASTA	Connected to fasta file dataset.
+Q_HT_QPCR_RUN	A Single run of high-throughput qPCR
+Q_MHC_LIGAND_EXTRACT	Preparation of MHC ligands taken from a sample
+Q_MICROARRAY_RUN	Specifies an individual Microarray measurement, e.g. for one Test Sample.
+Q_MS_RUN	Specifies an individual MS measurement.
+Q_NGS_EPITOPES	Contains additional information on predicted epitopes, i.e. peptides which are predicted to bind to MHC molecules. Holds dataset with a list of these peptides.
+Q_NGS_FLOWCELL_RUN	A container sample type that specifies the flowcell used (barcode) and may comprise several single sample runs (Q_NGS_SINGLE_SAMPLE_RUN).
+Q_NGS_HLATYPING	Contains additional information on results of a HLA typing experiment and dataset which contains the actual typing.
+Q_NGS_IMMUNE_MONITORING	Contains additional information on measured immune monitoring and may hold multiple files as immune monitoring dataset.
+Q_NGS_IONTORRENT_RUN	Sample type to reference a complete Ion PGM run. Since samples from different patients are measured in one go, this sample will have several parent samples.
+Q_NGS_MAPPING	Contains additional information on results of the alignment of genomic data on some reference and dataset holding SAM and/or BAM file(s).
+Q_NGS_MTB_DIAGNOSIS_RUN	Diagnosis run performed at facilities like CeGaT or IMGAG based on patient tumor samples.
+Q_NGS_READ_MATCH_ALIGNMENT_RUN	Sample to attach an RMA (read-match archive) file to a single run produced by MALT (MEGAN Alignment Tool).
+Q_NGS_SINGLE_SAMPLE_RUN	Contains supporting information to track measured samples back to the flow lanes or tiles.
+Q_NGS_VARIANT_CALLING	Contains additional information on results of a variant calling experiment and a dataset which holds a list of variants (either raw or annotated variants).
+Q_NMR_SAMPLE_RUN	NMR measurement sample
+Q_POWER_ESTIMATION_RUN	runs of the sample size/power estimation portlet. stores input parameters, visualization (e.g. power matrix) and/or data
+Q_TEST_SAMPLE	This sample is prepared and ready for a specific analytic platform (e.g. protein extract for a proteomics MS experiment).
+Q_VACCINE_CONSTRUCT	Selection of epitopes for a vaccine construct based on NeoOptiTope selection.
+Q_WF_MA_QUALITYCONTROL_RUN	Corresponds to an instance of a quality control run as produced by the Microarray QC workflow.
+Q_WF_MS_INDIVIDUALIZED_PROTEOME_RUN	
+Q_WF_MS_LIGANDOMICS_ID_RUN	
+Q_WF_MS_LIGANDOMICS_QC_RUN	
+Q_WF_MS_MAXQUANT_RUN	Corresponds to an instance of a MaxQuant run. Should be linked with SILAC-based proteomics runs as input.
+Q_WF_MS_PEPTIDEID_RUN	One instance of a run of the Peptide Identification Workflow
+Q_WF_MS_QUALITYCONTROL_RUN	Corresponds to an instance of a quality control run as produced by the OpenMS QC workflow. Should be linked with MS measurement runs (mzML input).
+Q_WF_NGS_16S_TAXONOMIC_PROFILING	
+Q_WF_NGS_EPITOPE_PREDICTION_RUN	A workflow run for epitope prediction
+Q_WF_NGS_HLATYPING_RUN	
+Q_WF_NGS_MAPPING_RUN	
+Q_WF_NGS_QUALITYCONTROL_RUN	Corresponds to an instance of a quality control run as produced by the FastQC workflow. Should be linked with NGS measurement runs.
+Q_WF_NGS_RNA_EXPRESSION_ANALYSIS_RUN	One instance of a run of the RNA Expression Analysis Workflow
+Q_WF_NGS_SHRNA_COUNTING_RUN	Counting shRNA expression Given a set of reads from shRNA sequencing, we count how often each reference shRNA sequence occurs at the expected position in the reads. Each read should contain a barcode at a specified position. We divide the reads according to those barcodes.
+Q_WF_NGS_VARIANT_ANNOTATION_RUN	
+Q_WF_NGS_VARIANT_CALLING_RUN	
+RNA	RNA to be measured by RNA-Seq, Microarrays or other means
+UNKNOWN	Unknown
