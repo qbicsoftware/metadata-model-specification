@@ -15,7 +15,8 @@
                 }
             },
             "required": ["label","value"],
-            "OpenBISfield": "Q_BMI_IMAGING_DATA/Q_FILENAME"
+            "OpenBIS_intance": "Q_BMI_IMAGING_DATA",
+            "OpenBIS_property": "Q_FILENAME"
         }
     }
 }
