@@ -43,6 +43,7 @@ def finalJsonContent = [:]
 searchResult.getObjects().each {
     def propertyContent = [:]
     propertyContent["type"] = "string"
+    propertyContent["description"] = it.description
     //propertyContent["id"] = it.code.toLowerCase()
     propertyContent["enum"] = it.terms.collect { it.code }
     finalJsonContent[it.code] = propertyContent

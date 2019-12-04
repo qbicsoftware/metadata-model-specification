@@ -2,6 +2,7 @@
     "definitions": {
         "$STORAGE_FORMAT": {
             "type": "string",
+            "description": "The on-disk storage format of a data set",
             "enum": [
                 "BDS_DIRECTORY",
                 "PROPRIETARY"
@@ -9,6 +10,7 @@
         },
         "GENDER": {
             "type": "string",
+            "description": "Gender of a patient.",
             "enum": [
                 "FEMALE",
                 "MALE"
@@ -16,6 +18,7 @@
         },
         "INJECT_TYPE": {
             "type": "string",
+            "description": "Type of MC_INJECT experiment.",
             "enum": [
                 "DIRECTED_PROTEOMICS",
                 "SHOTGUN_PROTEOMICS",
@@ -25,6 +28,7 @@
         },
         "NMR_TECHNOLOGY_TYPE": {
             "type": "string",
+            "description": "Type of NMR technology",
             "enum": [
                 "COSY",
                 "NOESY"
@@ -32,6 +36,7 @@
         },
         "Q_ANTIBODY": {
             "type": "string",
+            "description": "List of antibodies used in different sample preparations",
             "enum": [
                 "B1.23.2",
                 "B22.249",
@@ -48,6 +53,7 @@
         },
         "Q_ATTACHMENT_TYPES": {
             "type": "string",
+            "description": "Different types of unstructured data attachments, for example results or experimental design data",
             "enum": [
                 "INFORMATION",
                 "RESULT"
@@ -55,6 +61,7 @@
         },
         "Q_BMI_MODALITIES": {
             "type": "string",
+            "description": "Distinguishes imaging experiments with respect to their modality (CT guided biopsy, dynamic CT, MR, PET, MR-PET).",
             "enum": [
                 "CT-BIOPSY",
                 "CT-PERFUSION",
@@ -67,6 +74,7 @@
         },
         "Q_BMI_PET_TRACERS": {
             "type": "string",
+            "description": "In case of PET, several tracers can be employed. This CV enumerates available PET tracer compounds.",
             "enum": [
                 "CHOLINE",
                 "FDG",
@@ -78,6 +86,7 @@
         },
         "Q_CELL_LINES": {
             "type": "string",
+            "description": "Vocabulary for different cell lines",
             "enum": [
                 "1G1",
                 "2A1",
@@ -853,6 +862,7 @@
         },
         "Q_CHROMATOGRAPHY_TYPES": {
             "type": "string",
+            "description": "A list of chromatography-based separation techniques.",
             "enum": [
                 "AEX",
                 "CE",
@@ -874,12 +884,14 @@
         },
         "Q_DEMUX_SOFTWARES": {
             "type": "string",
+            "description": "A list of demultiplexing software solutions and versions.",
             "enum": [
                 "ILLUMINA_CASAVA_1_8_2"
             ]
         },
         "Q_DIGESTION_PROTEASES": {
             "type": "string",
+            "description": "Common proteases or other chemicals used to digest proteins into peptides. Used in MS experiments.",
             "enum": [
                 "ARG-C_PROTEINASE",
                 "ASP-N_ENDOPEPTIDASE",
@@ -928,6 +940,7 @@
         },
         "Q_EXPERIMENT_STATES": {
             "type": "string",
+            "description": "Describes the current status of the experiment's progress.",
             "enum": [
                 "DELAYED",
                 "FAILED",
@@ -937,6 +950,7 @@
         },
         "Q_HLA_CLASSES": {
             "type": "string",
+            "description": "Exisiting HLA classes",
             "enum": [
                 "MHC_CLASS_I",
                 "MHC_CLASS_II"
@@ -944,6 +958,7 @@
         },
         "Q_HLA_TYPING_METHODS": {
             "type": "string",
+            "description": "Available experimental HLA Typing methods.",
             "enum": [
                 "SEROTYPING",
                 "SSO",
@@ -952,6 +967,7 @@
         },
         "Q_ILLUMINA_RUN_MODES": {
             "type": "string",
+            "description": "List of Illumina-specific operating modes.",
             "enum": [
                 "HIGH_OUTPUT",
                 "MID_OUTPUT",
@@ -960,6 +976,7 @@
         },
         "Q_IONIZATION_MODES": {
             "type": "string",
+            "description": "Plainly offers positive and negative mode ionization as options.",
             "enum": [
                 "NEGATIVE",
                 "POSITIVE"
@@ -967,6 +984,7 @@
         },
         "Q_LABELING_TYPES": {
             "type": "string",
+            "description": "Labeling of samples using isotopes, fluorescence or other methods.",
             "enum": [
                 "2-AB",
                 "18-O",
@@ -982,6 +1000,7 @@
         },
         "Q_LIBRARY_PREPKITS": {
             "type": "string",
+            "description": "A list of library preparation kits for sequencing.",
             "enum": [
                 "LIBPREPKIT_DUMMY",
                 "UNSPECIFIED"
@@ -989,12 +1008,14 @@
         },
         "Q_MEASUREMENT_DEVICE": {
             "type": "string",
+            "description": "Device used for experiment measurements",
             "enum": [
                 "BRUKER"
             ]
         },
         "Q_MS_CONTROL_SOFTWARES": {
             "type": "string",
+            "description": "A list of MS instrument control softwares and their versions.",
             "enum": [
                 "THERMO_XCALIBUR_1_2",
                 "THERMO_XCALIBUR_1_3",
@@ -1005,12 +1026,14 @@
         },
         "Q_MS_CONVERSION_SOFTWARES": {
             "type": "string",
+            "description": "A list of softwares (and versions) used for MS data conversion.",
             "enum": [
                 "PROTEOWIZARD_3_0_6832"
             ]
         },
         "Q_MS_DEVICES": {
             "type": "string",
+            "description": "A list of mass spectrometers available to QBiC.",
             "enum": [
                 "AB_SCIEX_6500",
                 "BRUKER_AMAZON_SPEED_ETD",
@@ -1036,6 +1059,7 @@
         },
         "Q_MS_ENRICHMENT_PROTOCOLS": {
             "type": "string",
+            "description": "Enrichment of peptides or proteins of different characteristics",
             "enum": [
                 "ACETYLATION_ENRICHMENT",
                 "AFFINITY_ENRICHMENT",
@@ -1045,6 +1069,7 @@
         },
         "Q_MS_FRACTIONATION_PROTOCOLS": {
             "type": "string",
+            "description": "Different methods of fractionating mass spectrometry samples",
             "enum": [
                 "GELC",
                 "HIGH_PH_FRACTIONATION",
@@ -1055,6 +1080,7 @@
         },
         "Q_MS_LCMS_METHODS": {
             "type": "string",
+            "description": "Labratory specific methods for LCMS measurements",
             "enum": [
                 "300-1500MZ_TS3SHCD30_10S_5E4_7P5E5AGC_150MS",
                 "400-650MZ_TS3SCIDQISOT35MULTI_7S_5E2STRICT_300NL",
@@ -1190,6 +1216,7 @@
         },
         "Q_MS_PROTOCOLS": {
             "type": "string",
+            "description": "A list of common MS protocols.",
             "enum": [
                 "MTX_BIOCRATES",
                 "MTX_MRM",
@@ -1201,6 +1228,7 @@
         },
         "Q_MS_RAW_VENDOR_TYPES": {
             "type": "string",
+            "description": "Raw data types produced by the different vendor types. Used for conversion and workflow purposes.\nMarc Rurik:\nvon den 5 gro\u00dfen Herstellern von Massenspektrometern gibt es mindestens die folgenden Rohdatenformate:\n\nAB SCIEX: WIFF, T2D (DataExplorer) \nAgilent: .d Verzeichnis (MassHunter)\nBruker: .d Verzeichnis (Compass), YEP, BAF, FID\nThermo: RAW\nWaters: RAW Verzeichnis (MassLynx)\n\nWichtig ist wahrscheinlich nur das f\u00fcr jeden Hersteller zuerst genannte Format, zumindest hab ich die anderen noch nie gesehen. Drei der Formate sind tats\u00e4chlich Verzeichnisse, k\u00f6nnen beim Konvertieren aber wie Dateien betrachtet werden und erzeugen auch nur eine .mzML. Das .d-Format von Agilent und das .d-Format von Bruker sind \u00fcbrigens nicht das gleiche und genauso auch nicht die beiden RAW-Formate von Thermo und Waters. Au\u00dferdem m\u00fcssen beim .wiff-Format ggf. weitere Dateien (.wiff.scan) neben der .wiff-Datei im gleichen Verzeichnis liegen. Hier kann es leicht zu Problemen kommen, wenn Dateien nachtr\u00e4glich umbenannt werden.",
             "enum": [
                 "D_BRUKER",
                 "RAW_THERMO",
@@ -1210,6 +1238,7 @@
         },
         "Q_NCBI_TAXONOMY": {
             "type": "string",
+            "description": "Specifies the studied organism according to the NCBI taxonomy (http://www.ncbi.nlm.nih.gov/Taxonomy).",
             "enum": [
                 "0",
                 "287",
@@ -1437,6 +1466,7 @@
         },
         "Q_PRIMARY_TISSUES": {
             "type": "string",
+            "description": "A list of tissues and body fluids a taken can be taken from.",
             "enum": [
                 "ABDOMEN",
                 "ACUTE_LYMPHOBLASTIC_LEUKEMIA",
@@ -1615,6 +1645,7 @@
         },
         "Q_PROTEIN_PURIFICATION_METHODS": {
             "type": "string",
+            "description": null,
             "enum": [
                 "PRECIPITATION",
                 "PULLDOWN",
@@ -1624,6 +1655,7 @@
         },
         "Q_SAMPLE_PROCESS_STATES": {
             "type": "string",
+            "description": "This is a CV containing names of process states that a sample (usually only physical samples such as Q_BIOLOGICAL_SAMPLE and Q_TEST_SAMPLE) can pass through. Each state has a prefix to distinguish the process it belongs to (e.g., the MSH prefix is used for MultiscaleHCC-related processes).",
             "enum": [
                 "MSH_PATHOLOGY_REVIEW_FINISHED",
                 "MSH_PATHOLOGY_REVIEW_STARTED",
@@ -1636,6 +1668,7 @@
         },
         "Q_SAMPLE_TYPES": {
             "type": "string",
+            "description": "List of sample content types that are commonly extracted/enriched to suit a specific analytic method (e.g. protein extract for proteomics studies).",
             "enum": [
                 "CARBOHYDRATES",
                 "CELL_LYSATE",
@@ -1657,6 +1690,7 @@
         },
         "Q_SEQUENCER_DEVICES": {
             "type": "string",
+            "description": "A regularly updated list of all sequencer devices QBiC has access to.",
             "enum": [
                 "CEGAT_ILLUMINA_HISEQ_2500",
                 "IMGAG_ILLUMINA_HISEQ_2500",
@@ -1671,6 +1705,7 @@
         },
         "Q_SEQUENCER_SOFTWARES": {
             "type": "string",
+            "description": "Specifies the sequencer's control software version (e.g., HiSeq Control Software) that was used for the measurement.",
             "enum": [
                 "ILLUMINA_HCS_2_2_38",
                 "NOT_SPECIFIED"
@@ -1678,12 +1713,14 @@
         },
         "Q_SEQUENCING_CHEMISTRY_TYPES": {
             "type": "string",
+            "description": "A list of chemistry types that can be used for sequencing.",
             "enum": [
                 "SEQ_CHEM_DUMMY"
             ]
         },
         "Q_SEQUENCING_MODES": {
             "type": "string",
+            "description": "Allows the selection of single-end or paired-end.",
             "enum": [
                 "PAIRED_END",
                 "SINGLE_END"
@@ -1691,6 +1728,7 @@
         },
         "Q_SEQUENCING_TYPES": {
             "type": "string",
+            "description": "A list of sequencing types.",
             "enum": [
                 "DNA",
                 "EXOME",
@@ -1699,6 +1737,7 @@
         },
         "Q_TIMEPOINTS": {
             "type": "string",
+            "description": "A simple CV to model an ordinal variable representing time of measurement (T0, T1, ...)",
             "enum": [
                 "TP0",
                 "TP1",
@@ -1708,6 +1747,7 @@
         },
         "Q_TUMOR_TYPE": {
             "type": "string",
+            "description": "Type of a tumor",
             "enum": [
                 "ACUTE_LYMPHOCYTIC_LEUKEMIA",
                 "ACUTE_MYELOID_LEUKEMIA",
@@ -1741,6 +1781,7 @@
         },
         "Q_WORKFLOW_STATES": {
             "type": "string",
+            "description": "Possible states of a workflow",
             "enum": [
                 "FAILED",
                 "FINISHED",
@@ -1749,6 +1790,7 @@
         },
         "RMA_FORMAT": {
             "type": "string",
+            "description": null,
             "enum": [
                 "RMA2",
                 "RMA3",
@@ -1757,6 +1799,7 @@
         },
         "SEQUENCING_TYPE": {
             "type": "string",
+            "description": "The type of the sequencing experiment: RNA or Exome",
             "enum": [
                 "DNA",
                 "EXOME",
@@ -1765,6 +1808,7 @@
         },
         "SEX": {
             "type": "string",
+            "description": "Sex of a patient",
             "enum": [
                 "FEMALE",
                 "MALE"
@@ -1772,6 +1816,7 @@
         },
         "STATUS": {
             "type": "string",
+            "description": null,
             "enum": [
                 "FAILED",
                 "FINISHED",
@@ -1781,6 +1826,7 @@
         },
         "TREATMENT_TYPE": {
             "type": "string",
+            "description": "Type of treatment of a biological sample.",
             "enum": [
                 "CLINICAL",
                 "CONTROL",
