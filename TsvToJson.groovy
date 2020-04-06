@@ -3,8 +3,13 @@
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.Sample
 import ch.ethz.sis.openbis.generic.asapi.v3.IApplicationServerApi
 import ch.systemsx.cisd.common.spring.HttpInvokerUtils
+// Vocabulary
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.vocabulary.search.VocabularySearchCriteria
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.vocabulary.fetchoptions.VocabularyFetchOptions
+// Sample
+import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.search.SampleSearchCriteria
+import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.fetchoptions.SampleFetchOptions
+
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
@@ -32,27 +37,57 @@ def sessionToken = ""
 // Open connection to openBIS server
 (token, apiConnection)  = loginToOpenBis(credentials.user, credentials.pw)
 
-def criteria = new VocabularySearchCriteria()
-def fetchOptions = new VocabularyFetchOptions()
-fetchOptions.withTerms()
+// ------------------------
+// Define vocabulary search
+// -------------------------
 
-def searchResult = apiConnection.searchVocabularies(token, criteria, fetchOptions)
+def vocabularyCriteria = new VocabularySearchCriteria()
+def vocabularyFetchOptions = new VocabularyFetchOptions()
+vocabularyFetchOptions.withTerms()
 
-def finalJsonContent = [:]
+def vocabularySearchResult = apiConnection.searchVocabularies(token, vocabularyCriteria, vocabularyFetchOptions)
 
-searchResult.getObjects().each {
+def vocabularyJsonContent = [:]
+
+vocabularySearchResult.getObjects().each {
     def propertyContent = [:]
     propertyContent["type"] = "string"
+    propertyContent["description"] = it.description
+    //propertyContent["id"] = it.code.toLowerCase()
+    propertyContent["enum"] = it.terms.collect { it.code }
+    vocabularyJsonContent[it.code] = propertyContent
+}
+
+def vocabularyFile = new File("schema/vocabularies.json")
+vocabularyFile.withWriter {
+    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": vocabularyJsonContent]))
+}
+
+//----------------------
+// Define sample search
+//----------------------
+def sampleCriteria = new SampleSearchCriteria()
+def sampleFetchOptions = new SampleFetchOptions()
+sampleFetchOptions.withType()
+
+def sampleSearchResult = apiConnection.searchSamples(token, sampleCriteria, sampleFetchOptions)
+
+def sampleJsonContent = [:]
+
+sampleSearchResult.getObjects().each {
+    def propertyContent = [:]
     propertyContent["description"] = it.description
     //propertyContent["id"] = it.code.toLowerCase()
     propertyContent["enum"] = it.terms.collect { it.code }
     finalJsonContent[it.code] = propertyContent
 }
 
-def vocabularyFile = new File("schema/vocabularies.json")
-vocabularyFile.withWriter {
-    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": finalJsonContent]))
+def sampleFile = new File("schema/samples.json")
+sampleFile.withWriter {
+    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": sampleJsonContent]))
 }
+
+
 
 //Finally log out from openBIS
 apiConnection.logout(token)
