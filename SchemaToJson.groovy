@@ -3,15 +3,22 @@
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.Sample
 import ch.ethz.sis.openbis.generic.asapi.v3.IApplicationServerApi
 import ch.systemsx.cisd.common.spring.HttpInvokerUtils
-// Vocabulary
+// Vocabulary classes
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.vocabulary.search.VocabularySearchCriteria
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.vocabulary.fetchoptions.VocabularyFetchOptions
-// Sample
+// Sample type classes
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.search.SampleTypeSearchCriteria
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.fetchoptions.SampleTypeFetchOptions
-
+// Experiment type classes
+import ch.ethz.sis.openbis.generic.asapi.v3.dto.experiment.search.ExperimentTypeSearchCriteria
+import ch.ethz.sis.openbis.generic.asapi.v3.dto.experiment.fetchoptions.ExperimentTypeFetchOptions
+// Json imports
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
+
+//-------------------
+// Login to openbis
+//-------------------
 
 def parseCredentialsFromJsonFile(String path) {
     try {
@@ -30,6 +37,7 @@ def loginToOpenBis(String user, String pw) {
     sessionToken = v3.login(user, pw)
     return [sessionToken, v3]
 }
+
 // Parse openBIS credentials from JSON file
 def credentialsJsonPath = args[0]
 def credentials = parseCredentialsFromJsonFile(credentialsJsonPath)
@@ -38,10 +46,9 @@ def sessionToken = ""
 // Open connection to openBIS server
 (token, apiConnection)  = loginToOpenBis(credentials.user, credentials.pw)
 
-// ------------------------
-// Define vocabulary search
-// -------------------------
-
+// -----------------
+//  Vocabulary
+// -----------------
 def vocabularyCriteria = new VocabularySearchCriteria()
 def vocabularyFetchOptions = new VocabularyFetchOptions()
 vocabularyFetchOptions.withTerms()
@@ -66,7 +73,7 @@ vocabularyFile.withWriter {
 }
 
 //---------------------------
-// Define sample type search
+// Sample type
 //---------------------------
 def sampleTypeSearchCriteria = new SampleTypeSearchCriteria()
 def sampleTypeFetchOptions = new SampleTypeFetchOptions()
@@ -99,7 +106,39 @@ sampleFile.withWriter {
     it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": sampleTypeJsonContent]))
 }
 
+//------------------------
+// Experiment type
+//------------------------
+def experimentTypeSearchCriteria = new ExperimentTypeSearchCriteria()
+def experimentTypeFetchOptions = new ExperimentTypeFetchOptions()
+experimentTypeFetchOptions.withPropertyAssignments().withPropertyType()
 
+def experimentTypeSearchResult = apiConnection.searchExperimentTypes(token, experimentTypeSearchCriteria, experimentTypeFetchOptions)
+
+def experimentTypeJsonContent = [:]
+
+experimentTypeSearchResult.getObjects().each {
+    System.out.println("Experiment " + it.code + " " + it.getPropertyAssignments())
+    def experimentContent = [:]
+
+    def experimentPropertiesContent = [:]
+    it.getPropertyAssignments().each {
+        System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
+        def propertyContent = [:]
+        propertyContent["type"] = it.getPropertyType().getDataType()
+        propertyContent["label"] = it.getPropertyType().getLabel()
+        propertyContent["description"] = it.getPropertyType().getDescription()
+        experimentPropertiesContent[it.getPropertyType().code] = propertyContent
+    }
+    experimentContent["description"] = it.description
+    experimentContent["properties"] = experimentPropertiesContent
+    experimentTypeJsonContent[it.code] = experimentContent
+}
+
+def experimentFile = new File("schema/experiment_types.json")
+experimentFile.withWriter {
+    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": experimentTypeJsonContent]))
+}
 
 //Finally log out from openBIS
 apiConnection.logout(token)
