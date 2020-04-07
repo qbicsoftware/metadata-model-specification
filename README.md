@@ -1,2 +1,18 @@
 # metadata-model
-QBiC's metadata model specification
+
+QBiC's OpenBIS metadata model schema.
+
+## Schema
+
+Contains json schema extracted from OpenBIS for:
+
+- [vocabularies](schema/vocabularies.json)
+- [sample types](schema/sample_types.json)
+
+## metadata-sheets-schema
+
+Schema defining the metadata sheets for partner labs and their relationship to the OpenBIS metadata.
+
+### Schema - extracting script
+
+[This](TsvToJson.groovy) script extracts the current metadata model as stored in OpenBIS.
