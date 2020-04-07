@@ -50,7 +50,7 @@ def vocabularySearchResult = apiConnection.searchVocabularies(token, vocabularyC
 def vocabularyJsonContent = [:]
 
 vocabularySearchResult.getObjects().each {
-    System.out.println("Vocabulary " + it.code + it.description + it.terms.collect{ it.code } )
+    //System.out.println("Vocabulary " + it.code + it.description + it.terms.collect{ it.code } )
     def propertyContent = [:]
     propertyContent["type"] = "string"
     propertyContent["description"] = it.description
@@ -76,10 +76,10 @@ def sampleTypeSearchResult = apiConnection.searchSampleTypes(token, sampleTypeSe
 def sampleTypeJsonContent = [:]
 
 sampleTypeSearchResult.getObjects().each {
-    System.out.println("Sample " + it.code + " " + it.getPropertyAssignments() )
+    //System.out.println("Sample " + it.code + " " + it.getPropertyAssignments() )
     def sampleContent = [:]
     it.getPropertyAssignments().each {
-        System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
+        //System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
         def propertyContent = [:]
         propertyContent["type"] = "string"
         propertyContent["description"] = it.getPropertyType().getDescription()
