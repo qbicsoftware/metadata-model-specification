@@ -78,14 +78,18 @@ def sampleTypeJsonContent = [:]
 sampleTypeSearchResult.getObjects().each {
     //System.out.println("Sample " + it.code + " " + it.getPropertyAssignments() )
     def sampleContent = [:]
+
+    def samplePropertiesContent = [:]
     it.getPropertyAssignments().each {
         //System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
         def propertyContent = [:]
         propertyContent["type"] = it.getPropertyType().getDataType()
         propertyContent["label"] = it.getPropertyType().getLabel()
         propertyContent["description"] = it.getPropertyType().getDescription()
-        sampleContent[it.getPropertyType().code] = propertyContent
+        samplePropertiesContent[it.getPropertyType().code] = propertyContent
     }
+    sampleContent["description"] = it.description
+    sampleContent["properties"] = samplePropertiesContent
     sampleTypeJsonContent[it.code] = sampleContent
 }
 
