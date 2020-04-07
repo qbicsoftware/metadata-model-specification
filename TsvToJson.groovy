@@ -7,8 +7,8 @@ import ch.systemsx.cisd.common.spring.HttpInvokerUtils
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.vocabulary.search.VocabularySearchCriteria
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.vocabulary.fetchoptions.VocabularyFetchOptions
 // Sample
-import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.search.SampleSearchCriteria
-import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.fetchoptions.SampleFetchOptions
+import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.search.SampleTypeSearchCriteria
+import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.fetchoptions.SampleTypeFetchOptions
 
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
@@ -24,7 +24,7 @@ def parseCredentialsFromJsonFile(String path) {
 def loginToOpenBis(String user, String pw) {
     // get a reference to AS API
     def url = "https://qbis.qbic.uni-tuebingen.de/openbis/openbis" + IApplicationServerApi.SERVICE_URL
-    IApplicationServerApi v3 = HttpInvokerUtils.createServiceStub(IApplicationServerApi.class, url, 10000)
+    IApplicationServerApi v3 = HttpInvokerUtils.createServiceStub(IApplicationServerApi.class, url, 100000)
     // login to obtain a session token
     sessionToken = v3.login(user, pw)
     return [sessionToken, v3]
@@ -50,6 +50,7 @@ def vocabularySearchResult = apiConnection.searchVocabularies(token, vocabularyC
 def vocabularyJsonContent = [:]
 
 vocabularySearchResult.getObjects().each {
+    System.out.println("Vocabulary " + it.code + it.description + it.terms.collect{ it.code } )
     def propertyContent = [:]
     propertyContent["type"] = "string"
     propertyContent["description"] = it.description
@@ -63,28 +64,33 @@ vocabularyFile.withWriter {
     it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": vocabularyJsonContent]))
 }
 
-//----------------------
-// Define sample search
-//----------------------
-def sampleCriteria = new SampleSearchCriteria()
-def sampleFetchOptions = new SampleFetchOptions()
-sampleFetchOptions.withType()
+//---------------------------
+// Define sample type search
+//---------------------------
+def sampleTypeSearchCriteria = new SampleTypeSearchCriteria()
+def sampleTypeFetchOptions = new SampleTypeFetchOptions()
+sampleTypeFetchOptions.withPropertyAssignments().withPropertyType()
 
-def sampleSearchResult = apiConnection.searchSamples(token, sampleCriteria, sampleFetchOptions)
+def sampleTypeSearchResult = apiConnection.searchSampleTypes(token, sampleTypeSearchCriteria, sampleTypeFetchOptions)
 
-def sampleJsonContent = [:]
+def sampleTypeJsonContent = [:]
 
-sampleSearchResult.getObjects().each {
-    def propertyContent = [:]
-    propertyContent["description"] = it.description
-    //propertyContent["id"] = it.code.toLowerCase()
-    propertyContent["enum"] = it.terms.collect { it.code }
-    finalJsonContent[it.code] = propertyContent
+sampleTypeSearchResult.getObjects().each {
+    System.out.println("Sample " + it.code + " " + it.getPropertyAssignments() )
+    def sampleContent = [:]
+    it.getPropertyAssignments().each {
+        System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
+        def propertyContent = [:]
+        propertyContent["type"] = "string"
+        propertyContent["description"] = it.getPropertyType().getDescription()
+        sampleContent[it.getPropertyType().code] = propertyContent
+    }
+    sampleTypeJsonContent[it.code] = sampleContent
 }
 
-def sampleFile = new File("schema/samples.json")
+def sampleFile = new File("schema/sample_types.json")
 sampleFile.withWriter {
-    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": sampleJsonContent]))
+    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": sampleTypeJsonContent]))
 }
 
 
