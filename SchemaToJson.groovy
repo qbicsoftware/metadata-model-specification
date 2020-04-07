@@ -13,9 +13,6 @@ import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.fetchoptions.SampleTypeFe
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
-// Increase the timout, if you get a server timeout exception for exhaustive queries
-final int SERVER_TIMEOUT = 30000
-
 def parseCredentialsFromJsonFile(String path) {
     try {
         def content = new JsonSlurper().parseText(new File(path).text)
@@ -27,7 +24,8 @@ def parseCredentialsFromJsonFile(String path) {
 def loginToOpenBis(String user, String pw) {
     // get a reference to AS API
     def url = "https://qbis.qbic.uni-tuebingen.de/openbis/openbis" + IApplicationServerApi.SERVICE_URL
-    IApplicationServerApi v3 = HttpInvokerUtils.createServiceStub(IApplicationServerApi.class, url, SERVER_TIMEOUT)
+    // Increase the server timeout (10000) if you get a server timeout excheption for exhaustive queries
+    IApplicationServerApi v3 = HttpInvokerUtils.createServiceStub(IApplicationServerApi.class, url, 10000)
     // login to obtain a session token
     sessionToken = v3.login(user, pw)
     return [sessionToken, v3]
