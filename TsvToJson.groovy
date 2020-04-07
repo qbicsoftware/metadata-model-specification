@@ -13,6 +13,7 @@ import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.fetchoptions.SampleFetchO
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
+// Increase the timout, if you get a server timeout exception for exhaustive queries
 final int SERVER_TIMEOUT = 30000
 
 def parseCredentialsFromJsonFile(String path) {
