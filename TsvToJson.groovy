@@ -81,7 +81,8 @@ sampleTypeSearchResult.getObjects().each {
     it.getPropertyAssignments().each {
         //System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
         def propertyContent = [:]
-        propertyContent["type"] = "string"
+        propertyContent["type"] = it.getPropertyType().getDataType()
+        propertyContent["label"] = it.getPropertyType().getLabel()
         propertyContent["description"] = it.getPropertyType().getDescription()
         sampleContent[it.getPropertyType().code] = propertyContent
     }

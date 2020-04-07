@@ -2,791 +2,967 @@
     "definitions": {
         "Q_WF_NGS_QUALITYCONTROL_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_NOTES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Notes",
                 "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
             }
         },
         "Q_WF_NGS_SHRNA_COUNTING_RUN": {
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_NOTES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Notes",
                 "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
             }
         },
         "Q_BIOLOGICAL_SAMPLE": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_PRIMARY_TISSUE": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "Primary tissue/body fluid",
                 "description": "Specifies the tissue/body fluid the sample is taken from."
             },
             "Q_TISSUE_DETAILED": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Detailed tissue/body fluid specification",
                 "description": "Since the primary tissue definition could be too rough, this field specifies the sample more closely (e.g., more specific definition of the cell type)."
             },
             "Q_EXTERNALDB_ID": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "External DB identifier",
                 "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_CREATION_TIME": {
-                "type": "string",
+                "type": "TIMESTAMP",
+                "label": "Time point of sample creation",
                 "description": "This field stores the exact time/date of sample creation (not registration!). For example, it could be used for time-series experiments."
             },
             "Q_CURRENT_PROCESS_STATE": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "Current process state",
                 "description": "If a sample is part of a modeled process (e.g., MultiscaleHCC workflow), this field describes the current state."
             },
             "Q_NOTES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Notes",
                 "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
             },
             "Q_LOCI": {
-                "type": "string",
+                "type": "XML",
+                "label": "Genomic Loci",
                 "description": "XML type holding the different alleles of different genomic loci of a sample."
             },
             "Q_HISTOLOGY": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "Histology",
                 "description": "Histology of the sample, e.g. Cell or Cancer Type"
             },
             "Q_DIGNITY": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Tissue dignity",
                 "description": "Benign or malignant tissue"
             },
             "Q_IS_METASTASIS": {
-                "type": "string",
+                "type": "BOOLEAN",
+                "label": "Metastasis",
                 "description": "Describes whether a sample comes form a metastasis or not"
             },
             "Q_TUMOR_STAGE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Tumor Stage (TNM)",
                 "description": "Tumor staging according to UICC, grading if available"
             },
             "Q_TISSUE_LOCATION": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Tissue Location",
                 "description": "Location of tissue extracts or tumors"
             },
             "Q_TUMOR_TYPE": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "Tumor Type",
                 "description": "Cell type of a tumor"
             }
         },
         "Q_VACCINE_CONSTRUCT": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_FASTA": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             }
         },
         "Q_BIOLOGICAL_ENTITY": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_NCBI_ORGANISM": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "NCBI organism",
                 "description": "Specifies the organism of study according to the NCBI taxonomy (http://www.ncbi.nlm.nih.gov/taxonomy)."
             },
             "Q_EXTERNALDB_ID": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "External DB identifier",
                 "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_NOTES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Notes",
                 "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
             },
             "Q_GENDER": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "Gender",
                 "description": "Gender of the patient or other biological entity."
             },
             "Q_LOCI": {
-                "type": "string",
+                "type": "XML",
+                "label": "Genomic Loci",
                 "description": "XML type holding the different alleles of different genomic loci of a sample."
             },
             "Q_ORGANISM_DETAILED": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Detailed organism specification",
                 "description": "If the organism is not well-defined or a specific strain of bacteria etc."
             },
             "Q_SEX": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "Sex",
                 "description": "Sex of a patient or animal"
             },
             "Q_ADDITIONAL_DATA_INFO": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Additional Data Info",
                 "description": "Information about additional data or metadata that might be available for a patient or sample but not saved in openBIS."
             }
         },
         "Q_NGS_MTB_DIAGNOSIS_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_EXTERNALDB_ID": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "External DB identifier",
                 "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
             }
         },
         "Q_POWER_ESTIMATION_RUN": {
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_TECHNOLOGY_TYPE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Technology type",
                 "description": "Type of technology used to measure data"
             }
         },
         "Q_NMR_SAMPLE_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_TEST_SAMPLE": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_SAMPLE_TYPE": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "Sample type",
                 "description": "Describes the main content of the test sample."
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_EXTERNALDB_ID": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "External DB identifier",
                 "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
             },
             "Q_NOTES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Notes",
                 "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
             },
             "Q_LOCI": {
-                "type": "string",
+                "type": "XML",
+                "label": "Genomic Loci",
                 "description": "XML type holding the different alleles of different genomic loci of a sample."
             },
             "Q_RNA_INTEGRITY_NUMBER": {
-                "type": "string",
+                "type": "REAL",
+                "label": "RNA Integrity Number",
                 "description": "RNA integrity of an RNA sample. The RIN algorithm assigns a 1 to 10 integrity score, where level 10 RNA is completely intact."
             },
             "Q_MOLECULAR_LABEL": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Molecular Sample Label",
                 "description": "An isotope label or other modification that has been added to this sample to identify it later."
             },
             "Q_PRE_TREATMENT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Pretreatment",
                 "description": "Pretreatment performed on samples"
             }
         },
         "Q_WF_MA_QUALITYCONTROL_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_NOTES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Notes",
                 "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
             }
         },
         "Q_BMI_GENERIC_IMAGING_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_EXTERNALDB_ID": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "External DB identifier",
                 "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
             },
             "Q_TIMEPOINT": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "Experimental Timepoint",
                 "description": "Ordinal variable to describe to experimental timepoint (T0, T1, ...)"
             },
             "Q_IMAGED_TISSUE": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "Imaged Tissue",
                 "description": "Tissue focused during the imaging experiment."
             },
             "Q_MSHCC_IMAGING_DATE": {
-                "type": "string",
+                "type": "TIMESTAMP",
+                "label": "Date of Imaging",
                 "description": "Timestamp for the imaging experiment. Caveat: Only stored until the MultiscaleHCC clinical study is finished. Needs to be deleted."
             },
             "Q_NOTES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Notes",
                 "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_MS_INDIVIDUALIZED_PROTEOME_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_MS_LIGANDOMICS_QC_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_NGS_HLATYPING_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_HLA_TYPING": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "HLA Typing",
                 "description": "The HLA Typing as multiline varchar."
             },
             "Q_NOTES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Notes",
                 "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "RNA": {
             "SPECIES": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Species",
                 "description": "Species the original sample was extracted from."
             },
             "SAMPLE_CLASS": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample class",
                 "description": "This property classifies samples into groups defined by their experimental context or treatment. E.g. Control vs Disease or Wildtype."
             },
             "VOLUME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Volume",
                 "description": ""
             },
             "CONCENTRATION": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Concentration",
                 "description": ""
             },
             "RIN": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "RNA Integrity Number",
                 "description": ""
             },
             "AMOUNT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Amount in micrograms",
                 "description": "Amount of this sample type in micrograms"
             },
             "BIRTHDATE": {
-                "type": "string",
+                "type": "TIMESTAMP",
+                "label": "Birth date",
                 "description": "Birth date of a patient"
             },
             "SOURCE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample Source",
                 "description": "The source this sample came from in the Project context. E.g. \"Mouse 5\""
             },
             "TREATMENT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Treatment",
                 "description": "A very short description of the treatment of this sample."
             },
             "TIME_POINT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Time Point",
                 "description": "A short description of the time point and its unit of a sample in its project context."
             }
         },
         "BIOLOGICAL": {
             "SAMPLE_CLASS": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample class",
                 "description": "This property classifies samples into groups defined by their experimental context or treatment. E.g. Control vs Disease or Wildtype."
             },
             "SPECIES": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Species",
                 "description": "Species the original sample was extracted from."
             },
             "SOURCE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample Source",
                 "description": "The source this sample came from in the Project context. E.g. \"Mouse 5\""
             },
             "TREATMENT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Treatment",
                 "description": "A very short description of the treatment of this sample."
             },
             "TIME_POINT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Time Point",
                 "description": "A short description of the time point and its unit of a sample in its project context."
             }
         },
         "DNA": {
             "SAMPLE_CLASS": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample class",
                 "description": "This property classifies samples into groups defined by their experimental context or treatment. E.g. Control vs Disease or Wildtype."
             },
             "SPECIES": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Species",
                 "description": "Species the original sample was extracted from."
             },
             "TREATMENT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Treatment",
                 "description": "A very short description of the treatment of this sample."
             },
             "SOURCE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample Source",
                 "description": "The source this sample came from in the Project context. E.g. \"Mouse 5\""
             },
             "TIME_POINT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Time Point",
                 "description": "A short description of the time point and its unit of a sample in its project context."
             }
         },
         "HCC_SAMPLE": {
             "SAMPLE_CLASS": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample class",
                 "description": "This property classifies samples into groups defined by their experimental context or treatment. E.g. Control vs Disease or Wildtype."
             },
             "SPECIES": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Species",
                 "description": "Species the original sample was extracted from."
             },
             "TREATMENT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Treatment",
                 "description": "A very short description of the treatment of this sample."
             },
             "TIME_POINT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Time Point",
                 "description": "A short description of the time point and its unit of a sample in its project context."
             },
             "SOURCE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample Source",
                 "description": "The source this sample came from in the Project context. E.g. \"Mouse 5\""
             }
         },
         "NMR_INJECTION": {
             "SAMPLE_CLASS": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample class",
                 "description": "This property classifies samples into groups defined by their experimental context or treatment. E.g. Control vs Disease or Wildtype."
             },
             "SPECIES": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Species",
                 "description": "Species the original sample was extracted from."
             },
             "TIME_POINT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Time Point",
                 "description": "A short description of the time point and its unit of a sample in its project context."
             },
             "TREATMENT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Treatment",
                 "description": "A very short description of the treatment of this sample."
             },
             "SOURCE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample Source",
                 "description": "The source this sample came from in the Project context. E.g. \"Mouse 5\""
             }
         },
         "Q_MHC_LIGAND_EXTRACT": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_MHC_CLASS": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "MHC class",
                 "description": "MHC class of a ligand sample, e.g. 1 or 2"
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_ANTIBODY": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "Antibody",
                 "description": "Antibody or antibodies used in preparation of samples."
             },
             "Q_EXTERNALDB_ID": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "External DB identifier",
                 "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
             }
         },
         "Q_WF_MS_LIGANDOMICS_ID_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "MS_INJECTION": {
             "SPECIES": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Species",
                 "description": "Species the original sample was extracted from."
             },
             "SAMPLE_CLASS": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample class",
                 "description": "This property classifies samples into groups defined by their experimental context or treatment. E.g. Control vs Disease or Wildtype."
             },
             "SOURCE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample Source",
                 "description": "The source this sample came from in the Project context. E.g. \"Mouse 5\""
             },
             "TREATMENT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Treatment",
                 "description": "A very short description of the treatment of this sample."
             },
             "TIME_POINT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Time Point",
                 "description": "A short description of the time point and its unit of a sample in its project context."
             }
         },
         "PROTEIN": {
             "SPECIES": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Species",
                 "description": "Species the original sample was extracted from."
             },
             "SAMPLE_CLASS": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample class",
                 "description": "This property classifies samples into groups defined by their experimental context or treatment. E.g. Control vs Disease or Wildtype."
             },
             "SOURCE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Sample Source",
                 "description": "The source this sample came from in the Project context. E.g. \"Mouse 5\""
             },
             "TREATMENT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Treatment",
                 "description": "A very short description of the treatment of this sample."
             },
             "TIME_POINT": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Time Point",
                 "description": "A short description of the time point and its unit of a sample in its project context."
             }
         },
         "Q_WF_NGS_MAPPING_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_MS_PEPTIDEID_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_NGS_EPITOPE_PREDICTION_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_NGS_RNA_EXPRESSION_ANALYSIS_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_NGS_VARIANT_CALLING_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_NGS_VARIANT_ANNOTATION_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_MS_QUALITYCONTROL_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_MS_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_EXTERNALDB_ID": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "External DB identifier",
                 "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
             }
         },
         "Q_HT_QPCR_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_EXTERNALDB_ID": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "External DB identifier",
                 "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             }
         },
         "Q_NGS_IONTORRENT_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_EXTERNALDB_ID": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "External DB identifier",
                 "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_NGS_16S_TAXONOMIC_PROFILING": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_ATTACHMENT_SAMPLE": {
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_NOTES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Notes",
                 "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
             }
         },
         "Q_NGS_FLOWCELL_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_FLOWCELL_BARCODE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Flowcell barcode",
                 "description": "Specifies the flowcell used for the sequencing run."
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_NGS_SINGLE_SAMPLE_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_FLOWLANE_INDEX": {
-                "type": "string",
+                "type": "INTEGER",
+                "label": "Flow lane index",
                 "description": "Specifies the flow lane index where the sample was placed."
             },
             "Q_TILE_INDEX": {
-                "type": "string",
+                "type": "INTEGER",
+                "label": "Tile index",
                 "description": "Specifies the tile index within the flow lane where the sample was placed."
             },
             "Q_ADAPTER_INDEX": {
-                "type": "string",
+                "type": "INTEGER",
+                "label": "Adapter index",
                 "description": "The adapter index facilitates to find the exact adapter sequence according to the vendor's specifications."
             },
             "Q_ADAPTER_SEQUENCE": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Adapter sequence",
                 "description": "Adapter sequence that was employed for the multiplexing of this sample."
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_WF_MS_MAXQUANT_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             }
         },
         "Q_EXT_MS_QUALITYCONTROL_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             }
         },
         "Q_NGS_HLATYPING": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_HLA_CLASS": {
-                "type": "string",
+                "type": "CONTROLLEDVOCABULARY",
+                "label": "HLA Class",
                 "description": "The class of the corresponding HLA type."
             },
             "Q_HLA_TYPING": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "HLA Typing",
                 "description": "The HLA Typing as multiline varchar."
             }
         },
         "Q_NGS_VARIANT_CALLING": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             }
         },
         "Q_MICROARRAY_RUN": {
             "Q_SECONDARY_NAME": {
-                "type": "string",
+                "type": "VARCHAR",
+                "label": "Secondary name",
                 "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
             },
             "Q_PROPERTIES": {
-                "type": "string",
+                "type": "XML",
+                "label": "Properties",
                 "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
             },
             "Q_ADDITIONAL_INFO": {
-                "type": "string",
+                "type": "MULTILINE_VARCHAR",
+                "label": "Additional information",
                 "description": "Additional notes about the experiment"
             },
             "Q_RNA_INTEGRITY_NUMBER": {
-                "type": "string",
+                "type": "REAL",
+                "label": "RNA Integrity Number",
                 "description": "RNA integrity of an RNA sample. The RIN algorithm assigns a 1 to 10 integrity score, where level 10 RNA is completely intact."
             }
         },
