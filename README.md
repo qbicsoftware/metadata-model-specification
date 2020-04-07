@@ -15,4 +15,4 @@ Schema defining the metadata sheets for partner labs and their relationship to t
 
 ### Schema - extracting script
 
-[This](TsvToJson.groovy) script extracts the current metadata model as stored in OpenBIS.
+[This](SchemaToJson.groovy) script extracts the current metadata model as stored in OpenBIS.
