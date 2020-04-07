@@ -13,6 +13,8 @@ import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.fetchoptions.SampleFetchO
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
 
+final int SERVER_TIMEOUT = 30000
+
 def parseCredentialsFromJsonFile(String path) {
     try {
         def content = new JsonSlurper().parseText(new File(path).text)
@@ -24,7 +26,7 @@ def parseCredentialsFromJsonFile(String path) {
 def loginToOpenBis(String user, String pw) {
     // get a reference to AS API
     def url = "https://qbis.qbic.uni-tuebingen.de/openbis/openbis" + IApplicationServerApi.SERVICE_URL
-    IApplicationServerApi v3 = HttpInvokerUtils.createServiceStub(IApplicationServerApi.class, url, 10000)
+    IApplicationServerApi v3 = HttpInvokerUtils.createServiceStub(IApplicationServerApi.class, url, SERVER_TIMEOUT)
     // login to obtain a session token
     sessionToken = v3.login(user, pw)
     return [sessionToken, v3]
