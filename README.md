@@ -2,6 +2,14 @@
 
 QBiC's OpenBIS metadata model schema.
 
+## General overview
+
+The metadata entitites in OpenBIS are classified between Samples, Experiments and Data sets. Here is a general overview of the relationship between them, but it is modular and it can vary from project to project.
+
+<p align="center">
+    <a href="./docs/images/general_scheme.png"><img title="metadata diagram" src="./docs/images/general_scheme.png" width=90%></a>
+</p>
+
 ## Schema
 
 Contains json schema extracted from OpenBIS for:
