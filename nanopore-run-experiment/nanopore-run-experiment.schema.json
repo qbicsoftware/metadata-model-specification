@@ -1,0 +1,42 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://qbic.life/nanopore-run-experiment.schema.json",
+    "title": "Nanopore Run Experiment",
+    "description": "A nanopore run in OpenBIS",
+    "type": "object",
+    "properties": {
+        "flowCellId": {
+            "description": "The ID of the flowcell",
+            "type": "integer"
+        },
+        "instrument": {
+            "description": "An instrument used for measurement"
+        },
+        "facility": {
+            "description": "A sequencing facility"
+        },
+        "basecaller": {
+            "description": "The basecaller used for FastQ generation"
+        },
+        "runStartTime": {
+            "description": "The time in YYYY-MM-DDThh:mm:ssTZD",
+            "type": "string",
+            "format": "date-time"
+        },
+        "position": {
+            "description": "The position on the sequencer",
+            "type": "string"
+        },
+        "samples": {
+            "description": "Measurements resulting from this experiment",
+            "type": "array",
+            "items": {
+                "description": "nanopore run sample",
+                "$ref": "nanopore-run-sample.schema.json"
+            }
+        }
+    },
+    "required": [
+        "flowCellId"
+    ]
+}

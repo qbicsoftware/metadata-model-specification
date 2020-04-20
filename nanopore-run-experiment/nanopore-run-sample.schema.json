@@ -1,0 +1,41 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://qbic.life/nanopore-run-sample.schema.json",
+    "title": "Nanopore Run Sample",
+    "description": "A measurement sample from the nanopore experiment",
+    "type": "object",
+    "definitions": {
+        "measurementLogs": {
+            "description": "Root folder for the log files.",
+            "type": "string"
+        },
+        "measurementFastQ": {
+            "description": "Root folder for the fastq files.",
+            "type": "string"
+
+        },
+        "measurementFast5": {
+            "description": "Root folder for the fast5 files.",
+            "type": "string"
+        }
+    },
+    "properties": {
+        "externalId": {
+            "description": "Idntifier in external database of the lab",
+            "type": "string"
+        },
+        "measurements": {
+            "description": "Datasets containing measurement results",
+            "type": "array",
+            "items": {
+                "anyOf": [
+                    {"oneOf": [
+                        {"$ref": "#/definitions/measurementFastQ"},
+                        {"$ref": "#/definitions/measurementFast5"}
+                    ]},
+                    {"$ref": "#/definitions/measurementLogs"}
+                ]
+            }
+        }
+    }
+}
