@@ -1,4 +1,4 @@
-# metadata-model
+# Metadata schema
 
 QBiC's OpenBIS metadata model schema.
 
