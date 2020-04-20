@@ -1,0 +1,21 @@
+{
+    "$schema": "http://json-schema.org/draft-01/schema#",
+    "$id": "https://raw.githubusercontent.com/qbicsoftware/",
+    "title": "Radiomics metadata sheet",
+    "description": "A Metadata object representation for mapping the radiomics metadata sheet to OpenBIS metadata fields.",
+    "type": "object",
+    "properties": {
+        "Filenames": {
+            "description": "File name / directory name of the tomogram entry.",
+            "type": "string",
+            "OpenBIS_instance": "Q_BMI_IMAGING_DATA",
+            "OpenBIS_property": "Q_FILENAME"
+        },
+        "TomogramName": {
+            "description": "Name of the tomogram or image.",
+            "type": "string",
+            "OpenBIS_instance": "Q_BMI_IMAGING_DATA",
+            "OpenBIS_property": "Q_SAMPLE_NAME"
+        }
+    }
+}
