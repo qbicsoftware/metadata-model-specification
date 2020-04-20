@@ -12,6 +12,9 @@ import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.fetchoptions.SampleTypeFe
 // Experiment type classes
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.experiment.search.ExperimentTypeSearchCriteria
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.experiment.fetchoptions.ExperimentTypeFetchOptions
+// Dataset type classes
+import ch.ethz.sis.openbis.generic.asapi.v3.dto.dataset.search.DataSetTypeSearchCriteria
+import ch.ethz.sis.openbis.generic.asapi.v3.dto.dataset.fetchoptions.DataSetTypeFetchOptions
 // Json imports
 import groovy.json.JsonSlurper
 import groovy.json.JsonOutput
@@ -138,6 +141,41 @@ experimentTypeSearchResult.getObjects().each {
 def experimentFile = new File("schema/experiment_types.json")
 experimentFile.withWriter {
     it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": experimentTypeJsonContent]))
+}
+
+//--------------------------
+// Data set type
+//--------------------------
+
+def datasetTypeSearchCriteria = new DataSetTypeSearchCriteria()
+def datasetTypeFetchOptions = new DataSetTypeFetchOptions()
+datasetTypeFetchOptions.withPropertyAssignments().withPropertyType()
+
+def datasetTypeSearchResult = apiConnection.searchDataSetTypes(token, datasetTypeSearchCriteria, datasetTypeFetchOptions)
+
+def datasetTypeJsonContent = [:]
+
+datasetTypeSearchResult.getObjects().each {
+    System.out.println("Dataset " + it.code + " " + it.getPropertyAssignments())
+    def datasetContent = [:]
+
+    def datasetPropertiesContent = [:]
+    it.getPropertyAssignments().each {
+        System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
+        def propertyContent = [:]
+        propertyContent["type"] = it.getPropertyType().getDataType()
+        propertyContent["label"] = it.getPropertyType().getLabel()
+        propertyContent["description"] = it.getPropertyType().getDescription()
+        datasetPropertiesContent[it.getPropertyType().code] = propertyContent
+    }
+    datasetContent["description"] = it.description
+    datasetContent["properties"] = datasetPropertiesContent
+    datasetTypeJsonContent[it.code] = datasetContent
+}
+
+def datasetFile = new File("schema/dataset_types.json")
+datasetFile.withWriter {
+    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": datasetTypeJsonContent]))
 }
 
 //Finally log out from openBIS
