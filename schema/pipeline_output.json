@@ -1,0 +1,36 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "$id": "https://github.com/qbicsoftware/metadata-model-specification/tree/master/schema/pipeline_output.json",
+    "title": "Pipeline Output Schema",
+    "description": "Schema to describe the output structure of pipelines",
+    "type": "object",
+    "definitions": {
+        "ResultsFolder": {
+            "type": "string",
+            "label": "Pipeline results directory",
+            "properties": {
+                "pipeline_info" : {
+                    "type": "string",
+                    "default": "pipeline_info",
+                    "label": "The pipeline info directory",
+                    "properties": {
+                        "pipeline_report.txt": {
+                            "type": "string"
+                        },
+                        "execution_trace.txt": {
+                            "type": "string"
+                        },
+                        "software_versions.csv": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "qc": {
+                    "type": "string",
+                    "label": "The folder containing the pipeline QC",
+                    "default": "multiqc"
+                }
+            }
+        }
+    }
+}
