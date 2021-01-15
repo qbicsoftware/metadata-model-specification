@@ -9,19 +9,22 @@
             "type": "string",
             "label": "Pipeline results directory",
             "properties": {
-                "pipeline_info" : {
+                "pipeline_info": {
                     "type": "string",
                     "default": "pipeline_info",
                     "label": "The pipeline info directory",
                     "properties": {
-                        "pipeline_report.txt": {
-                            "type": "string"
+                        "pipeline_report": {
+                            "type": "string",
+                            "default": "pipeline_report.txt"
                         },
-                        "execution_trace.txt": {
-                            "type": "string"
+                        "execution_trace": {
+                            "type": "string",
+                            "default": "execution_trace.txt"
                         },
-                        "software_versions.csv": {
-                            "type": "string"
+                        "software_versions": {
+                            "type": "string",
+                            "default": "software_versions.csv"
                         }
                     }
                 },
@@ -29,6 +32,17 @@
                     "type": "string",
                     "label": "The folder containing the pipeline QC",
                     "default": "multiqc"
+                },
+                "results": {
+                    "type": "array",
+                    "label": "List containing the different pipeline output folders.",
+                    "properties": {
+                        "fastqc": {
+                            "type": "string",
+                            "default": "fastqc",
+                            "label": "Directory containing fastqc results"
+                        }
+                    }
                 }
             }
         }
