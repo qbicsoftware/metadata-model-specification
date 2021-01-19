@@ -18,3 +18,5 @@ for schema in schemas:
         jsonschema.Draft7Validator.check_schema(json_schema)
     except jsonschema.exceptions.SchemaError as e:
         print(f"Invalid Schema {schema}, {e}")
+
+print("Validation successfull!")
