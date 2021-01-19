@@ -1,3 +1,6 @@
+// Usage:
+// groovy SchemaToJson.groovy credentials.json
+
 @GrabResolver(name='maven-releases', root='https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases')
 @Grab(group='life.qbic.openbis', module='openbis-api', version='18.06.2', classifier='r1541498074')
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.Sample
