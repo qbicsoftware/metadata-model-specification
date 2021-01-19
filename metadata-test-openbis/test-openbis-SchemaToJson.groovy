@@ -1,8 +1,8 @@
 // Usage:
 // groovy SchemaToJson.groovy credentials.json
 
-@GrabResolver(name='maven-releases', root='https://qbic-repo.am10.uni-tuebingen.de/repository/maven-releases')
-@Grab(group='life.qbic.openbis', module='openbis-api', version='18.06.2', classifier='r1541498074')
+@GrabResolver(name='maven-releases', root='https://qbic-repo.qbic.uni-tuebingen.de/repository/maven-releases')
+@Grab(group='life.qbic', module='openbis-api', version='18.06.2')
 import ch.ethz.sis.openbis.generic.asapi.v3.dto.sample.Sample
 import ch.ethz.sis.openbis.generic.asapi.v3.IApplicationServerApi
 import ch.systemsx.cisd.common.spring.HttpInvokerUtils
@@ -30,13 +30,13 @@ def parseCredentialsFromJsonFile(String path) {
     try {
         def content = new JsonSlurper().parseText(new File(path).text)
     } catch (Exception e) {
-        println "Could not parse credential JSON file, please check file format!"
+        println 'Could not parse credential JSON file, please check file format!'
     }
 }
 
 def loginToOpenBis(String user, String pw) {
     // get a reference to AS API
-    def url = "https://openbis1605test.am10.uni-tuebingen.de/openbis/openbis" + IApplicationServerApi.SERVICE_URL
+    def url = 'https://openbis1605test.am10.uni-tuebingen.de/openbis/openbis' + IApplicationServerApi.SERVICE_URL
     // Increase the server timeout (10000) if you get a server timeout excheption for exhaustive queries
     IApplicationServerApi v3 = HttpInvokerUtils.createServiceStub(IApplicationServerApi.class, url, 10000)
     // login to obtain a session token
@@ -44,10 +44,53 @@ def loginToOpenBis(String user, String pw) {
     return [sessionToken, v3]
 }
 
+def convertSchemaType(String openBISType) {
+    // Convert openBIS data type to correct JSON Schema equivalent
+    String newType = 'string'
+    switch (openBISType) {
+        case 'VARCHAR':
+            newType = 'string'
+            break
+        case 'MULTILINE_VARCHAR':
+            newType = 'string'
+            break
+        case 'XML':
+            newType = 'string'
+            break
+        case 'REAL':
+            newType = 'number'
+            break
+        case 'CONTROLLEDVOCABULARY':
+            newType = 'string'
+            break
+        case 'TIMESTAMP':
+            newType = 'string'
+            break
+        case 'BOOLEAN':
+            newType = 'boolean'
+        case 'INTEGER':
+            newType = 'integer'
+            break
+        default:
+            println("Unknown openBIS type encountered! ${openBISType}")
+    }
+    return newType
+}
+
+def replaceNull(String x) {
+    // Replace null with ""
+    if (x) {
+        return x
+    }
+    else {
+        return ''
+    }
+}
+
 // Parse openBIS credentials from JSON file
 def credentialsJsonPath = args[0]
 def credentials = parseCredentialsFromJsonFile(credentialsJsonPath)
-def sessionToken = ""
+def sessionToken = ''
 
 // Open connection to openBIS server
 (token, apiConnection)  = loginToOpenBis(credentials.user, credentials.pw)
@@ -66,16 +109,16 @@ def vocabularyJsonContent = [:]
 vocabularySearchResult.getObjects().each {
     //System.out.println("Vocabulary " + it.code + it.description + it.terms.collect{ it.code } )
     def propertyContent = [:]
-    propertyContent["type"] = "string"
-    propertyContent["description"] = it.description
+    propertyContent['type'] = 'string'
+    propertyContent['description'] = replaceNull( it.description )
     //propertyContent["id"] = it.code.toLowerCase()
-    propertyContent["enum"] = it.terms.collect { it.code }
+    propertyContent['enum'] = it.terms.collect { it.code }
     vocabularyJsonContent[it.code] = propertyContent
 }
 
-def vocabularyFile = new File("schema-test/vocabularies.json")
+def vocabularyFile = new File('schema-test/vocabularies.json')
 vocabularyFile.withWriter {
-    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": vocabularyJsonContent]))
+    it.write JsonOutput.prettyPrint(JsonOutput.toJson(['definitions': vocabularyJsonContent]))
 }
 
 //---------------------------
@@ -97,19 +140,20 @@ sampleTypeSearchResult.getObjects().each {
     it.getPropertyAssignments().each {
         //System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
         def propertyContent = [:]
-        propertyContent["type"] = it.getPropertyType().getDataType()
-        propertyContent["label"] = it.getPropertyType().getLabel()
-        propertyContent["description"] = it.getPropertyType().getDescription()
+        propertyContent['type'] = convertSchemaType( it.getPropertyType().getDataType().toString() )
+        propertyContent['@comment'] = it.getPropertyType().getDataType()
+        propertyContent['label'] = it.getPropertyType().getLabel()
+        propertyContent['description'] = it.getPropertyType().getDescription()
         samplePropertiesContent[it.getPropertyType().code] = propertyContent
     }
-    sampleContent["description"] = it.description
-    sampleContent["properties"] = samplePropertiesContent
+    sampleContent['description'] = replaceNull( it.description )
+    sampleContent['properties'] = samplePropertiesContent
     sampleTypeJsonContent[it.code] = sampleContent
 }
 
-def sampleFile = new File("schema-test/sample_types.json")
+def sampleFile = new File('schema-test/sample_types.json')
 sampleFile.withWriter {
-    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": sampleTypeJsonContent]))
+    it.write JsonOutput.prettyPrint(JsonOutput.toJson(['definitions': sampleTypeJsonContent]))
 }
 
 //------------------------
@@ -124,26 +168,27 @@ def experimentTypeSearchResult = apiConnection.searchExperimentTypes(token, expe
 def experimentTypeJsonContent = [:]
 
 experimentTypeSearchResult.getObjects().each {
-    System.out.println("Experiment " + it.code + " " + it.getPropertyAssignments())
+    System.out.println('Experiment ' + it.code + ' ' + it.getPropertyAssignments())
     def experimentContent = [:]
 
     def experimentPropertiesContent = [:]
     it.getPropertyAssignments().each {
-        System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
+        System.out.println('Assignment ' + it.getPropertyType().code + ' ' + it.getPropertyType().getDescription() )
         def propertyContent = [:]
-        propertyContent["type"] = it.getPropertyType().getDataType()
-        propertyContent["label"] = it.getPropertyType().getLabel()
-        propertyContent["description"] = it.getPropertyType().getDescription()
+        propertyContent['type'] = convertSchemaType( it.getPropertyType().getDataType().toString() )
+        propertyContent['@comment'] = it.getPropertyType().getDataType()
+        propertyContent['label'] = it.getPropertyType().getLabel()
+        propertyContent['description'] = it.getPropertyType().getDescription()
         experimentPropertiesContent[it.getPropertyType().code] = propertyContent
     }
-    experimentContent["description"] = it.description
-    experimentContent["properties"] = experimentPropertiesContent
+    experimentContent['description'] = replaceNull( it.description )
+    experimentContent['properties'] = experimentPropertiesContent
     experimentTypeJsonContent[it.code] = experimentContent
 }
 
-def experimentFile = new File("schema-test/experiment_types.json")
+def experimentFile = new File('schema-test/experiment_types.json')
 experimentFile.withWriter {
-    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": experimentTypeJsonContent]))
+    it.write JsonOutput.prettyPrint(JsonOutput.toJson(['definitions': experimentTypeJsonContent]))
 }
 
 //--------------------------
@@ -159,29 +204,28 @@ def datasetTypeSearchResult = apiConnection.searchDataSetTypes(token, datasetTyp
 def datasetTypeJsonContent = [:]
 
 datasetTypeSearchResult.getObjects().each {
-    System.out.println("Dataset " + it.code + " " + it.getPropertyAssignments())
+    System.out.println('Dataset ' + it.code + ' ' + it.getPropertyAssignments())
     def datasetContent = [:]
 
     def datasetPropertiesContent = [:]
     it.getPropertyAssignments().each {
-        System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
+        System.out.println('Assignment ' + it.getPropertyType().code + ' ' + it.getPropertyType().getDescription() )
         def propertyContent = [:]
-        propertyContent["type"] = it.getPropertyType().getDataType()
-        propertyContent["label"] = it.getPropertyType().getLabel()
-        propertyContent["description"] = it.getPropertyType().getDescription()
+        propertyContent['type'] = convertSchemaType( it.getPropertyType().getDataType().toString() )
+        propertyContent['@comment'] = it.getPropertyType().getDataType()
+        propertyContent['label'] = it.getPropertyType().getLabel()
+        propertyContent['description'] = it.getPropertyType().getDescription()
         datasetPropertiesContent[it.getPropertyType().code] = propertyContent
     }
-    datasetContent["description"] = it.description
-    datasetContent["properties"] = datasetPropertiesContent
+    datasetContent['description'] = replaceNull( it.description )
+    datasetContent['properties'] = datasetPropertiesContent
     datasetTypeJsonContent[it.code] = datasetContent
 }
 
-def datasetFile = new File("schema-test/dataset_types.json")
+def datasetFile = new File('schema-test/dataset_types.json')
 datasetFile.withWriter {
-    it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": datasetTypeJsonContent]))
+    it.write JsonOutput.prettyPrint(JsonOutput.toJson(['definitions': datasetTypeJsonContent]))
 }
 
 //Finally log out from openBIS
 apiConnection.logout(token)
-
-
