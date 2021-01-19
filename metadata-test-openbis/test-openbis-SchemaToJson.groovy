@@ -36,7 +36,7 @@ def parseCredentialsFromJsonFile(String path) {
 
 def loginToOpenBis(String user, String pw) {
     // get a reference to AS API
-    def url = "https://qbis.qbic.uni-tuebingen.de/openbis/openbis" + IApplicationServerApi.SERVICE_URL
+    def url = "https://openbis1605test.am10.uni-tuebingen.de/openbis/openbis" + IApplicationServerApi.SERVICE_URL
     // Increase the server timeout (10000) if you get a server timeout excheption for exhaustive queries
     IApplicationServerApi v3 = HttpInvokerUtils.createServiceStub(IApplicationServerApi.class, url, 10000)
     // login to obtain a session token
@@ -73,7 +73,7 @@ vocabularySearchResult.getObjects().each {
     vocabularyJsonContent[it.code] = propertyContent
 }
 
-def vocabularyFile = new File("schema/vocabularies.json")
+def vocabularyFile = new File("schema-test/vocabularies.json")
 vocabularyFile.withWriter {
     it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": vocabularyJsonContent]))
 }
@@ -107,7 +107,7 @@ sampleTypeSearchResult.getObjects().each {
     sampleTypeJsonContent[it.code] = sampleContent
 }
 
-def sampleFile = new File("schema/sample_types.json")
+def sampleFile = new File("schema-test/sample_types.json")
 sampleFile.withWriter {
     it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": sampleTypeJsonContent]))
 }
@@ -141,7 +141,7 @@ experimentTypeSearchResult.getObjects().each {
     experimentTypeJsonContent[it.code] = experimentContent
 }
 
-def experimentFile = new File("schema/experiment_types.json")
+def experimentFile = new File("schema-test/experiment_types.json")
 experimentFile.withWriter {
     it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": experimentTypeJsonContent]))
 }
@@ -176,7 +176,7 @@ datasetTypeSearchResult.getObjects().each {
     datasetTypeJsonContent[it.code] = datasetContent
 }
 
-def datasetFile = new File("schema/dataset_types.json")
+def datasetFile = new File("schema-test/dataset_types.json")
 datasetFile.withWriter {
     it.write JsonOutput.prettyPrint(JsonOutput.toJson(["definitions": datasetTypeJsonContent]))
 }
