@@ -237,6 +237,16 @@
                     "type": "VARCHAR",
                     "label": "Detailed Fractionation Method",
                     "description": "Detailed Fractionation Method not found in the other vocabulary"
+                },
+                "Q_PRE_TREATMENT": {
+                    "type": "VARCHAR",
+                    "label": "Pretreatment",
+                    "description": "Pretreatment performed on samples"
+                },
+                "Q_SAMPLE_PREPARATION_METHOD": {
+                    "type": "CONTROLLEDVOCABULARY",
+                    "label": "Sample Preparation Method",
+                    "description": "Method used to prepare analyte samples"
                 }
             }
         },
@@ -2217,6 +2227,81 @@
                     "type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
+                }
+            }
+        },
+        "Q_NGS_NANOPORE_RUN": {
+            "description": "Nanopore sequencing experiment on one or more samples. A nanopore run denotes a single instance of the sequencer run. Multiple runs can be generated after the sequencing device is primed, denoted by different time stamps and different subfolders containing data and logs.",
+            "properties": {
+                "Q_MEASUREMENT_START_DATE": {
+                    "type": "TIMESTAMP",
+                    "label": "Measurement's starting date",
+                    "description": "Specifies the date/time when a measurement is started."
+                },
+                "Q_EXTERNALDB_ID": {
+                    "type": "VARCHAR",
+                    "label": "External DB identifier",
+                    "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
+                },
+                "Q_ADDITIONAL_INFO": {
+                    "type": "MULTILINE_VARCHAR",
+                    "label": "Additional information",
+                    "description": "Additional notes about the experiment"
+                },
+                "Q_FLOWCELL_BARCODE": {
+                    "type": "VARCHAR",
+                    "label": "Flowcell barcode",
+                    "description": "Specifies the flowcell used for the sequencing run."
+                },
+                "Q_FLOWCELL_TYPE": {
+                    "type": "CONTROLLEDVOCABULARY",
+                    "label": "Flow cell product code",
+                    "description": "Type, denoted by product code, of a flow cell"
+                },
+                "Q_FLOWCELL_POSITION": {
+                    "type": "VARCHAR",
+                    "label": "Flowcell position",
+                    "description": "Specifies the position on the sequencer (e.g. PromethION) where the flow cell was placed."
+                },
+                "Q_SEQUENCER_DEVICE": {
+                    "type": "CONTROLLEDVOCABULARY",
+                    "label": "Sequencer device",
+                    "description": "This field's code specifies the actual sequencer device together with its location."
+                },
+                "Q_SEQUENCING_ADAPTER": {
+                    "type": "VARCHAR",
+                    "label": "Sequencing device adapter",
+                    "description": "Describes adapters and their version, like the \"Flongle\" for Nanopore sequencing"
+                },
+                "Q_NANOPORE_HOSTNAME": {
+                    "type": "VARCHAR",
+                    "label": "Nanopore sequencer hostname",
+                    "description": "Hostname of the Nanopore sequencing device as it is found in the log files of a run"
+                },
+                "Q_LIBRARY_PREPKIT": {
+                    "type": "CONTROLLEDVOCABULARY",
+                    "label": "Library prep kit",
+                    "description": "Specifies the preparation kit that was used to build the DNA/RNA library."
+                },
+                "Q_ASIC_TEMPERATURE": {
+                    "type": "REAL",
+                    "label": "ASIC Temperature",
+                    "description": "Temperatur of an application-specific integrated circuit, as it is used in some NGS or other data acquisition devices."
+                },
+                "Q_DATA_GENERATION_FACILITY": {
+                    "type": "VARCHAR",
+                    "label": "Data generation facility",
+                    "description": "Facility where attached data was generated"
+                },
+                "Q_NGS_BASE_CALLER": {
+                    "type": "VARCHAR",
+                    "label": "Base caller",
+                    "description": "Software or hardware/software component used to identify/assign a nucleobase to raw NGS read data"
+                },
+                "Q_NGS_BASE_CALLER_VERSION": {
+                    "type": "VARCHAR",
+                    "label": "Base caller version",
+                    "description": "Version of the base caller"
                 }
             }
         },

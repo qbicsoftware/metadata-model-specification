@@ -222,6 +222,11 @@
                     "type": "VARCHAR",
                     "label": "Additional Data Info",
                     "description": "Information about additional data or metadata that might be available for a patient or sample but not saved in openBIS."
+                },
+                "Q_EXPRESSION_SYSTEM": {
+                    "type": "CONTROLLEDVOCABULARY",
+                    "label": "Expression System",
+                    "description": "Expression systems are genetic constructs (a gene encoded by DNA) that are designed to produce a protein, or an RNA (ribonucleic acid), either inside or outside a cell. Here, the term relates to genetically engineered or infected organisms."
                 }
             }
         },
@@ -332,6 +337,51 @@
                     "type": "VARCHAR",
                     "label": "Pretreatment",
                     "description": "Pretreatment performed on samples"
+                }
+            }
+        },
+        "Q_NGS_NANOPORE_SINGLE_SAMPLE_RUN": {
+            "description": "Specifies one sample run in a single sequencing run on a Nanopore sequencer.",
+            "properties": {
+                "Q_SECONDARY_NAME": {
+                    "type": "VARCHAR",
+                    "label": "Secondary name",
+                    "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
+                },
+                "Q_EXTERNALDB_ID": {
+                    "type": "VARCHAR",
+                    "label": "External DB identifier",
+                    "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
+                }
+            }
+        },
+        "Q_MS_RUN": {
+            "description": "Specifies an individual MS measurement.",
+            "properties": {
+                "Q_SECONDARY_NAME": {
+                    "type": "VARCHAR",
+                    "label": "Secondary name",
+                    "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
+                },
+                "Q_PROPERTIES": {
+                    "type": "XML",
+                    "label": "Properties",
+                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
+                },
+                "Q_ADDITIONAL_INFO": {
+                    "type": "MULTILINE_VARCHAR",
+                    "label": "Additional information",
+                    "description": "Additional notes about the experiment"
+                },
+                "Q_EXTERNALDB_ID": {
+                    "type": "VARCHAR",
+                    "label": "External DB identifier",
+                    "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
+                },
+                "Q_INJECTION_VOLUME": {
+                    "type": "VARCHAR",
+                    "label": "Injection Volume",
+                    "description": "Volume injected in an LC run"
                 }
             }
         },
@@ -832,31 +882,6 @@
                     "type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
-                }
-            }
-        },
-        "Q_MS_RUN": {
-            "description": "Specifies an individual MS measurement.",
-            "properties": {
-                "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
-                    "label": "Secondary name",
-                    "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
-                },
-                "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
-                    "label": "Additional information",
-                    "description": "Additional notes about the experiment"
-                },
-                "Q_EXTERNALDB_ID": {
-                    "type": "VARCHAR",
-                    "label": "External DB identifier",
-                    "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
                 }
             }
         },
