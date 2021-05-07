@@ -705,6 +705,12 @@
                 
             }
         },
+        "Q_NGS_NANOPORE_RUN_LOGS": {
+            "description": "Collected log files from a Nanopore Sequencing run",
+            "properties": {
+                
+            }
+        },
         "EXPRESSION_MATRIX": {
             "description": "Contains a CSV file measuring expression of some kind (genes, proteins). It should contain references to IDs used in openbis or the experimental design.",
             "properties": {
@@ -737,6 +743,12 @@
         },
         "IDXML": {
             "description": "IdXML file",
+            "properties": {
+                
+            }
+        },
+        "Q_NGS_NANOPORE_RUN_FAST5": {
+            "description": "Sequenced reads in the fast5 format, sorted by passing vs. failing the quality criteria.",
             "properties": {
                 
             }
@@ -779,6 +791,12 @@
         },
         "SHA256SUM": {
             "description": "Checksum for registered data files",
+            "properties": {
+                
+            }
+        },
+        "Q_NGS_NANOPORE_RUN_FASTQ": {
+            "description": "Reads from one FASTQ run, sorted by passing vs. failing the quality criteria",
             "properties": {
                 
             }
