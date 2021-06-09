@@ -58,7 +58,7 @@
         },
         "Q_BMI_MODALITIES": {
             "type": "string",
-            "description": null,
+            "description": "",
             "enum": [
                 "CT-BIOPSY",
                 "CT-PERFUSION",
@@ -871,7 +871,7 @@
         },
         "Q_DIGESTION_METHODS": {
             "type": "string",
-            "description": null,
+            "description": "",
             "enum": [
                 "IN_GEL",
                 "IN_SOLUTION",
@@ -974,7 +974,7 @@
         },
         "Q_LABELING_TYPES": {
             "type": "string",
-            "description": null,
+            "description": "",
             "enum": [
                 "2-AB",
                 "18-O",
@@ -1325,6 +1325,16 @@
                 "QUANT-UR"
             ]
         },
+        "Q_PIPELINES": {
+            "type": "string",
+            "description": "Vocabulary of pipelines used at QBiC",
+            "enum": [
+                "NF-CORE_BACASS",
+                "NF-CORE_CHIPSEQ",
+                "NF-CORE_RNASEQ",
+                "NF-CORE_SAREK"
+            ]
+        },
         "Q_PRIMARY_TISSUES": {
             "type": "string",
             "description": "A list of tissues and body fluids a taken can be taken from.",
@@ -1466,11 +1476,20 @@
         },
         "Q_PROTEIN_PURIFICATION_METHODS": {
             "type": "string",
-            "description": null,
+            "description": "",
             "enum": [
                 "PRECIPITATION",
                 "SDS_PAGE",
                 "SOLID_PHASE_EXTRACTION"
+            ]
+        },
+        "Q_RUN_INFRASTRUCTURE": {
+            "type": "string",
+            "description": "Computational infrastructure used by QBiC",
+            "enum": [
+                "AWS-BATCH",
+                "CFC-CLUSTER",
+                "DENBI-CLOUD"
             ]
         },
         "Q_SAMPLE_PREPARATION": {
@@ -1568,7 +1587,7 @@
         },
         "Q_TUMOR_TYPE": {
             "type": "string",
-            "description": null,
+            "description": "",
             "enum": [
                 "ACUTE_LYMPHOCYTIC_LEUKEMIA",
                 "ACUTE_MYELOID_LEUKEMIA",
@@ -1614,7 +1633,7 @@
         },
         "RMA_FORMAT": {
             "type": "string",
-            "description": null,
+            "description": "",
             "enum": [
                 "RMA2",
                 "RMA3",
@@ -1640,7 +1659,7 @@
         },
         "STATUS": {
             "type": "string",
-            "description": null,
+            "description": "",
             "enum": [
                 "FAILED",
                 "FINISHED",
