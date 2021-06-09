@@ -141,7 +141,7 @@ sampleTypeSearchResult.getObjects().each {
         //System.out.println("Assignment " + it.getPropertyType().code + " " + it.getPropertyType().getDescription() )
         def propertyContent = [:]
         propertyContent['type'] = convertSchemaType( it.getPropertyType().getDataType().toString() )
-        propertyContent['@comment'] = it.getPropertyType().getDataType()
+        propertyContent['openbis_type'] = it.getPropertyType().getDataType()
         propertyContent['label'] = it.getPropertyType().getLabel()
         propertyContent['description'] = it.getPropertyType().getDescription()
         samplePropertiesContent[it.getPropertyType().code] = propertyContent
@@ -176,7 +176,7 @@ experimentTypeSearchResult.getObjects().each {
         System.out.println('Assignment ' + it.getPropertyType().code + ' ' + it.getPropertyType().getDescription() )
         def propertyContent = [:]
         propertyContent['type'] = convertSchemaType( it.getPropertyType().getDataType().toString() )
-        propertyContent['@comment'] = it.getPropertyType().getDataType()
+        propertyContent['openbis_type'] = it.getPropertyType().getDataType()
         propertyContent['label'] = it.getPropertyType().getLabel()
         propertyContent['description'] = it.getPropertyType().getDescription()
         experimentPropertiesContent[it.getPropertyType().code] = propertyContent
@@ -212,7 +212,7 @@ datasetTypeSearchResult.getObjects().each {
         System.out.println('Assignment ' + it.getPropertyType().code + ' ' + it.getPropertyType().getDescription() )
         def propertyContent = [:]
         propertyContent['type'] = convertSchemaType( it.getPropertyType().getDataType().toString() )
-        propertyContent['@comment'] = it.getPropertyType().getDataType()
+        propertyContent['openbis_type'] = it.getPropertyType().getDataType()
         propertyContent['label'] = it.getPropertyType().getLabel()
         propertyContent['description'] = it.getPropertyType().getDescription()
         datasetPropertiesContent[it.getPropertyType().code] = propertyContent
