@@ -14,7 +14,7 @@ parser.add_argument("--tabletype", metavar="<TAB>", dest="tab", help="enter the 
                     type=str, default="xls")
 parser.add_argument("--type", metavar="<TYPE>", dest="type", help="enter the column index name storing json varialbe type.",
                     type=str, default= "json type")
-parser.add_argument("--comment", metavar="<COMM>", dest="comm", help="enter the column index name storing the OpenBIS variable type.",
+parser.add_argument("--openbis", metavar="<obis>", dest="obis", help="enter the column index name storing the OpenBIS variable type.",
                     type=str, default= "OpenBIS type")
 parser.add_argument("--label", metavar="<LABEL>", dest="label", help="enter the column index name storing the item name",
                     type=str, default="Item")
@@ -51,7 +51,7 @@ sname = args.sname
 tab = args.tab
 property = args.prop
 type = args.type
-comment = args.comm
+openbis = args.obis
 label = args.label
 descr = args.descr
 enum = args.enum
@@ -76,8 +76,8 @@ cols = [key for key in sheetDict]
 
 #get items (type, @comment, label, description) for each property entry
 def getItems(df, r):
-    items= ('type', '@comment', 'label', 'description', 'enum')
-    ref=(type, comment, label, descr, enum)
+    items= ('type', 'openbis_type', 'label', 'description', 'enum')
+    ref=(type, openbis, label, descr, enum)
     #pair items with table entries
     #for i in range(0, len(items)-1):
     #    print('\t'+'\t'+'\t'+'\t'+'\t'+'"'+items[i]+'":"'+df.iloc[r].loc[ref[i]]+'",')
