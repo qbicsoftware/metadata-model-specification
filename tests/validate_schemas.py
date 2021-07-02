@@ -6,7 +6,7 @@ import os
 import json
 
 # Find the schemas
-schema_path = "metadata-test-openbis/schema-test/"
+schema_path = "ega-schema/"
 schemas = os.listdir(schema_path)
 
 # Perform validation
