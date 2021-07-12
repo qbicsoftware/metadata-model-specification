@@ -1,10 +1,10 @@
-# Metadata schema
+# Metadata schemas
 
-QBiC's OpenBIS metadata model schema.
+QBiC's metadata model schemas.
 
-## General overview
+## Metadata extract openBIS
 
-The metadata entitites in OpenBIS are classified between Samples, Experiments and Data sets. Here is a general overview of the relationship between them. Samples are Highlighted in color, experiments are highlighted in red, and data sets are marked with discontinuous lines. These relationships are modular, and can vary from project to project.
+The metadata entities in OpenBIS are classified between Samples, Experiments and Data sets. Here is a general overview of the relationship between them. Samples are Highlighted in color, experiments are highlighted in red, and data sets are marked with discontinuous lines. These relationships are modular, and can vary from project to project.
 
 <p align="center">
     <a href="./docs/images/general_scheme.png"><img title="metadata diagram" src="./docs/images/general_scheme.png" width=90%></a>
@@ -14,22 +14,20 @@ For each sample, experiment, or dataset type, there is a set of metadata propert
 The set of sample, experiment, and dataset types with their attached properties defines the metadata schema.
 The properties can consist of controlled vocabularies, which are also defined as part of the schema.
 
-## Schema
-
-Contains json schema extracted from OpenBIS for:
-
-- [sample types](schema/sample_types.json)
-- [experiment types](schema/experiment_types.json)
-- [dataset types](schema/dataset_types.json)
-- [vocabularies](schema/vocabularies.json)
-
 ### Schema - extracting script
 
-[This](SchemaToJson.groovy) script extracts the current metadata model as stored in OpenBIS. Usage:
+[This groovy](metadata-extract-openbis/openbis-SchemaToJson.groovy) script extracts the current metadata model as stored in OpenBIS. Usage:
 
 ```bash
 groovy SchemaToJson.groovy credentials.json
 ```
+
+### Contains latest extracted json schema from OpenBIS
+
+- [sample types](metadata-extract-openbis/openbis-schema/sample_types.json)
+- [experiment types](metadata-extract-openbis/openbis-schema/experiment_types.json)
+- [dataset types](metadata-extract-openbis/openbis-schema/dataset_types.json)
+- [vocabularies](metadata-extract-openbis/openbis-schema/vocabularies.json)
 
 ## metadata-sheets-schema
 

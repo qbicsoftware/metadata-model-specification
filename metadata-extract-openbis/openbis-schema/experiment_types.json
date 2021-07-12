@@ -117,6 +117,18 @@
                     "openbis_type": "BOOLEAN",
                     "label": "Pilot Project",
                     "description": "is this a pilot project?"
+                },
+                "Q_CULTURE_MEDIUM": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Culture medium",
+                    "description": "Culture medium for cell cultures"
+                },
+                "Q_NOTES": {
+                    "type": "string",
+                    "openbis_type": "XML",
+                    "label": "Notes",
+                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
                 }
             }
         },
@@ -164,6 +176,36 @@
                     "openbis_type": "BOOLEAN",
                     "label": "Pilot Project",
                     "description": "is this a pilot project?"
+                },
+                "Q_CELL_HARVESTING_METHOD": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Cell harvesting method",
+                    "description": "Method used to harvest cells from growth medium or under other circumstances"
+                },
+                "Q_CELL_LYSIS_PARAMETERS": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Cell lysis parameters",
+                    "description": "Additional information used to specify temperature, pressure, enzymes etc. used for cell lysis"
+                },
+                "Q_CELL_LYSIS_METHOD": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Cell lysis method",
+                    "description": "One or more methods used to lyse cells"
+                },
+                "Q_CELL_HARVESTING_VOLUME": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Cell harvesting volume",
+                    "description": "Volume harvested from a cell culture"
+                },
+                "Q_NOTES": {
+                    "type": "string",
+                    "openbis_type": "XML",
+                    "label": "Notes",
+                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
                 }
             }
         },
@@ -679,6 +721,42 @@
                     "openbis_type": "XML",
                     "label": "Notes",
                     "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
+                },
+                "Q_WASHING_SOLVENT": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Washing solvent",
+                    "description": "Solvent used to wash HPLC columns and similar"
+                },
+                "Q_LC_DEVICE": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Liquid Chromatography Device",
+                    "description": "Device used to perform Liquid Chromatography"
+                },
+                "Q_LC_DETECTION_METHOD": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "LC detection method",
+                    "description": "Method used to detect components in HPLC"
+                },
+                "Q_MS_DISSOCIATION_ENERGY": {
+                    "type": "number",
+                    "openbis_type": "REAL",
+                    "label": "Dissociation energy",
+                    "description": "Energy for an ion experiencing collision with a stationary gas particle resulting in dissociation of the ion. [ PSI:MS ]"
+                },
+                "Q_MS_DISSOCIATION_METHOD": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Dissociation method",
+                    "description": "Fragmentation method used for dissociation or fragmentation."
+                },
+                "Q_MS_RESOLVING_POWER": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Mass resolving power",
+                    "description": "Mass Resolving Power is defined as m/dm\nWhere m designates the mass and dm the peak width necessary for separation at mass m. A specific m/z value and also the method like 10% valley or 50% valley or full width at half maximum (FWHM) must be given. Resolving power is usually a large number (up to 2,000,000 for FT-MS) and is used as \u201cperformance\u201d parameter."
                 }
             }
         },
@@ -2014,6 +2092,42 @@
                     "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Imaging Modality",
                     "description": "Distinguishes the type of imaging by its modality (CT guided biopsy, dynamic CT, MR, PET, MR-PET)."
+                },
+                "Q_NOTES": {
+                    "type": "string",
+                    "openbis_type": "XML",
+                    "label": "Notes",
+                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
+                },
+                "Q_EXTERNALDB_ID": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "External DB identifier",
+                    "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
+                },
+                "Q_SECONDARY_NAME": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Secondary name",
+                    "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
+                },
+                "Q_INSTRUMENT_USER": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Instrument User",
+                    "description": "User responsible for data generation using an instrument."
+                },
+                "Q_MEASUREMENT_FINISH_DATE": {
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
+                    "label": "Measurement's finish date",
+                    "description": "Specifies the date/time when a measurement is finished."
+                },
+                "Q_ADDITIONAL_INFO": {
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
+                    "label": "Additional information",
+                    "description": "Additional notes about the experiment"
                 }
             }
         },
@@ -2054,27 +2168,39 @@
         },
         "RNA_MICROARRAY": {
             "description": "A microarray experiment to measure RNA abundance",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "Q_NGS_READ_MATCH_ALIGNMENT": {
             "description": "Denotes the use of MALT (MEGAN alignment tool) to create RMA (read-match archive) files that are attached to the corresponding RUN samples.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "INFO_EXPERIMENT": {
             "description": "Experiment instance to attach information samples that have datasets",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "CLINICAL_SAMPLE": {
             "description": "The clinical sample of a patient.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "METABOLOMICS": {
             "description": "A Metabolomics (MTX) Experiment",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "UNKNOWN": {
             "description": "Unknown",
-            "properties": {}
+            "properties": {
+                
+            }
         }
     }
 }

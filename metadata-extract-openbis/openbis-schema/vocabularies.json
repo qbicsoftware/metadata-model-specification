@@ -65,8 +65,28 @@
                 "MR",
                 "MR-ELASTOGRAPHY",
                 "MR-PET",
+                "NCIT_C16809",
+                "NCIT_C17369",
+                "NCIT_C17753",
+                "NCIT_C17995",
+                "NCIT_C18113",
+                "NCIT_C18216",
+                "NCIT_C19338",
+                "NCIT_C103514",
+                "NCIT_C116442",
+                "NCIT_C137909",
                 "PET",
                 "US-ELASTOGRAPHY"
+            ]
+        },
+        "Q_CELL_HARVESTING_METHODS": {
+            "type": "string",
+            "description": "",
+            "enum": [
+                "CENTRIFUGATION",
+                "DEPTH_FILTRATION",
+                "FILTRATION",
+                "MICROFILTRATION"
             ]
         },
         "Q_CELL_LINES": {
@@ -838,6 +858,22 @@
                 "YT"
             ]
         },
+        "Q_CELL_LYSIS_TYPES": {
+            "type": "string",
+            "description": "methods used for cells lysis",
+            "enum": [
+                "BOILING",
+                "CHEMICALLY",
+                "ENZYMATIC_DIGESTION",
+                "FREEZE_AND_THAW",
+                "FREEZING",
+                "FRENCH_PRESS",
+                "GLASS_BEADS",
+                "OTHER",
+                "PRESSURE_CELL",
+                "SONIFICATION"
+            ]
+        },
         "Q_CHROMATOGRAPHY_TYPES": {
             "type": "string",
             "description": "A list of chromatography-based separation techniques.",
@@ -860,6 +896,19 @@
                 "SDC",
                 "UPAC_RP_C18",
                 "WCX"
+            ]
+        },
+        "Q_CULTURE_MEDIA": {
+            "type": "string",
+            "description": "Different Media for cell cultures etc.",
+            "enum": [
+                "LB_AGAR",
+                "LB_LIQUID",
+                "M9_AGAR",
+                "M9_LIQUID",
+                "MH_AGAR",
+                "MH_LIQUID",
+                "TSA"
             ]
         },
         "Q_DEMUX_SOFTWARES": {
@@ -990,6 +1039,25 @@
                 "V-TAG"
             ]
         },
+        "Q_LC_DETECTION_METHODS": {
+            "type": "string",
+            "description": "",
+            "enum": [
+                "DAD",
+                "ELSD",
+                "FLD",
+                "UV"
+            ]
+        },
+        "Q_LC_DEVICES": {
+            "type": "string",
+            "description": "",
+            "enum": [
+                "ACQUITY_UPLC",
+                "DIONEX_ULTIMATE_3000",
+                "HITACHI_CHROMASTER_5610"
+            ]
+        },
         "Q_LIBRARY_PREPKITS": {
             "type": "string",
             "description": "A list of library preparation kits for sequencing.",
@@ -1042,24 +1110,41 @@
             "enum": [
                 "AB_SCIEX_6500",
                 "BRUKER_AMAZON_SPEED_ETD",
+                "BRUKER_ESI-TOF_II",
                 "BRUKER_MAXIS_PLUS",
                 "BRUKER_ULTRAFLEX_II",
                 "ELK_THERMO_ORBITRAP_LUMOS",
                 "ELK_THERMO_ORBITRAP_XL",
+                "ELK_THERMO_Q_EXACTIVE_HF",
                 "MPC_ABSCIEX_6500",
                 "MPC_THERMO_ORBITRAP_VELOS",
                 "MPC_THERMO_ORBITRAP_XL",
                 "MPC_THERMO_QEXACTIVE_PLUS",
                 "PCT_THERMO_ORBITRAP_ELITE",
+                "PCT_THERMO_ORBITRAP_EXPLORIS_480",
                 "PCT_THERMO_ORBITRAP_XL",
+                "PCT_THERMO_QEX",
                 "PCT_THERMO_QEXACTIVE_HF",
                 "PCT_THERMO_QEXACTIVE_HF-X",
+                "PCT_THERMO_QEXACTIVE_HFX",
                 "THERMO_LTQ_XL",
                 "THERMO_ORBITRAP_FUSION_TRIBRID",
+                "THERMO_ORBITRAP_LTQ_VELOS",
                 "THERMO_QEXACTIVE",
                 "THERMO_QEXACTIVE_PLUS",
                 "WATERS_Q-TOF_PREMIER",
                 "ZMBP_WATERS_SYNAPT_G2"
+            ]
+        },
+        "Q_MS_DISSOCIATION_METHODS": {
+            "type": "string",
+            "description": "",
+            "enum": [
+                "CID",
+                "ECD",
+                "ETD",
+                "HCD",
+                "UVPD"
             ]
         },
         "Q_MS_ENRICHMENT_PROTOCOLS": {
@@ -1089,7 +1174,12 @@
             "type": "string",
             "description": "Labratory specific methods for LCMS measurements",
             "enum": [
+                "1_D_M_C18GEMINI_NEG_85-900",
+                "2_H_C18GEMINI",
+                "3_D_M_C18GEMINI_NEG_200-1500",
+                "9_A_O_ZIC-PHILIC_POS_80-300",
                 "30MIN",
+                "45_O_NEG_1000-2000",
                 "60MIN",
                 "90MIN",
                 "120MIN",
@@ -1102,6 +1192,21 @@
                 "450-950MZ_WISIMDUODIA_25_36MZDIA_HCDQISOT30",
                 "DDA_400-650MZ_QIS_CIDOT",
                 "DDA_400-1000MZ_QIS_HCDOT",
+                "EXPLORIS_30MIN_WASH",
+                "EXPLORIS_60MIN_WASH",
+                "EXPLORIS_90MIN_WASH",
+                "EXPLORIS_TOP20_FAST_36MIN",
+                "EXPLORIS_TOP20_FAST_60MIN",
+                "EXPLORIS_TOP20_FAST_90MIN",
+                "EXPLORIS_TOP20_FAST_130MIN",
+                "EXPLORIS_TOP20_FAST_230MIN",
+                "EXPLORIS_TOP20_FAST_240MIN_NONLINEAR",
+                "EXPLORIS_TOP20_SENSIT_36MIN",
+                "EXPLORIS_TOP20_SENSIT_60MIN",
+                "EXPLORIS_TOP20_SENSIT_90MIN",
+                "EXPLORIS_TOP20_SENSIT_130MIN",
+                "EXPLORIS_TOP20_SENSIT_230MIN",
+                "EXPLORIS_TOP20_SENSIT_240MIN_NONLINEAR",
                 "HCD_TOP07_MAX280BAR_SENSITIVE_60MIN",
                 "HCD_TOP07_MAX280BAR_SENSITIVE_90MIN",
                 "HCD_TOP07_MAX280BAR_SENSITIVE_130MIN",
@@ -1236,6 +1341,7 @@
                 "287",
                 "562",
                 "623",
+                "1280",
                 "1916",
                 "3569",
                 "3573",
@@ -1360,6 +1466,7 @@
                 "BRONCHI",
                 "CARPEL",
                 "CELL_LINE",
+                "CELL_WALL",
                 "CENTRAL_NERVOUS_SYSTEM",
                 "CEREBELLUM",
                 "CEREBROSPINAL_FLUID",
@@ -1377,7 +1484,6 @@
                 "EXUDATES",
                 "EYE",
                 "FECES",
-                "FEMALE_EJACULATE",
                 "FEMALE_GENITALIA",
                 "FEMALE_URETHRA",
                 "FLOWER",
@@ -1463,6 +1569,7 @@
                 "TRACHEA",
                 "TUMOR_LYSATE",
                 "TUMOR_TISSUE_UNSPECIFIED",
+                "UNKNOWN",
                 "URETERS",
                 "URINARY_BLADDER",
                 "URINE",

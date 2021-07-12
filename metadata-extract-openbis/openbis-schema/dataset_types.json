@@ -609,115 +609,171 @@
         },
         "Q_NGS_NANOPORE_RUN_FAST5": {
             "description": "Sequenced reads in the fast5 format, sorted by passing vs. failing the quality criteria.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "JPG": {
             "description": "",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "CSV": {
             "description": "A Comma-Separated Values file.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "RAW": {
             "description": "Raw data file",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "VCF": {
             "description": "A Variant Call Format (VCF) file",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "EXPRESSION_MATRIX": {
             "description": "Contains a CSV file measuring expression of some kind (genes, proteins). It should contain references to IDs used in openbis or the experimental design.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "Q_MA_CHIP_IMAGE": {
             "description": "Images or Pseudo-images of microarray chips. Can for example be used for quality control.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "Q_NGS_VARIANT_CALLING_DATA": {
             "description": "Dataset holding data of a variant calling experiment ",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "IDXML": {
             "description": "IdXML file",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "GZ": {
             "description": "GZ archive file",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "PNG": {
             "description": "",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "Q_NGS_IMMUNE_MONITORING_DATA": {
             "description": "Dataset holding data of an immune monitoring experiment",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "MAT": {
             "description": "",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "Q_NGS_NANOPORE_RUN_LOGS": {
             "description": "Collected log files from a Nanopore Sequencing run",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "ARR": {
             "description": "The ARR file contains any sample attributes and array information of an affymetrix microarray.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "SHA256SUM": {
             "description": "Checksum for registered data files",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "Q_NGS_NANOPORE_RUN_FASTQ": {
             "description": "Reads from one FASTQ run, sorted by passing vs. failing the quality criteria",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "AUDIT": {
             "description": "An Audit file is an XML file that tracks the processing of each physical array processed by AGCC. An\nAudit file is produced for each physical array and tracks all the processing steps that were performed on the array, including multiple scannings and regridding. The audit file has the same root name as the physical array.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "CEL": {
             "description": "Affymetrix CEL format raw file. The CEL file stores the results of the intensity calculations on the pixel values of the DAT file. This includes an intensity value, standard deviation of the intensity, the number of pixels used to calculate the intensity value, a flag to indicate an outlier as calculated by the algorithm and a user defined flag indicating the feature should be excluded from future analysis. This data is used by the CHP writer software to extract the actual data of interest.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "TAR": {
             "description": "",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "FEATUREXML": {
             "description": "featureXML file",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "Q_NGS_HLATYPING_DATA": {
             "description": "Dataset holding data of an HLA Typing experiment",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "Q_EXT_NGS_QUALITYCONTROL_RESULTS": {
             "description": "Results produced by the FastQC.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "UNKNOWN": {
             "description": "Unknown",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "Q_NGS_MAPPING_DATA": {
             "description": "Dataset holding aligned genomic data ",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "EXPERIMENTAL_DESIGN": {
             "description": "Contains TSV of the experimental design format used by the wizard. To be attached to single experimental layers, namely the ones containing data to be analyzed with respect to the experimental design.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "MZML": {
             "description": "Mass spectrometry data format. Unifiying mzXML and mzData formats, as released at the 2008 American Society for Mass Spectrometry Meeting.",
-            "properties": {}
+            "properties": {
+                
+            }
         },
         "PDF": {
             "description": "Portable Document Format",
-            "properties": {}
+            "properties": {
+                
+            }
         }
     }
 }
