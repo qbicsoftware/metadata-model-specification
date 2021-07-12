@@ -11,7 +11,7 @@ schema_path = os.path.expanduser(".")
 # Perform validation
 for file in os.listdir(schema_path):
     if file.endswith(".json"):
-        print("Validating file: {file}")
+        print("Validating file: {}".format(file))
         with open(file, "r") as fh:
             json_schema = json.load(fh)
 
