@@ -10,7 +10,7 @@ schema_path = os.path.expanduser(".")
 
 # Perform validation
 for file in os.listdir(schema_path):
-    if file.endswidth(".json"):
+    if file.endswith(".json"):
         with open(file, "r") as fh:
             json_schema = json.load(fh)
 
