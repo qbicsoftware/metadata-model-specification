@@ -6,7 +6,7 @@ import os
 import json
 
 # Find the schemas
-schema_path = [ os.path.expanduser(".") ]
+schema_path = os.path.expanduser(".")
 
 # Perform validation
 for file in os.listdir(schema_path):
