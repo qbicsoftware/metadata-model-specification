@@ -1,7 +1,6 @@
 """
 Validate all schemas 
 """
-from _typeshed import IdentityFunction
 import jsonschema
 import os, sys
 import json
