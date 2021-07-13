@@ -6,17 +6,21 @@ import os
 import json
 
 # Find the schemas
-schema_path = "ega-schema/"
-schemas = os.listdir(schema_path)
+files_list = list()
+for (dirpath, dirnames, filenames) in os.walk('.'):
+    files_list += [os.path.join(dirpath, file) for file in filenames]
 
 # Perform validation
-for schema in schemas:
-    with open(os.path.join(schema_path, schema), "r") as fh:
-        json_schema = json.load(fh)
+for file in files_list:
+    if file.endswith(".json"):
+        print(f"Validating file: {file}")
+        with open(file, "r") as fh:
+            json_schema = json.load(fh)
 
-    try:
-        jsonschema.Draft7Validator.check_schema(json_schema)
-    except jsonschema.exceptions.SchemaError as e:
-        print(f"Invalid Schema {schema}, {e}")
+        try:
+            jsonschema.Draft7Validator.check_schema(json_schema)
+            print(f"Validation successful for file: {file}")
+        except jsonschema.exceptions.SchemaError as e:
+            print(f"Invalid Schema {file}, {e}")
 
-print("Validation successfull!")
+print("Validation finished!")
