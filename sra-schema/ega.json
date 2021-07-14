@@ -1,0 +1,223 @@
+{
+	"definitions":{
+		"Q_EGA":{
+			"description":"European Genome Archive",
+			"properties":{
+				"Q_TITLE":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"label":"dataset title",
+					"description":"Short description that will identify the dataset on public pages. A clear and concise formula for the title would be like: {methodology} of {organism}: {sample info} e.g. RNA-Seq of mus musculus: adult female spleen"
+					},
+				"Q_STUDY_TYPE":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"label":"Type of study",
+					"description":"Type of the study in a controlled vocabulary",
+					"enum":["Whole Genome Sequencing","Metagenomics","Transcriptome Analysis","Resequencing","Epigenetics","Synthetic Genomics","Forensic or Paleo-genomics","Gene Regulation Study","Cancer Genomics","Population Genomics","RNASeq","Exome Sequencing","Pooled Clone Sequencing","Other"]
+					},
+				"Q_STUDY_ABSTRACT":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"label":"Abstract of the study",
+					"description":"Abstract of a study as it could appear in a publication"
+					},
+				"Q_SAMPLE_NAME":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"sample name",
+					"description":"Run"
+					},
+				"Q_GEO_LOC_NAME":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"label":"geographic location (country and/or sea,region)",
+					"description":"The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (v 1.512) (http://purl.bioontology.org/ontology/GAZ)"
+					},
+				"Q_ISOL_GROWTH_CONDT":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"label":"isolation and growth condition",
+					"description":"Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material"
+					},
+				"Q_ISOLATE":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"Organism group sampled",
+					"description":"Organism group: identification or description of the specific individual from which this sample was obtained"
+					},
+				"Q_PHENOTYPE":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"Phenotype ontology",
+					"description":"Experimental Ontology Factor accession for phenotype"
+					},
+				"Q_AGE":{
+					"type":"number",
+					"openbis_type":"INTEGER",
+					"label":"Age at sampling time",
+					"description":"age at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees"
+					},
+				"Q_SAMPLE_TYPE":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"Sample type",
+					"description":"Sample type, such as cell culture, mixed culture, tissue sample, whole organism, single cell, metagenomic assembly"
+					},
+				"Q_ORGANISM":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"Descriptive organism name",
+					"description":"The most descriptive organism name for this sample (to the species, if possible). It is OK to submit an organism name that is not in our database. In the case of a new species, provide the desired organism name, and our taxonomists may assign a provisional taxID. In the case of unidentified species, choose the appropriate Genus and include 'sp.', e.g., 'Escherichia sp.'. When sequencing a genome from a non-metagenomic source, include a strain or isolate name too, e.g., 'Pseudomonas sp. UK4'. For more information about providing a valid organism, including new species, metagenomes (microbiomes) and metagenome-assembled genomes, see https://www.ncbi.nlm.nih.gov/biosample/docs/organism/."
+					},
+				"Q_TISSUE":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"Organism part sampled",
+					"description":"Type of tissue the sample was taken from."
+					},
+				"Q_SEX":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"sex as physical sex (X and Y chromosome count)",
+					"description":"physical sex of sampled organism"
+					},
+				"Q_GENDER":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"gender as perceived by individual",
+					"description":"gender as perceived by individual"
+					},
+				"Q_RUN_CENTER":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"Facility name",
+					"description":"NGS Facility name / Facility ID"
+					},
+				"Q_LIBRARY_STRATEGY":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"library strategy",
+					"description":"Controlled vocabulary of terms describing overall strategy of the library. Terms used by TCGA include {WGS, WXS*, RNA-Seq*}"
+					},
+				"Q_LIBRARY_SOURCE":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"library source",
+					"description":"Controlled vocabulary of terms describing starting material from the sample. Terms used by TCGA include {GENOMIC, TRANSCRIPTOMIC*}"
+					},
+				"Q_LIBRARY_SELECTION":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"library selection",
+					"description":"Controlled vocabulary of terms describing selection or reduction method use in library construction. Terms used by TCGA include {Random, Hybrid Selection}"
+					},
+				"Q_LIBRARY_LAYOUT":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"label":"library layout",
+					"description":"Paired-end or Single",
+					"enum":["paired-end","single"]
+					},
+				"Q_INSTRUMENT_MODEL":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"instrument model",
+					"description":"Controlled vocabulary of instrument models {Illumina Genome Analyzer II, etc}",
+					"enum":["Illumina Genome Analyzer","Illumina Genome Analyzer II","Illumina Genome Analyzer IIx","Illumina HiSeq 2500","Illumina HiSeq 2000 ","Illumina HiSeq 1000 ","Illumina MiSeq","Illumina HiScanSQ","HiSeq X Ten","NextSeq 500","HiSeq X Five","Illumina HiSeq 3000","Illumina HiSeq 4000","NextSeq 550","unspecified"]
+					},
+				"Q_DESIGN_DESCRIPTION":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"design description",
+					"description":"Free-form description of the methods used to create the sequencing library; a brief 'materials and methods' section."
+					},
+				"Q_PAIRED_NOMINAL_LENGTH":{
+					"type":"integer",
+					"openbis_type":"VARCHAR",
+					"label":"Paired nominal length",
+					"description":"Average distance between the paired reads in a base pair"
+					},
+				"Q_PAIRED_NOMINAL_SDEV":{
+					"type":"integer",
+					"openbis_type":"VARCHAR",
+					"label":"Paired nominal standard deviation",
+					"description":"standard deviation of distance between the paired reads in a base pair"
+					},
+				"Q_RUN_ALIAS":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"Run name",
+					"description":"Unique alias for run"
+					},
+				"Q_RUN_DATE":{
+					"type":"string",
+					"openbis_type":"TIMESTAMP",
+					"label":"Run date",
+					"description":"Date of the run"
+					},
+				"Q_RUN_FILETYPE":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"filetype",
+					"description":"File Type of the run"
+					},
+				"Q_RUN_FILENAME":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"filename",
+					"description":"File name of the run"
+					},
+				"Q_CHECKSUM_METHOD":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"checksum method",
+					"description":"Used checksum method to encrypt the file to be uploaded"
+					},
+				"Q_RUN_CHECKSUM":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"checksum for run",
+					"description":"Calculated checksum of the file"
+					},
+				"Q_RUN_UNENCRYPTED_CHECKSUM":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"Unencrypted checksum for run",
+					"description":"unencrypted checksum of the file"
+					},
+				"Q_ASSEMBLY":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"ncbi assembly name or accession number",
+					"description":"This is only if you are submitting a bam file aligned against a NCBI assembly. Please provide NCBI name or accession number (e.g. GRCh37)"
+					},
+				"Q_ANALYSIS_FILETYPE":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"filetype",
+					"description":"File Type of the run"
+					},
+				"Q_ANALYSIS_FILENAME":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"filename",
+					"description":"File name of the run"
+					},
+				"Q_ANALYSIS_CHECKSUM":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"checksum for analysis",
+					"description":"Calculated checksum of the file"
+					},
+				"Q_ANALYSIS_UNENCRYPTED_CHECKSUM":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"label":"Unencrypted checksum for analysis",
+					"description":"unencrypted checksum of the file"
+					}
+			},
+			"required":["Q_TITLE","Q_STUDY_TYPE","Q_STUDY_ABSTRACT","Q_SAMPLE_NAME","Q_ISOLATE","Q_PHENOTYPE","Q_SEX","Q_RUN_CENTER","Q_LIBRARY_STRATEGY","Q_LIBRARY_SOURCE","Q_LIBRARY_SELECTION","Q_LIBRARY_LAYOUT","Q_INSTRUMENT_MODEL","Q_DESIGN_DESCRIPTION","Q_RUN_FILETYPE","Q_RUN_FILENAME","Q_ANALYSIS_FILETYPE","Q_ANALYSIS_FILENAME"]
+		}
+	}
+}
