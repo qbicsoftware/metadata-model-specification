@@ -5,7 +5,7 @@ import sys
 import json
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--path", metavar="<PATH>", dest="path", help="enter the path to the metadata table (xlsx, csv, tsv). By default 'aln_F4.bam' will be used",
+parser.add_argument("--path", metavar="<PATH>", dest="path", help="enter the path to the metadata table (xlsx, csv, tsv). By default 'EGA_SRA_Metadata.xlsx' will be used",
                     type=str, default="EGA_SRA_Metadata.xlsx")
 parser.add_argument("--outname", metavar="<OUT>", dest="out", help="name for output .json file",
                     type=str, default="sra")
@@ -27,7 +27,7 @@ parser.add_argument("--property", metavar="<PROP>", dest="prop", help="enter the
                     type=str, default='SRA Structured comment name')
 parser.add_argument("--mand", metavar="<MAND>", dest="mand", help="enter the string or symbol used to indicate that a property is mandatory for submission",
                     type=str, default='M')
-parser.add_argument("--sheetdict", metavar="<DICT>", dest="dict", help="in case of different data submission sheets (as in MIxS), enter a dictionary mapping the column name to a description",
+parser.add_argument("--sheetdict", metavar="<DICT>", dest="dict", help="in case of different data submission sheets (as in MIxS), enter a dictionary as a string (with single quotes) mapping the column name (with double quotes) to a description (with double quotes",
                     type=str, default='{"migs_eu":"mimimum information on genome sequence: eukaryotes", "migs_ba":"mimimum information on genome sequence: bacteria", "migs_pl":"mimimum information on genome sequence: plants", "migs_vi":"mimimum information on genome sequence: virus", "migs_org":"mimimum information on genome sequence: organella", "me":"mimimum information on metagenome sequence", "mimarks_s":"mimimum information on marker gene sequence: survey", "mimarks_c":"mimimum information on marker gene sequence: speciment", "misag":"mimimum information on single amplified genome", "mimag":"mimimum information on metagenome-assembled genome", "miuvig":"mimimum information on uncultivated virus genome", "Plant":"NCBI SRA: use for any plant sample or cell line", "Virus":"NCBI SRA: use for all virus samples not directy associated with disease", "SarsCov":"NCBI SRA: use for SARS-CoV-2 samples that are relevant to public health", "PathogenEnv":"NCBI SRA environmental pathogen metadata sheet", "PathogenCl":"NCBI SRA: use for pathogen samples that are relevant to public health", "Microbe":"NCBI SRA: use for bacteria or other unicellular microbes when it is not appropriate or advantageous to use MixS, Pathogen of Virus packages", "Metagenome":"NCBI SRA: Use for metagenomic and environmental samples when it is not appropriate or advantageous to use MixS packages", "Invertebrate":"NCBI SRA: use for any invertebrate sample", "Human":"NCBI SRA: Only use for human samples or cell lines that have no privacy concerns. for samples isolated from humans use the Pathogen, Microbe or appropriate MixS package", "BetaLactamase":"NCBI SRA: Use for beta-lactamase gene transformants that have sequence and antibiotic resistance data"}'
                     )
 
@@ -68,8 +68,8 @@ cols = [key for key in sheetDict]
 
 #get items (type, @comment, label, description) for each property entry
 def getItems(df, r):
-    items= ('type', 'openbis_type', 'label', 'description', 'enum')
-    ref=(type, openbis, label, descr, enum)
+    items= ('type', 'label', 'description', 'enum')
+    ref=(type, label, descr, enum)
     #pair items with table entries
     #check it there is a controlled vocabulary in format [name1|name2|etc]
     if '[' in df.iloc[r].loc[enum][0]:
@@ -99,7 +99,7 @@ def getProperties(df, sheet):
     n = 0
     for i in range(0, df.shape[0]):        
         if (df.iloc[i].loc[sheet]!="-"):
-            print('\t'+'\t'+'\t'+'\t'+'"Q_'+df.iloc[i].loc[property].upper()+'":{')
+            print('\t'+'\t'+'\t'+'\t'+'"'+df.iloc[i].loc[property]+'":{')
             getItems(df, i)
             n+=1
             #check if the last item for this list is reached, to print last line without ','
@@ -111,13 +111,12 @@ def getProperties(df, sheet):
 #define the list of required arguments
 def lstM(df, sheet):
     mlst = df[df[sheet]==mandatory].loc[:,property].to_list()
-    mlst = ['Q_'+ s.upper() for s in mlst]
     dq = ",".join(['"{0}"'.format(x) for x in mlst])
     return dq
 
 #print one property sheet for SRA (e.g. migs_eu, migs_ba, etc)
 def printSheet(sheet):
-    print('\t'+'\t'+'"Q_'+sheet.upper()+'":{')
+    print('\t'+'\t'+'"'+sheet.upper()+'":{')
     print('\t'+'\t'+'\t'+'"description":"'+sheetDict[sheet]+'",')
     print('\t'+'\t'+'\t'+'"properties":{')
     getProperties(in_df, sheet)
