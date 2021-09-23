@@ -1,7 +1,7 @@
 {
 	"definitions":{
 		"EGA":{
-			"description":"european genome archive",
+			"description":"European Genome Archive",
 			"properties":{
 				"title":{
 					"type":"string",
@@ -18,6 +18,21 @@
 					"type":"string",
 					"label":"Abstract of the study",
 					"description":"Abstract of a study as it could appear in a publication"
+					},
+				"pubMedIds":{
+					"type":"string",
+					"label":"PubMed IDs",
+					"description":"PUBMED IDs of papers published for the project"
+					},
+				"experiment_alias":{
+					"type":"string",
+					"label":"Experiment alias",
+					"description":"Unique name for an experiment"
+					},
+				"experiment_title":{
+					"type":"string",
+					"label":"Experiment title",
+					"description":"Title of the experiment"
 					},
 				"sample_name":{
 					"type":"string",
@@ -79,6 +94,11 @@
 					"label":"Facility name",
 					"description":"NGS Facility name / Facility ID"
 					},
+				"library_name":{
+					"type":"string",
+					"label":"Library name",
+					"description":"Library name"
+					},
 				"library_strategy":{
 					"type":"string",
 					"label":"library strategy",
@@ -102,6 +122,11 @@
 					"label":"library layout",
 					"description":"Paired-end or Single",
 					"enum":["paired-end","single"]
+					},
+				"library_construction_protocol":{
+					"type":"string",
+					"label":"Library construction protocol",
+					"description":"Protocol by which the library was created"
 					},
 				"instrument_model":{
 					"type":"string",
@@ -221,9 +246,20 @@
 					"type":"string",
 					"label":"Unencrypted checksum for analysis",
 					"description":"unencrypted checksum of the file"
+					},
+				"analysis_center":{
+					"type":"string",
+					"label":"Analysis center",
+					"description":"Center, where analysis was performed",
+					"enum":["QBiC"]
+					},
+				"analysis_date":{
+					"type":"string",
+					"label":"Analysis date",
+					"description":"Date of the analysis"
 					}
 			},
-			"required":["title","study_type","study_abstract","sample_name","isolate","Phenotype","sex","run_center","library_strategy","library_source","library_selection","library_layout","instrument_model","design_description","run_filetype","run_filename","analysis_title","description","analysis_type","analysis_filetype","analysis_filename"]
+			"required":["title","study_type","study_abstract","experiment_title","sample_name","isolate","Phenotype","sex","run_center","library_strategy","library_source","library_selection","library_layout","instrument_model","design_description","run_filetype","run_filename","analysis_title","description","analysis_type","analysis_filetype","analysis_filename"]
 		}
 	}
 }
