@@ -1,0 +1,265 @@
+{
+	"definitions":{
+		"EGA":{
+			"description":"European Genome Archive",
+			"properties":{
+				"title":{
+					"type":"string",
+					"label":"dataset title",
+					"description":"Short description that will identify the dataset on public pages. A clear and concise formula for the title would be like: {methodology} of {organism}: {sample info} e.g. RNA-Seq of mus musculus: adult female spleen"
+					},
+				"study_type":{
+					"type":"string",
+					"label":"Type of study",
+					"description":"Type of the study in a controlled vocabulary",
+					"enum":["Whole Genome Sequencing","Metagenomics","Transcriptome Analysis","Resequencing","Epigenetics","Synthetic Genomics","Forensic or Paleo-genomics","Gene Regulation Study","Cancer Genomics","Population Genomics","RNASeq","Exome Sequencing","Pooled Clone Sequencing","Other"]
+					},
+				"study_abstract":{
+					"type":"string",
+					"label":"Abstract of the study",
+					"description":"Abstract of a study as it could appear in a publication"
+					},
+				"pubMedIds":{
+					"type":"string",
+					"label":"PubMed IDs",
+					"description":"PUBMED IDs of papers published for the project"
+					},
+				"experiment_alias":{
+					"type":"string",
+					"label":"Experiment alias",
+					"description":"Unique name for an experiment"
+					},
+				"experiment_title":{
+					"type":"string",
+					"label":"Experiment title",
+					"description":"Title of the experiment"
+					},
+				"sample_name":{
+					"type":"string",
+					"label":"sample name",
+					"description":"Run"
+					},
+				"geo_loc_name":{
+					"type":"string",
+					"label":"geographic location (country and/or sea,region)",
+					"description":"The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (v 1.512) (http://purl.bioontology.org/ontology/GAZ)"
+					},
+				"isol_growth_condt":{
+					"type":"string",
+					"label":"isolation and growth condition",
+					"description":"Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material"
+					},
+				"isolate":{
+					"type":"string",
+					"label":"Organism group sampled",
+					"description":"Organism group: identification or description of the specific individual from which this sample was obtained"
+					},
+				"Phenotype":{
+					"type":"string",
+					"label":"Phenotype ontology",
+					"description":"Experimental Ontology Factor accession for phenotype"
+					},
+				"age":{
+					"type":"number",
+					"label":"Age at sampling time",
+					"description":"age at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees"
+					},
+				"sample_type":{
+					"type":"string",
+					"label":"Sample type",
+					"description":"Sample type, such as cell culture, mixed culture, tissue sample, whole organism, single cell, metagenomic assembly"
+					},
+				"organism":{
+					"type":"string",
+					"label":"Descriptive organism name",
+					"description":"The most descriptive organism name for this sample (to the species, if possible). It is OK to submit an organism name that is not in our database. In the case of a new species, provide the desired organism name, and our taxonomists may assign a provisional taxID. In the case of unidentified species, choose the appropriate Genus and include 'sp.', e.g., 'Escherichia sp.'. When sequencing a genome from a non-metagenomic source, include a strain or isolate name too, e.g., 'Pseudomonas sp. UK4'. For more information about providing a valid organism, including new species, metagenomes (microbiomes) and metagenome-assembled genomes, see https://www.ncbi.nlm.nih.gov/biosample/docs/organism/."
+					},
+				"tissue":{
+					"type":"string",
+					"label":"Organism part sampled",
+					"description":"Type of tissue the sample was taken from."
+					},
+				"sex":{
+					"type":"string",
+					"label":"sex as physical sex (X and Y chromosome count)",
+					"description":"physical sex of sampled organism"
+					},
+				"gender":{
+					"type":"string",
+					"label":"gender as perceived by individual",
+					"description":"gender as perceived by individual"
+					},
+				"run_center":{
+					"type":"string",
+					"label":"Facility name",
+					"description":"NGS Facility name / Facility ID"
+					},
+				"library_name":{
+					"type":"string",
+					"label":"Library name",
+					"description":"Library name"
+					},
+				"library_strategy":{
+					"type":"string",
+					"label":"library strategy",
+					"description":"Controlled vocabulary of terms describing overall strategy of the library. Terms used by TCGA include {WGS, WXS*, RNA-Seq*}",
+					"enum":["WGS","WGA","WXS","RNA-seq","miRNA-Seq","ncRNA-Seq","NCS","CLONE","POOLCLONE","AMPLICON","CLONEEND","FINISHING","ChIP-Seq","MNase-Seq","DNase-Hypersensitivity","Bisulfite-Seq","EST","FL-cDNA","CTS","MRE-Seq","MeDIP-Seq","MBD-Seq","Tn-Seq","VALIDATION","FAIRE-Seq","SELEX","RIP-Seq","ChiA-PET","OTHER"]
+					},
+				"library_source":{
+					"type":"string",
+					"label":"library source",
+					"description":"Controlled vocabulary of terms describing starting material from the sample. Terms used by TCGA include {GENOMIC, TRANSCRIPTOMIC*}",
+					"enum":["GENOMIC","TRANSCRIPTOMIC","METAGENOMIC","METATRANSCRIPTOMIC","SYNTHETIC","VIRAL RNA","OTHER"]
+					},
+				"library_selection":{
+					"type":"string",
+					"label":"library selection",
+					"description":"Controlled vocabulary of terms describing selection or reduction method use in library construction. Terms used by TCGA include {Random, Hybrid Selection}",
+					"enum":["RANDOM","PCR","RANDOM PCR","RT-PCR","HMPR","MF","repeat fractionation","size fractionation","MSLL","cDNA","ChIP","MNase","DNAse","Hybrid Selection","Reduced Representation","Restriction Digest","MBD2 protein methyl-CpG binding domain","CAGE","RACE","MDA","padlock probes capture method","other","unspecified"]
+					},
+				"library_layout":{
+					"type":"string",
+					"label":"library layout",
+					"description":"Paired-end or Single",
+					"enum":["paired-end","single"]
+					},
+				"library_construction_protocol":{
+					"type":"string",
+					"label":"Library construction protocol",
+					"description":"Protocol by which the library was created"
+					},
+				"instrument_model":{
+					"type":"string",
+					"label":"instrument model",
+					"description":"Controlled vocabulary of instrument models {Illumina Genome Analyzer II, etc}",
+					"enum":["Illumina Genome Analyzer","Illumina Genome Analyzer II","Illumina Genome Analyzer IIx","Illumina HiSeq 2500","Illumina HiSeq 2000 ","Illumina HiSeq 1000 ","Illumina MiSeq","Illumina HiScanSQ","HiSeq X Ten","NextSeq 500","HiSeq X Five","Illumina HiSeq 3000","Illumina HiSeq 4000","NextSeq 550","unspecified"]
+					},
+				"design_description":{
+					"type":"string",
+					"label":"design description",
+					"description":"Free-form description of the methods used to create the sequencing library; a brief 'materials and methods' section."
+					},
+				"paired_nominal_length":{
+					"type":"integer",
+					"label":"Paired nominal length",
+					"description":"Average distance between the paired reads in a base pair"
+					},
+				"paired_nominal_sdev":{
+					"type":"integer",
+					"label":"Paired nominal standard deviation",
+					"description":"standard deviation of distance between the paired reads in a base pair"
+					},
+				"run_alias":{
+					"type":"string",
+					"label":"Run name",
+					"description":"Unique alias for run"
+					},
+				"run_date":{
+					"type":"string",
+					"label":"Run date",
+					"description":"Date of the run"
+					},
+				"run_filetype":{
+					"type":"string",
+					"label":"filetype",
+					"description":"File Type of the run"
+					},
+				"run_filename":{
+					"type":"string",
+					"label":"filename",
+					"description":"File name of the run"
+					},
+				"checksum_method":{
+					"type":"string",
+					"label":"checksum method",
+					"description":"Used checksum method to encrypt the file to be uploaded"
+					},
+				"run_checksum":{
+					"type":"string",
+					"label":"checksum for run",
+					"description":"Calculated checksum of the file"
+					},
+				"run_unencrypted_checksum":{
+					"type":"string",
+					"label":"Unencrypted checksum for run",
+					"description":"unencrypted checksum of the file"
+					},
+				"assembly":{
+					"type":"string",
+					"label":"ncbi assembly name or accession number",
+					"description":"This is only if you are submitting a bam file aligned against a NCBI assembly. Please provide NCBI name or accession number (e.g. GRCh37)"
+					},
+				"alias":{
+					"type":"string",
+					"label":"Unique alias",
+					"description":"UNIQUE NAME FOR ANALYSIS"
+					},
+				"analysis_title":{
+					"type":"string",
+					"label":"Analysis title",
+					"description":"title of the analysis"
+					},
+				"description":{
+					"type":"string",
+					"label":"Analysis description",
+					"description":"description of the analysis"
+					},
+				"analysis_type":{
+					"type":"string",
+					"label":"Analysis type",
+					"description":"BAM VCF or sample phenotype?",
+					"enum":["Reference Alignment (BAM)","Sequence Variation (VCF)","Sample phenotype"]
+					},
+				"genome":{
+					"type":"string",
+					"label":"reference genome",
+					"description":"Reference genome used",
+					"enum":["GRCh37.p1","GRCh37.p2","GRCh37.p3","GRCh37.p4","GRCh37.p5","GRCh37.p6","GRCh37.p7","GRCh37.p8","GRCh37.p9","GRCh37.p10","GRCh37.p11","GRCh37.p12","GRCh37.p13","GRCh38.p1","GRCh37.p2"]
+					},
+				"experiment_type":{
+					"type":"string",
+					"label":"Experiment type",
+					"description":"Experiment type",
+					"enum":["Curation","Exome Sequencing","Genotyping by Array","Whole genome sequencing","transcriptomics"]
+					},
+				"chromosome references":{
+					"type":"string",
+					"label":"Reference chromosome",
+					"description":"Reference chromosome used"
+					},
+				"analysis_filetype":{
+					"type":"string",
+					"label":"filetype",
+					"description":"File Type of the run"
+					},
+				"analysis_filename":{
+					"type":"string",
+					"label":"filename",
+					"description":"File name of the run"
+					},
+				"analysis_checksum":{
+					"type":"string",
+					"label":"checksum for analysis",
+					"description":"Calculated checksum of the file"
+					},
+				"analysis_unencrypted_checksum":{
+					"type":"string",
+					"label":"Unencrypted checksum for analysis",
+					"description":"unencrypted checksum of the file"
+					},
+				"analysis_center":{
+					"type":"string",
+					"label":"Analysis center",
+					"description":"Center, where analysis was performed",
+					"enum":["QBiC"]
+					},
+				"analysis_date":{
+					"type":"string",
+					"label":"Analysis date",
+					"description":"Date of the analysis"
+					}
+			},
+			"required":["title","study_type","study_abstract","experiment_title","sample_name","isolate","Phenotype","sex","run_center","library_strategy","library_source","library_selection","library_layout","instrument_model","design_description","run_filetype","run_filename","analysis_title","description","analysis_type","analysis_filetype","analysis_filename"]
+		}
+	}
+}

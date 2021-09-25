@@ -1,0 +1,326 @@
+{
+	"definitions":{
+		"Q_NGS_MEASUREMENT":{
+			"properties":{
+				"isolate":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_SECONDARY_NAME",
+					"description":"Organism group: identification or description of the specific individual from which this sample was obtained"
+				},
+				"gender":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_GENDER",
+					"description":"gender as perceived by individual"
+				},
+				"sex":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_SEX",
+					"description":"physical sex of sampled organism"
+				},
+				"organism":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_NCBI_TAXONOMY ",
+					"description":"The most descriptive organism name for this sample (to the species, if possible). It is OK to submit an organism name that is not in our database. In the case of a new species, provide the desired organism name, and our taxonomists may assign a provisional taxID. In the case of unidentified species, choose the appropriate Genus and include 'sp.', e.g., 'Escherichia sp.'. When sequencing a genome from a non-metagenomic source, include a strain or isolate name too, e.g., 'Pseudomonas sp. UK4'. For more information about providing a valid organism, including new species, metagenomes (microbiomes) and metagenome-assembled genomes, see https://www.ncbi.nlm.nih.gov/biosample/docs/organism/."
+				},
+				"age":{
+					"type":"number",
+					"openbis_type":"INTEGER",
+					"openbis_property":" Q_AGE",
+					"description":"age at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees"
+				},
+				"geo_loc_name":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":" Q_GEO_LOCATION_NAME",
+					"description":"The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (v 1.512) (http://purl.bioontology.org/ontology/GAZ)"
+				},
+				"tissue":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_PRIMARY_TISSUE ",
+					"description":"Type of tissue the sample was taken from."
+				},
+				"sample_type":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_SAMPLE_TYPE",
+					"description":"Sample type, such as cell culture, mixed culture, tissue sample, whole organism, single cell, metagenomic assembly"
+				},
+				"isol_growth_condt":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":" Q_ISOL_GROWTH_CONDT",
+					"description":"Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material"
+				},
+				"Phenotype":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_PHENOTYPE",
+					"description":"Experimental Ontology Factor accession for phenotype"
+				},
+				"title":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":"Q_SECONDARY_NAME  ",
+					"description":"Short description that will identify the dataset on public pages. A clear and concise formula for the title would be like: {methodology} of {organism}: {sample info} e.g. RNA-Seq of mus musculus: adult female spleen"
+				},
+				"design_description":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_EXPERIMENTAL_SETUP ",
+					"description":"Free-form description of the methods used to create the sequencing library; a brief 'materials and methods' section."
+				}
+			}
+		},
+		"Q_NGS_RAW_DATA":{
+			"properties":{
+				"pubMedIds":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_PUBMED_ID",
+					"description":"PUBMED IDs of papers published for the project"
+				},
+				"study_abstract":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":"Q_EXPERIMENTAL_DESIGN_DESCRIPTION ",
+					"description":"Abstract of a study as it could appear in a publication"
+				},
+				"study_type":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_OMICS_TYPE",
+					"description":"Type of the study in a controlled vocabulary"
+				},
+				"paired_nominal_length":{
+					"type":"integer",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_PAIRED_NOMINAL_LENGTH",
+					"description":"Average distance between the paired reads in a base pair"
+				},
+				"paired_nominal_sdev":{
+					"type":"integer",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_PAIRED_NOMINAL_SDEV",
+					"description":"standard deviation of distance between the paired reads in a base pair"
+				},
+				"library_construction_protocol":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":" Q_LIBRARY_CONSTRUCTION_PROTOCOL",
+					"description":"Protocol by which the library was created"
+				},
+				"library_layout":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":"Q_SEQUENCING_MODE ",
+					"description":"Paired-end or Single"
+				},
+				"library_selection":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_LIBRARY_SELECTION",
+					"description":"Controlled vocabulary of terms describing selection or reduction method use in library construction. Terms used by TCGA include {Random, Hybrid Selection}"
+				},
+				"instrument_model":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_SEQUENCER_DEVICE ",
+					"description":"Controlled vocabulary of instrument models {Illumina Genome Analyzer II, etc}"
+				},
+				"library_strategy":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_LIBRARY_STRATEGY",
+					"description":"Controlled vocabulary of terms describing overall strategy of the library. Terms used by TCGA include {WGS, WXS*, RNA-Seq*}"
+				},
+				"library_name":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_LIBRARY_NAME",
+					"description":"Library name"
+				}
+			}
+		},
+		"Q_PIPELINE_DATA":{
+			"properties":{
+				"run_center":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_CONDUCTED_BY_FACILITY",
+					"description":"NGS Facility name / Facility ID"
+				},
+				"experiment_title":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_TITLE",
+					"description":"Title of the experiment"
+				},
+				"experiment_alias":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_SECONDARY_NAME ",
+					"description":"Unique name for an experiment"
+				},
+				"library_source":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_LIBRARY_SOURCE",
+					"description":"Controlled vocabulary of terms describing starting material from the sample. Terms used by TCGA include {GENOMIC, TRANSCRIPTOMIC*}"
+				},
+				"analysis_unencrypted_checksum":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_UNENCRYPTED_CHECKSUM",
+					"description":"unencrypted checksum of the file"
+				},
+				"analysis_checksum":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_CHECKSUM",
+					"description":"Calculated checksum of the file"
+				},
+				"analysis_filename":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_SECONDARY_NAME ",
+					"description":"File name of the run"
+				},
+				"analysis_filetype":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_FILE_TYPE",
+					"description":"File Type of the run"
+				},
+				"run_checksum":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_CHECKSUM",
+					"description":"Calculated checksum of the file"
+				},
+				"run_unencrypted_checksum":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_UNENCRYPTED_CHECKSUM",
+					"description":"unencrypted checksum of the file"
+				}
+			}
+		},
+		"Q_BIOLOGICAL_ENTITY":{
+			"properties":{
+				"run_filename":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_SECONDARY_NAME ",
+					"description":"File name of the run"
+				},
+				"run_filetype":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_FILE_TYPE",
+					"description":"File Type of the run"
+				},
+				"run_date":{
+					"type":"string",
+					"openbis_type":"TIMESTAMP",
+					"openbis_property":" Q_RUN_DATE",
+					"description":"Date of the run"
+				},
+				"run_alias":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_SECONDARY_NAME ",
+					"description":"Unique alias for run"
+				},
+				"checksum_method":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_CHECKSUM_METHOD",
+					"description":"Used checksum method to encrypt the file to be uploaded"
+				},
+				"assembly":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_ASSEMBLY",
+					"description":"This is only if you are submitting a bam file aligned against a NCBI assembly. Please provide NCBI name or accession number (e.g. GRCh37)"
+				}
+			}
+		},
+		"Q_EXPERIMENTAL_DESIGN":{
+			"properties":{
+				"alias":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_ALIAS",
+					"description":"UNIQUE NAME FOR ANALYSIS"
+				},
+				"analysis_title":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_ANALYSIS_TITLE",
+					"description":"title of the analysis"
+				},
+				"description":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_DESCRIPTION",
+					"description":"description of the analysis"
+				},
+				"analysis_type":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_ANALYSIS_TYPE",
+					"description":"BAM VCF or sample phenotype?"
+				},
+				"genome":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_GENOME",
+					"description":"Reference genome used"
+				}
+			}
+		},
+		"Q_BIOLOGICAL_SAMPLE":{
+			"properties":{
+				"experiment_type":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_EXPERIMENT_TYPE",
+					"description":"Experiment type"
+				},
+				"chromosome references":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_CHROMOSOME_REFERENCES",
+					"description":"Reference chromosome used"
+				},
+				"analysis_center":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_ANALYSIS_CENTER",
+					"description":"Center, where analysis was performed"
+				},
+				"analysis_date":{
+					"type":"string",
+					"openbis_type":"TIMESTAMP",
+					"openbis_property":" Q_ANALYSIS_DATE",
+					"description":"Date of the analysis"
+				}
+			}
+		},
+		"Q_TEST_SAMPLE":{
+			"properties":{
+				"sample_name":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_SECONDARY_NAME ",
+					"description":"Run"
+				}
+			}
+		}
+	}
+}
