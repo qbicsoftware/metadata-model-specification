@@ -1,0 +1,388 @@
+{
+	"definitions":{
+		"Q_PIPELINE_DATA":{
+			"properties":{
+				"sex":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_SEX",
+					"description":"physical sex of sampled organism"
+				},
+				"age":{
+					"type":"number",
+					"openbis_type":"INTEGER",
+					"openbis_property":" Q_AGE",
+					"description":"age at the time of sampling; relevant scale depends on species and study, e.g. could be seconds for amoebae or centuries for trees"
+				},
+				"organism":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_NCBI_TAXONOMY ",
+					"description":"The most descriptive organism name for this sample (to the species, if possible). It is OK to submit an organism name that is not in our database. In the case of a new species, provide the desired organism name, and our taxonomists may assign a provisional taxID. In the case of unidentified species, choose the appropriate Genus and include 'sp.', e.g., 'Escherichia sp.'. When sequencing a genome from a non-metagenomic source, include a strain or isolate name too, e.g., 'Pseudomonas sp. UK4'. For more information about providing a valid organism, including new species, metagenomes (microbiomes) and metagenome-assembled genomes, see https://www.ncbi.nlm.nih.gov/biosample/docs/organism/."
+				},
+				"ref_biomaterial":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_REF_BIOMATERIAL",
+					"description":"Primary publication if isolated before genome publication; otherwise, primary genome report"
+				},
+				"env_local_scale":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":" Q_ENVIRONMENT_LOCAL_SCALE",
+					"description":"In this field, report the entity or entities which are in your sample or specimen’s local vicinity and which you believe have significant causal influences on your sample or specimen. Please use terms that are present in ENVO and which are of smaller spatial grain than your entry for env_broad_scale. Format (one term): termLabel [termID]; Format (multiple terms): termLabel [termID]|termLabel [termID]|termLabel [termID]. Example: Annotating a pooled sample taken from various vegetation layers in a forest consider: canopy [ENVO:00000047]|herb and fern layer [ENVO:01000337]|litter layer [ENVO:01000338]|understory [01000335]|shrub layer [ENVO:01000336]. If needed, request new terms on the ENVO tracker, identified here: http://www.obofoundry.org/ontology/envo.html"
+				},
+				"env_broad_scale":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":" Q_ENVIRONMENT_BROAD_SCALE",
+					"description":"In this field, report which major environmental system your sample or specimen came from. The systems identified should have a coarse spatial grain, to provide the general environmental context of where the sampling was done (e.g. were you in the desert or a rainforest?). We recommend using subclasses of ENVO’s biome class: http://purl.obolibrary.org/obo/ENVO_00000428. Format (one term): termLabel [termID], Format (multiple terms): termLabel [termID]|termLabel [termID]|termLabel [termID]. Example: Annotating a water sample from the photic zone in middle of the Atlantic Ocean, consider: oceanic epipelagic zone biome [ENVO:01000033]. Example: Annotating a sample from the Amazon rainforest consider: tropical moist broadleaf forest biome [ENVO:01000228]. If needed, request new terms on the ENVO tracker, identified here: http://www.obofoundry.org/ontology/envo.html"
+				},
+				"collection_date":{
+					"type":"string",
+					"openbis_type":"TIMESTAMP",
+					"openbis_property":" Q_COLLECTION_DATE",
+					"description":"The time of sampling, either as an instance (single point in time) or interval. In case no exact time is available, the date/time can be right truncated i.e. all of these are valid times: 2008-01-23T19:23:10+00:00; 2008-01-23T19:23:10; 2008-01-23; 2008-01; 2008; Except: 2008-01; 2008 all are ISO8601 compliant"
+				},
+				"isolate":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_SECONDARY_NAME",
+					"description":"Organism group: identification or description of the specific individual from which this sample was obtained"
+				},
+				"lat_lon":{
+					"type":"number",
+					"openbis_type":"INTEGER",
+					"openbis_property":" Q_LATITUDE_LONGITUDE",
+					"description":"The geographical origin of the sample as defined by latitude and longitude. The values should be reported in decimal degrees and in WGS84 system"
+				},
+				"investigation_type":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_TAXONOMIC_TYPE",
+					"description":"Nucleic Acid Sequence Report is the root element of all MIGS/MIMS compliant reports as standardized by Genomic Standards Consortium. This field is either eukaryote,bacteria,virus,plasmid,organelle, metagenome,mimarks-survey, mimarks-specimen, metatranscriptome, single amplified genome, metagenome-assembled genome, or uncultivated viral genome"
+				},
+				"gender":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_GENDER",
+					"description":"gender as perceived by individual"
+				},
+				"geo_loc_name":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":" Q_GEO_LOCATION_NAME",
+					"description":"The geographical origin of the sample as defined by the country or sea name followed by specific region name. Country or sea names should be chosen from the INSDC country list (http://insdc.org/country.html), or the GAZ ontology (v 1.512) (http://purl.bioontology.org/ontology/GAZ)"
+				},
+				"host":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_HOST",
+					"description":"The natural (as opposed to laboratory) host to the organism from which the sample was obtained. Use the full taxonomic name, eg, 'Homo sapiens'."
+				},
+				"isol_growth_condt":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":" Q_ISOL_GROWTH_CONDT",
+					"description":"Publication reference in the form of pubmed ID (pmid), digital object identifier (doi) or url for isolation and growth condition specifications of the organism/material"
+				},
+				"propagation":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_PROPAGATION",
+					"description":"This field is specific to different taxa. For phages: lytic/lysogenic, for plasmids: incompatibility group, for eukaryotes: sexual/asexual (Note: there is the strong opinion to name phage propagation obligately lytic or temperate, therefore we also give this choice"
+				}
+			}
+		},
+		"Q_BIOLOGICAL_ENTITY":{
+			"properties":{
+				"tissue":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_PRIMARY_TISSUE ",
+					"description":"Type of tissue the sample was taken from."
+				},
+				"tax_ident":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_TAXONOMIC_IDENTITY_MARKER",
+					"description":"The phylogenetic marker(s) used to assign an organism name to the SAG or MAG, e.g. 16S rRNA"
+				},
+				"sample_type":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_SAMPLE_TYPE",
+					"description":"Sample type, such as cell culture, mixed culture, tissue sample, whole organism, single cell, metagenomic assembly"
+				},
+				"host_disease":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_HOST_DISEASE",
+					"description":"Name of relevant disease, e.g. Salmonella gastroenteritis. Controlled vocabulary, http://bioportal.bioontology.org/ontologies/1009 or http://www.ncbi.nlm.nih.gov/mesh"
+				},
+				"env_medium":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":" Q_ENVIRONMENTAL_MATERIAL",
+					"description":"In this field, report which environmental material or materials (pipe separated) immediately surrounded your sample or specimen prior to sampling, using one or more subclasses of ENVO’s environmental material class: http://purl.obolibrary.org/obo/ENVO_00010483. Format (one term): termLabel [termID]; Format (multiple terms): termLabel [termID]|termLabel [termID]|termLabel [termID]. Example: Annotating a fish swimming in the upper 100 m of the Atlantic Ocean, consider: ocean water [ENVO:00002151]. Example: Annotating a duck on a pond consider: pond water [ENVO:00002228]|air ENVO_00002005. If needed, request new terms on the ENVO tracker, identified here: http://www.obofoundry.org/ontology/envo.html"
+				},
+				"biomaterial_provider":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_CONDUCTED_BY_NAME ",
+					"description":"name and address of the lab or PI, or a culture collection identifier"
+				},
+				"design_description":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_EXPERIMENTAL_SETUP ",
+					"description":"Free-form description of the methods used to create the sequencing library; a brief 'materials and methods' section."
+				},
+				"title":{
+					"type":"string",
+					"openbis_type":"MULTILINE_VARCHAR",
+					"openbis_property":"Q_SECONDARY_NAME  ",
+					"description":"Short description that will identify the dataset on public pages. A clear and concise formula for the title would be like: {methodology} of {organism}: {sample info} e.g. RNA-Seq of mus musculus: adult female spleen"
+				},
+				"submitted_to_insdc":{
+					"type":"boolean",
+					"openbis_type":"BOOLEAN",
+					"openbis_property":" Q_SUBMITTED_INSDC",
+					"description":"Depending on the study (large-scale e.g. done with next generation sequencing technology, or small-scale) sequences have to be submitted to SRA (Sequence Read Archive), DRA (DDBJ Read Archive) or via the classical Webin/Sequin systems to Genbank, ENA and DDBJ. Although this field is mandatory, it is meant as a self-test field, therefore it is not necessary to include this field in contextual data submitted to databases"
+				},
+				"project_name":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_EXPERIMENTAL_DESIGN ",
+					"description":"Name of the project within which the sequencing was organized"
+				},
+				"seq_meth":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_SEQUENCER_DEVICE ",
+					"description":"Sequencing method used; e.g. Sanger, pyrosequencing, ABI-solid"
+				},
+				"instrument_model":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_SEQUENCER_DEVICE ",
+					"description":"Controlled vocabulary of instrument models {Illumina Genome Analyzer II, etc}"
+				}
+			}
+		},
+		"Q_NGS_MEASUREMENT":{
+			"properties":{
+				"platform":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_SEQUENCING_PLATFORM",
+					"description":"Controlled vocabulary of platform type {Illumina, LS454, AB_SOLID, CompleteGenomics}"
+				},
+				"library_layout":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":"Q_SEQUENCING_MODE ",
+					"description":"Paired-end or Single"
+				},
+				"library_selection":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_LIBRARY_SELECTION",
+					"description":"Controlled vocabulary of terms describing selection or reduction method use in library construction. Terms used by TCGA include {Random, Hybrid Selection}"
+				},
+				"library_strategy":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_LIBRARY_STRATEGY",
+					"description":"Controlled vocabulary of terms describing overall strategy of the library. Terms used by TCGA include {WGS, WXS*, RNA-Seq*}"
+				},
+				"library_source":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_LIBRARY_SOURCE",
+					"description":"Controlled vocabulary of terms describing starting material from the sample. Terms used by TCGA include {GENOMIC, TRANSCRIPTOMIC*}"
+				},
+				"target_gene":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_TARGET_GENE",
+					"description":"Targeted gene or locus name for marker gene studies"
+				},
+				"run_filetype":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_FILE_TYPE",
+					"description":"File Type of the run"
+				},
+				"run_filename":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_SECONDARY_NAME ",
+					"description":"File name of the run"
+				}
+			}
+		},
+		"Q_BIOLOGICAL_SAMPLE":{
+			"properties":{
+				"library_ID":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_LIBRARY_ID",
+					"description":"Short unique identifier for the sequencing library. Each library_ID MUST be unique!"
+				},
+				"source_uvig":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_SOURCE_UVIG",
+					"description":"Type of dataset from which the UViG was obtained"
+				},
+				"virus_enrich_appr":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_VIRUS_ENRICH_APPR",
+					"description":"List of approaches used to enrich the sample for viruses, if any"
+				},
+				"wga_amp_appr":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_WGA_AMP_APPR",
+					"description":"Method used to amplify genomic DNA in preparation for sequencing"
+				},
+				"bin_software":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_BIN_SOFTWARE",
+					"description":"Tool(s) used for the extraction of genomes from metagenomic datasets"
+				},
+				"compl_software":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_COMPL_SOFTWARE",
+					"description":"Tools used for completion estimate, i.e. checkm, anvi'o, busco"
+				},
+				"vir_ident_software":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_VIR_IDENT_SOFTWARE",
+					"description":"Tool(s) used for the identification of UViG as a viral genome, software or protocol name  including version number, parameters, and cutoffs used"
+				},
+				"pred_genome_type":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_PRED_GENOME_TYPE",
+					"description":"Type of genome predicted for the UViG"
+				}
+			}
+		},
+		"Q_EXPERIMENTAL_DESIGN":{
+			"properties":{
+				"num_replicons":{
+					"type":"number",
+					"openbis_type":"INTEGER",
+					"openbis_property":" Q_NUM_REPLICONS",
+					"description":"Reports the number of replicons in a nuclear genome of eukaryotes, in the genome of a bacterium or archaea or the number of segments in a segmented virus. Always applied to the haploid chromosome count of a eukaryote"
+				},
+				"contam_score":{
+					"type":"number",
+					"openbis_type":"INTEGER",
+					"openbis_property":" Q_CONTAM_SCORE",
+					"description":"The contamination score is based on the fraction of single-copy genes that are observed more than once in a query genome. The following scores are acceptable for; High Quality Draft: < 5%, Medium Quality Draft: < 10%, Low Quality Draft: < 10%. Contamination must be below 5% for a SAG or MAG to be deposited into any of the public databases"
+				},
+				"bin_param":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_BIN_PARAM",
+					"description":"The parameters that have been applied during the extraction of genomes from metagenomic datasets"
+				},
+				"compl_score":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_COMP_SOCRE",
+					"description":"Completeness score is typically based on either the fraction of markers found as compared to a database or the percent of a genome found as compared to a closely related reference genome. High Quality Draft: >90%, Medium Quality Draft: >50%, and Low Quality Draft: < 50% should have the indicated completeness scores"
+				},
+				"detec_type":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_DETEC_TYPE",
+					"description":"Type of UViG detection"
+				}
+			}
+		},
+		"Q_NGS_SINGLE_SAMPLE_RUN":{
+			"properties":{
+				"assembly_qual":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_ASSEMBLY_QUALITY",
+					"description":"The assembly quality category is based on sets of criteria outlined for each assembly quality category. For MISAG/MIMAG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities with a consensus error rate equivalent to Q50 or better. High Quality Draft:Multiple fragments where gaps span repetitive regions. Presence of the 23S, 16S and 5S rRNA genes and at least 18 tRNAs. Medium Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Low Quality Draft:Many fragments with little to no review of assembly other than reporting of standard assembly statistics. Assembly statistics include, but are not limited to total assembly size, number of contigs, contig N50/L50, and maximum contig length. For MIUVIG; Finished: Single, validated, contiguous sequence per replicon without gaps or ambiguities, with extensive manual review and editing to annotate putative gene functions and transcriptional units. High-quality draft genome: One or multiple fragments, totaling ≥ 90% of the expected genome or replicon sequence or predicted complete. Genome fragment(s): One or multiple fragments, totalling < 90% of the expected genome or replicon sequence, or for which no genome size could be estimated"
+				},
+				"assembly_software":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_ASSEMBLY_SOFTWARE",
+					"description":"Tool(s) used for assembly, including version number and parameters"
+				},
+				"fasta_file":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_FASTA_FILE",
+					"description":"Please provide the name of the custom assembly fasta file used during alignment (e.g. Mouse.fasta)"
+				},
+				"assembly":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":" Q_ASSEMBLY",
+					"description":"This is only if you are submitting a bam file aligned against a NCBI assembly. Please provide NCBI name or accession number (e.g. GRCh37)"
+				}
+			}
+		},
+		"Q_TEST_SAMPLE":{
+			"properties":{
+				"pred_genome_struc":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_PRED_GENOME_STRUC",
+					"description":"Expected structure of the viral genome"
+				},
+				"number_contig":{
+					"type":"number",
+					"openbis_type":"INTEGER",
+					"openbis_property":" Q_NUMBER_CONTIG",
+					"description":"Total number of contigs in the cleaned/submitted assembly that makes up a given genome, SAG, MAG, or UViG"
+				},
+				"collected_by":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_CONDUCTED_BY_NAME ",
+					"description":"Name of persons or institute who collected the sample"
+				}
+			}
+		},
+		"Q_NGS_RAW_DATA":{
+			"properties":{
+				"sample_name":{
+					"type":"string",
+					"openbis_type":"VARCHAR",
+					"openbis_property":"Q_SECONDARY_NAME ",
+					"description":"Run"
+				},
+				"sort_tech":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_SORTING_TECH",
+					"description":"Method used to sort/isolate cells or particles of interest"
+				}
+			}
+		},
+		"Q_SAMPLE_EXTRACTION":{
+			"properties":{
+				"single_cell_lysis_appr":{
+					"type":"string",
+					"openbis_type":"CONTROLLEDVOCABULARY",
+					"openbis_property":" Q_SINGLE_CELL_LYSIS_APPR",
+					"description":"Method used to free DNA from interior of the cell(s) or particle(s)"
+				}
+			}
+		}
+	}
+}

@@ -4,17 +4,20 @@
             "description": "Next generation sequencing experiment of a sample.",
             "properties": {
                 "STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status",
                     "description": "The status of the corresponding experiment."
                 },
                 "SEQUENCING_TYPE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Sequencing Type",
                     "description": "Type of sequencing experiment."
                 },
                 "SEQUENCING_TECHNOLOGY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Sequencing Technology",
                     "description": "The sequencing technology which has been used."
                 }
@@ -24,7 +27,8 @@
             "description": "MS_INJECT experiment",
             "properties": {
                 "INJECT_TYPE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Type",
                     "description": ""
                 }
@@ -34,7 +38,8 @@
             "description": "A biological experiment",
             "properties": {
                 "TREATMENT_TYPE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Treatment Type",
                     "description": ""
                 }
@@ -44,7 +49,8 @@
             "description": "A Nuclear Magnetic Resonance Experiment",
             "properties": {
                 "NMR_TYPE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "NMR Type",
                     "description": "Nuclear Magnetic Resonance Type"
                 }
@@ -54,7 +60,8 @@
             "description": "Mapping experiment of NGS data.",
             "properties": {
                 "READ_MAPPER": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Read Mapper",
                     "description": "The read mapper which has been used."
                 }
@@ -64,49 +71,64 @@
             "description": "This is the starting point for most QBiC experiments. The experiment's general setup and goal should be described in a PDF document and attached to this instance.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CONDUCTED_BY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's name",
                     "description": "The person who conducted this experiment."
                 },
                 "Q_CONDUCTED_BY_EMAIL": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's e-mail address",
                     "description": "The experimentator's e-mail address for contact purposes."
                 },
                 "Q_CONDUCTED_BY_PHONE": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's phone number",
                     "description": "The experimentator's phone number for contact purposes."
                 },
                 "Q_EXPERIMENTAL_SETUP": {
-                    "type": "XML",
-                    "label": "Experimental design and properties",
-                    "description": "This XML stores the experiment's layout, different technology types and other properties and is not meant to be seen by the end user."
+                    "type": "string",
+                    "openbis_type": "XML",
+                    "label": "Experiment's setup file",
+                    "description": "This XML file stores the experiment's layout and is not meant to be seen by the end user."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Experiment's current status",
                     "description": "This field is meant to be used for internal use only."
                 },
+                "Q_IS_PILOT": {
+                    "type": "integer",
+                    "openbis_type": "BOOLEAN",
+                    "label": "Pilot Project",
+                    "description": "is this a pilot project?"
+                },
+                "Q_CULTURE_MEDIUM": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Culture medium",
+                    "description": "Culture medium for cell cultures"
+                },
                 "Q_NOTES": {
-                    "type": "XML",
+                    "type": "string",
+                    "openbis_type": "XML",
                     "label": "Notes",
                     "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -114,44 +136,76 @@
             "description": "Describes the protocol how the biological samples are obtained from the studied biological entities. The protocol may also contain information about how and where the samples are stored.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CONDUCTED_BY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's name",
                     "description": "The person who conducted this experiment."
                 },
                 "Q_CONDUCTED_BY_EMAIL": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's e-mail address",
                     "description": "The experimentator's e-mail address for contact purposes."
                 },
                 "Q_CONDUCTED_BY_PHONE": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's phone number",
                     "description": "The experimentator's phone number for contact purposes."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Experiment's current status",
                     "description": "This field is meant to be used for internal use only."
                 },
+                "Q_IS_PILOT": {
+                    "type": "integer",
+                    "openbis_type": "BOOLEAN",
+                    "label": "Pilot Project",
+                    "description": "is this a pilot project?"
+                },
+                "Q_CELL_HARVESTING_METHOD": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Cell harvesting method",
+                    "description": "Method used to harvest cells from growth medium or under other circumstances"
+                },
+                "Q_CELL_LYSIS_PARAMETERS": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Cell lysis parameters",
+                    "description": "Additional information used to specify temperature, pressure, enzymes etc. used for cell lysis"
+                },
+                "Q_CELL_LYSIS_METHOD": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Cell lysis method",
+                    "description": "One or more methods used to lyse cells"
+                },
+                "Q_CELL_HARVESTING_VOLUME": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Cell harvesting volume",
+                    "description": "Volume harvested from a cell culture"
+                },
                 "Q_NOTES": {
-                    "type": "XML",
+                    "type": "string",
+                    "openbis_type": "XML",
                     "label": "Notes",
                     "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -159,84 +213,112 @@
             "description": "Holds information about the biological samples' preparation (e.g., for a specific analytic method). Creates test samples that can be actually measured. Sample prep protocol should be attached as a PDF document.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CONDUCTED_BY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's name",
                     "description": "The person who conducted this experiment."
                 },
                 "Q_CONDUCTED_BY_EMAIL": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's e-mail address",
                     "description": "The experimentator's e-mail address for contact purposes."
                 },
                 "Q_CONDUCTED_BY_PHONE": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's phone number",
                     "description": "The experimentator's phone number for contact purposes."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Experiment's current status",
                     "description": "This field is meant to be used for internal use only."
                 },
                 "Q_MS_FRACTIONATION_METHOD": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Mass spectrometry fractionation method",
                     "description": "Protein or peptide fractionation protocol used for preparation of mass spectrometry samples."
                 },
                 "Q_MS_ENRICHMENT_METHOD": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Protein Enrichment Method",
                     "description": "Method to enrich certain proteins. Each resulting samples typically corresponds to one enrichment cycle"
                 },
                 "Q_MS_PURIFICATION_METHOD": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Protein Purification Method",
                     "description": "Method used to purify proteins before measurement"
                 },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
                 "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
+                    "type": "integer",
+                    "openbis_type": "BOOLEAN",
                     "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
+                    "description": "is this a pilot project?"
                 },
                 "Q_PREPARATION_DATE": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Preparation Date",
                     "description": "Preparation date of samples"
                 },
                 "Q_LABELING_METHOD": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Labeling Method",
-                    "description": "Method of labeling a sample. These describe main categories, not the specific label (heavy, light) itself"
+                    "description": "Method of labeling a sample (category, not individual label)"
                 },
                 "Q_DIGESTION_METHOD": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Digestion Method",
                     "description": "Digestion of samples via enzymes or other chemicals."
                 },
+                "Q_PRE_TREATMENT": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Pretreatment",
+                    "description": "Pretreatment performed on samples"
+                },
                 "Q_MS_ENRICHMENT_METHOD_DETAILED": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Detailed Enrichment Method",
                     "description": "Method used to do the enrichment specified in other attributes"
                 },
                 "Q_MS_FRACTIONATION_METHOD_OTHER": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Detailed Fractionation Method",
                     "description": "Detailed Fractionation Method not found in the other vocabulary"
+                },
+                "Q_SAMPLE_PREPARATION_METHOD": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Sample Preparation Method",
+                    "description": "Method used to prepare analyte samples"
+                },
+                "Q_NOTES": {
+                    "type": "string",
+                    "openbis_type": "XML",
+                    "label": "Notes",
+                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
                 }
             }
         },
@@ -244,29 +326,22 @@
             "description": "This is an epitope prediction experiment. Computational tools are used to predict whether given peptides may bind to specified MHC alleles.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Experiment's current status",
                     "description": "This field is meant to be used for internal use only."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -274,39 +349,40 @@
             "description": "This is a HLA typing experiment. Typing can be done via 'traditional' typing method or via in silico experiment (using OptiType). ",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Experiment's current status",
                     "description": "This field is meant to be used for internal use only."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_HLA_CLASS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "HLA Class",
                     "description": "The class of the corresponding HLA type."
                 },
                 "Q_HLA_TYPING_METHOD": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "HLA Typing Method",
                     "description": "The experimental method which has been used to determine the HLA Type."
                 },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
+                "Q_PROPERTIES": {
+                    "type": "string",
+                    "openbis_type": "XML",
+                    "label": "Properties",
+                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
@@ -314,29 +390,22 @@
             "description": "This is an immune monitoring experiment which is used to keep track of immune responses during a vaccination phase including multiple timepoints and measurements.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Experiment's current status",
                     "description": "This field is meant to be used for internal use only."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -344,29 +413,22 @@
             "description": "This is a NGS mapping experiment which is used to align genomic data to some reference.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Experiment's current status",
                     "description": "This field is meant to be used for internal use only."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -374,124 +436,136 @@
             "description": "This is a Next Generation Sequencing experiment which is used to sequence some biological sample producing raw NGS data, i.e., fastq files.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CONDUCTED_BY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's name",
                     "description": "The person who conducted this experiment."
                 },
                 "Q_CONDUCTED_BY_EMAIL": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's e-mail address",
                     "description": "The experimentator's e-mail address for contact purposes."
                 },
                 "Q_CONDUCTED_BY_PHONE": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's phone number",
                     "description": "The experimentator's phone number for contact purposes."
                 },
                 "Q_SEQUENCER_DEVICE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Sequencer device",
                     "description": "This field's code specifies the actual sequencer device together with its location."
                 },
                 "Q_SEQUENCER_PARAMS": {
-                    "type": "XML",
+                    "type": "string",
+                    "openbis_type": "XML",
                     "label": "Sequencer software parameters",
                     "description": "This field may store specific NGS software parameters and their settings in an XML file."
                 },
                 "Q_SEQUENCING_MODE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Sequencing mode",
                     "description": "Specifies if the sequencing is done in single-end or paired-end fashion."
                 },
                 "Q_SEQUENCING_TYPE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Sequencing type",
                     "description": "Specifies what exactly is sequenced in this experiment."
                 },
                 "Q_ILLUMINA_RUN_MODE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Illumina run mode",
                     "description": "Specifies the Illumina's run mode (mid or high output, rapid)."
                 },
                 "Q_DEEP_SEQUENCING": {
-                    "type": "BOOLEAN",
+                    "type": "integer",
+                    "openbis_type": "BOOLEAN",
                     "label": "Deep sequencing",
                     "description": "Specifies if deep sequencing was employed or not."
                 },
                 "Q_READ_LENGTH": {
-                    "type": "INTEGER",
+                    "type": "integer",
+                    "openbis_type": "INTEGER",
                     "label": "Read length",
                     "description": "The read length (bp) required by the experimentator."
                 },
                 "Q_SEQUENCING_CYCLES": {
-                    "type": "INTEGER",
+                    "type": "integer",
+                    "openbis_type": "INTEGER",
                     "label": "Sequencing cycles",
                     "description": "Number of sequencing cycles as required by the experimentator."
                 },
                 "Q_SEQUENCER_SOFTWARE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Sequencer software",
                     "description": "Specifies the sequencer's exact software version."
                 },
                 "Q_LIBRARY_PREPKIT": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Library prep kit",
                     "description": "Specifies the preparation kit that was used to build the DNA/RNA library."
                 },
                 "Q_SEQUENCING_CHEMISTRY": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Sequencing chemistry type",
                     "description": "Specifies the type of sequencing chemistry."
                 },
                 "Q_DEMUX_SOFTWARE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Demultiplexing software",
                     "description": "Specifies the exact name and version of the software employed for the demultiplexing of sequencing data."
                 },
                 "Q_MEASUREMENT_START_DATE": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Measurement's starting date",
                     "description": "Specifies the date/time when a measurement is started."
                 },
                 "Q_MEASUREMENT_FINISH_DATE": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Measurement's finish date",
                     "description": "Specifies the date/time when a measurement is finished."
                 },
                 "Q_EST_DATA_VOLUME": {
-                    "type": "REAL",
+                    "type": "number",
+                    "openbis_type": "REAL",
                     "label": "Estimated data volume",
                     "description": "A rough estimate of the experiment's total data volume."
                 },
                 "Q_ACT_DATA_VOLUME": {
-                    "type": "REAL",
+                    "type": "number",
+                    "openbis_type": "REAL",
                     "label": "Actual data volume",
                     "description": "Shows the actual data volume reserved by this experiment. This field is computed automatically."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Experiment's current status",
                     "description": "This field is meant to be used for internal use only."
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -499,134 +573,190 @@
             "description": "Describes an MS-based experiment, usually coupled with a separation technique (e.g., liquid chromatography).",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CONDUCTED_BY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's name",
                     "description": "The person who conducted this experiment."
                 },
                 "Q_CONDUCTED_BY_EMAIL": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's e-mail address",
                     "description": "The experimentator's e-mail address for contact purposes."
                 },
                 "Q_CONDUCTED_BY_PHONE": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's phone number",
                     "description": "The experimentator's phone number for contact purposes."
                 },
                 "Q_MS_PROTOCOL": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "MS protocol",
                     "description": "Designates the general MS protocol for this measurement (e.g. targeted metabolomics). Details are given in the attached document."
                 },
                 "Q_CHROMATOGRAPHY_TYPE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Chromatography type",
                     "description": "Specifies the kind of chromatography that is coupled to the mass spectrometer."
                 },
                 "Q_CHROMATOGRAPHY_PROPERTIES": {
-                    "type": "XML",
+                    "type": "string",
+                    "openbis_type": "XML",
                     "label": "Chromatography properties",
                     "description": "Technical specifications of the chromatography column in use."
                 },
                 "Q_MS_DEVICE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "MS device",
                     "description": "The MS device that is used to conduct the experiment."
                 },
                 "Q_IONIZATION_MODE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Ionization mode",
                     "description": "Specifies if the measurement was conducted with positive or negative ionization mode."
                 },
                 "Q_MSDEV_PROPERTIES": {
-                    "type": "XML",
+                    "type": "string",
+                    "openbis_type": "XML",
                     "label": "MS device properties",
                     "description": "Contains MS-related operational and software parameters."
                 },
                 "Q_MS_CONTROL_SOFTWARE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "MS control software",
                     "description": "Specifies the instrument control software (e.g., for instrument configuration and initial data processing)."
                 },
                 "Q_MS_CONVERSION_SOFTWARE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "MS conversion software",
                     "description": "Specifies the software and its version that was used to convert the vendor-specific formats to mzML."
                 },
                 "Q_EST_DATA_VOLUME": {
-                    "type": "REAL",
+                    "type": "number",
+                    "openbis_type": "REAL",
                     "label": "Estimated data volume",
                     "description": "A rough estimate of the experiment's total data volume."
                 },
                 "Q_ACT_DATA_VOLUME": {
-                    "type": "REAL",
+                    "type": "number",
+                    "openbis_type": "REAL",
                     "label": "Actual data volume",
                     "description": "Shows the actual data volume reserved by this experiment. This field is computed automatically."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Experiment's current status",
                     "description": "This field is meant to be used for internal use only."
                 },
                 "Q_MS_LCMS_METHOD": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "LCMS Method",
                     "description": "Labratory specific parameters for LCMS measurements."
                 },
                 "Q_PROTEASE_DIGESTION": {
-                    "type": "MATERIAL",
+                    "type": "string",
+                    "openbis_type": "MATERIAL",
                     "label": "Protease Digestion",
                     "description": "Proteases and chemicals used to digest proteins of an MS experiment into peptides."
                 },
                 "Q_EXTRACT_SHARE": {
-                    "type": "REAL",
+                    "type": "number",
+                    "openbis_type": "REAL",
                     "label": "Extract share",
                     "description": "Share (Part of Extract/Run)"
                 },
                 "Q_MEASUREMENT_FINISH_DATE": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Measurement's finish date",
                     "description": "Specifies the date/time when a measurement is finished."
                 },
                 "Q_CHROMATOGRAPHY_COLUMN_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "LC Column Name",
                     "description": "Internal name for a column used in chromatography experiments"
                 },
                 "Q_MS_LCMS_METHOD_INFO": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "LCMS Method Info",
                     "description": "Description for unique LCMS methods."
                 },
+                "Q_IS_PILOT": {
+                    "type": "integer",
+                    "openbis_type": "BOOLEAN",
+                    "label": "Pilot Project",
+                    "description": "is this a pilot project?"
+                },
+                "Q_MS_MIDDLE_DOWN_INFORMATION": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Middle Down Proteomics Information",
+                    "description": "Information, if and which middle-down approach was used"
+                },
                 "Q_NOTES": {
-                    "type": "XML",
+                    "type": "string",
+                    "openbis_type": "XML",
                     "label": "Notes",
                     "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
                 },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
+                "Q_WASHING_SOLVENT": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Washing solvent",
+                    "description": "Solvent used to wash HPLC columns and similar"
                 },
-                "Q_ONTOLOGY_INSTRUMENT_ID": {
-                    "type": "VARCHAR",
-                    "label": "Instrument Ontology Term",
-                    "description": "Ontology ID for a measurement device."
+                "Q_LC_DEVICE": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Liquid Chromatography Device",
+                    "description": "Device used to perform Liquid Chromatography"
                 },
-                "Q_MS_MIDDLE_DOWN_INFORMATION": {
-                    "type": "VARCHAR",
-                    "label": "Middle Down Proteomics Information",
-                    "description": "Information, if and which middle-down approach was used"
+                "Q_LC_DETECTION_METHOD": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "LC detection method",
+                    "description": "Method used to detect components in HPLC"
+                },
+                "Q_MS_DISSOCIATION_ENERGY": {
+                    "type": "number",
+                    "openbis_type": "REAL",
+                    "label": "Dissociation energy",
+                    "description": "Energy for an ion experiencing collision with a stationary gas particle resulting in dissociation of the ion. [ PSI:MS ]"
+                },
+                "Q_MS_DISSOCIATION_METHOD": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Dissociation method",
+                    "description": "Fragmentation method used for dissociation or fragmentation."
+                },
+                "Q_MS_RESOLVING_POWER": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Mass resolving power",
+                    "description": "Mass Resolving Power is defined as m/dm\nWhere m designates the mass and dm the peak width necessary for separation at mass m. A specific m/z value and also the method like 10% valley or 50% valley or full width at half maximum (FWHM) must be given. Resolving power is usually a large number (up to 2,000,000 for FT-MS) and is used as \u201cperformance\u201d parameter."
                 }
             }
         },
@@ -634,69 +764,70 @@
             "description": "OpenMS-based quality control workflow to assess the reproducibility of a series of LC-MS measurements (mzML).",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_MAXQUANT_IDENT_ONLY": {
-                    "type": "BOOLEAN",
+                    "type": "integer",
+                    "openbis_type": "BOOLEAN",
                     "label": "Identification only",
                     "description": "Specifies whether MaxQuant does protein identification runs only or together with quantification."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
@@ -704,29 +835,22 @@
             "description": "This is a variant calling experiment which is used to determine gene sequence variations.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Experiment's current status",
                     "description": "This field is meant to be used for internal use only."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -734,64 +858,64 @@
             "description": "The MaxQuant workflow for protein quantification/identification that takes Thermo RAW files as input.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
@@ -799,34 +923,28 @@
             "description": "A container sample type that specifies the flowcell used (barcode) and may comprise several single sample runs (Q_NGS_SINGLE_SAMPLE_RUN).",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_FLOWCELL_BARCODE": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Flowcell barcode",
                     "description": "Specifies the flowcell used for the sequencing run."
                 },
                 "Q_PROPERTIES": {
-                    "type": "XML",
+                    "type": "string",
+                    "openbis_type": "XML",
                     "label": "Properties",
                     "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -834,49 +952,46 @@
             "description": "Contains supporting information to track measured samples back to the flow lanes or tiles.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_FLOWLANE_INDEX": {
-                    "type": "INTEGER",
+                    "type": "integer",
+                    "openbis_type": "INTEGER",
                     "label": "Flow lane index",
                     "description": "Specifies the flow lane index where the sample was placed."
                 },
                 "Q_TILE_INDEX": {
-                    "type": "INTEGER",
+                    "type": "integer",
+                    "openbis_type": "INTEGER",
                     "label": "Tile index",
                     "description": "Specifies the tile index within the flow lane where the sample was placed."
                 },
                 "Q_ADAPTER_INDEX": {
-                    "type": "INTEGER",
+                    "type": "integer",
+                    "openbis_type": "INTEGER",
                     "label": "Adapter index",
                     "description": "The adapter index facilitates to find the exact adapter sequence according to the vendor's specifications."
                 },
                 "Q_ADAPTER_SEQUENCE": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Adapter sequence",
                     "description": "Adapter sequence that was employed for the multiplexing of this sample."
                 },
                 "Q_PROPERTIES": {
-                    "type": "XML",
+                    "type": "string",
+                    "openbis_type": "XML",
                     "label": "Properties",
                     "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -884,54 +999,52 @@
             "description": "A Peptide Identification Workflow instance",
             "properties": {
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
@@ -939,19 +1052,16 @@
             "description": "Experiment type to hold additional information about corresponding projects. The secondary name in this case can be read out to provide a humanly readable alternative to the QBiC code. The Project Details experiment should not be shown like a normal experiment.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
                 "Q_EXPERIMENTAL_SETUP": {
-                    "type": "XML",
-                    "label": "Experimental design and properties",
-                    "description": "This XML stores the experiment's layout, different technology types and other properties and is not meant to be seen by the end user."
+                    "type": "string",
+                    "openbis_type": "XML",
+                    "label": "Experiment's setup file",
+                    "description": "This XML file stores the experiment's layout and is not meant to be seen by the end user."
                 }
             }
         },
@@ -959,29 +1069,22 @@
             "description": "OpenMS-based quality control run to assess the reproducibility of a series of LC-MS measurements (mzML).",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_MAXQUANT_IDENT_ONLY": {
-                    "type": "BOOLEAN",
+                    "type": "integer",
+                    "openbis_type": "BOOLEAN",
                     "label": "Identification only",
                     "description": "Specifies whether MaxQuant does protein identification runs only or together with quantification."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -989,24 +1092,16 @@
             "description": "FastQC-based quality control to assess the quality of different aspects of sequenced NGS reads.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -1014,169 +1109,164 @@
             "description": "A RNA Expression Analysis Workflow Instance",
             "properties": {
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
         "Q_WF_NGS_HLATYPING": {
-            "description": null,
+            "description": "",
             "properties": {
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
                 },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
                 "Q_PROPERTIES": {
-                    "type": "XML",
+                    "type": "string",
+                    "openbis_type": "XML",
                     "label": "Properties",
                     "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
         "Q_WF_NGS_VARIANT_ANNOTATION": {
-            "description": null,
+            "description": "",
             "properties": {
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
@@ -1184,34 +1274,28 @@
             "description": "Describes an Microarray-based experiment, meaning the measurement of one or more samples on a microarray. Contains Q_MICROARRAY_RUN samples.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_EXTERNALDB_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "External DB identifier",
                     "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
                 },
                 "Q_MEASUREMENT_FINISH_DATE": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Measurement's finish date",
                     "description": "Specifies the date/time when a measurement is finished."
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -1219,109 +1303,105 @@
             "description": "An Epitope Prediction Workflow Instance (using IRMA)",
             "properties": {
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
         "Q_WF_NGS_VARIANT_CALLING": {
-            "description": null,
+            "description": "",
             "properties": {
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
@@ -1329,124 +1409,117 @@
             "description": "R-based quality control workflow for microarrays.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
         "Q_WF_NGS_MERGE": {
-            "description": null,
+            "description": "",
             "properties": {
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
@@ -1454,64 +1527,64 @@
             "description": "Results from an EDDA workflow",
             "properties": {
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -1519,249 +1592,229 @@
             "description": "FastQC-based quality control workflow to assess the quality of different aspects of sequenced NGS reads.",
             "properties": {
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
         "Q_WF_NGS_MAPPING": {
-            "description": null,
+            "description": "",
             "properties": {
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
                 },
                 "Q_WF_RNASEQ": {
-                    "type": "BOOLEAN",
+                    "type": "integer",
+                    "openbis_type": "BOOLEAN",
                     "label": "RNA-Seq Read Alignment",
                     "description": "Defines whether the NGS Read Alignment workflow has been performed using reads coming from RNA-Seq."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
         "Q_WF_MS_INDIVIDUALIZED_PROTEOME": {
-            "description": null,
+            "description": "",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
         "Q_WF_MS_LIGANDOMICS_QC": {
-            "description": null,
+            "description": "",
             "properties": {
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
                 },
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
                 }
             }
         },
@@ -1769,64 +1822,70 @@
             "description": "MHC Ligand Extraction",
             "properties": {
                 "Q_PREPARATION_DATE": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Preparation Date",
                     "description": "Preparation date of samples"
                 },
                 "Q_MHC_ANTIBODY_COL1": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "MHC Extraction Column 1 Antibody",
                     "description": "MHC Extraction Column 1 Antibody"
                 },
                 "Q_MHC_ANTIBODY_COL2": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "MHC Extraction Column 2 Antibody",
                     "description": "MHC Extraction Column 2 Antibody"
                 },
                 "Q_MHC_ANTIBODY_COL3": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "MHC Extraction Column 3 Antibody",
                     "description": "MHC Extraction Column 3 Antibody"
                 },
                 "Q_MHC_ANTIBODY_MASS_COL1": {
-                    "type": "REAL",
+                    "type": "number",
+                    "openbis_type": "REAL",
                     "label": "MHC Antibody Mass Column 1 [mg]",
                     "description": "Antibody mass used in this column"
                 },
                 "Q_MHC_ANTIBODY_MASS_COL2": {
-                    "type": "REAL",
+                    "type": "number",
+                    "openbis_type": "REAL",
                     "label": "MHC Antibody Mass Column 2 [mg]",
                     "description": "Antibody mass used in this column"
                 },
                 "Q_MHC_ANTIBODY_MASS_COL3": {
-                    "type": "REAL",
+                    "type": "number",
+                    "openbis_type": "REAL",
                     "label": "MHC Antibody Mass Column 3 [mg]",
                     "description": "Antibody mass used in this column\n"
                 },
                 "Q_SAMPLE_MASS": {
-                    "type": "REAL",
+                    "type": "number",
+                    "openbis_type": "REAL",
                     "label": "Sample Mass [mg]",
                     "description": "Mass of the incoming sample"
                 },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
+                "Q_CELL_COUNT": {
+                    "type": "integer",
+                    "openbis_type": "INTEGER",
+                    "label": "Cell count in millions",
+                    "description": "copied from production version"
                 },
                 "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
+                    "type": "integer",
+                    "openbis_type": "BOOLEAN",
                     "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_CELL_COUNT": {
-                    "type": "INTEGER",
-                    "label": "Cell Count in Millions",
-                    "description": "The amount of cells in a sample, measuren in million cells."
+                    "description": "is this a pilot project?"
                 },
                 "Q_SAMPLE_VOLUME": {
-                    "type": "REAL",
+                    "type": "number",
+                    "openbis_type": "REAL",
                     "label": "Sample Volume",
-                    "description": "Used in MHC ligand extraction experiments. Should use xml properties in any other experiments."
+                    "description": "Sample volume"
                 }
             }
         },
@@ -1834,354 +1893,52 @@
             "description": "Identification of ligands",
             "properties": {
                 "Q_WF_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow Name",
                     "description": "Name of the workflow that is executed in this experiment."
                 },
                 "Q_WF_ID": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Workflow ID",
                     "description": "The identifier of a workflow"
                 },
                 "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow started at",
                     "description": "Timestamp of the workflow start time."
                 },
                 "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
                     "label": "Workflow finished at",
                     "description": "Timestamp of the workflow endpoint."
                 },
                 "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Runtime of workflow",
                     "description": "Time between creation of workflow experiment and registration of results in openBIS"
                 },
                 "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Status of workflow",
                     "description": "Status of the corresponding workflow"
                 },
                 "Q_WF_VERSION": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Version of workflow",
                     "description": "Version of the corresponding workflow"
                 },
                 "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Executed by",
                     "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
-                }
-            }
-        },
-        "Q_NGS_READ_MATCH_ALIGNMENT": {
-            "description": "Denotes the use of MALT (MEGAN alignment tool) to create RMA (read-match archive) files that are attached to the corresponding RUN samples.",
-            "properties": {
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                }
-            }
-        },
-        "Q_WF_NGS_SHRNA_COUNTING": {
-            "description": "Counting shRNA expression\nGiven a set of reads from shRNA sequencing, we count how often each reference shRNA sequence occurs at the expected position in the reads.\nEach read should contain a barcode at a specified position. We divide the reads according to those barcodes.\n\n",
-            "properties": {
-                "Q_WF_ID": {
-                    "type": "VARCHAR",
-                    "label": "Workflow ID",
-                    "description": "The identifier of a workflow"
-                },
-                "Q_WF_NAME": {
-                    "type": "VARCHAR",
-                    "label": "Workflow Name",
-                    "description": "Name of the workflow that is executed in this experiment."
-                },
-                "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
-                    "label": "Status of workflow",
-                    "description": "Status of the corresponding workflow"
-                },
-                "Q_WF_VERSION": {
-                    "type": "VARCHAR",
-                    "label": "Version of workflow",
-                    "description": "Version of the corresponding workflow"
-                },
-                "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
-                    "label": "Workflow started at",
-                    "description": "Timestamp of the workflow start time."
-                },
-                "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
-                    "label": "Workflow finished at",
-                    "description": "Timestamp of the workflow endpoint."
-                },
-                "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
-                    "label": "Runtime of workflow",
-                    "description": "Time between creation of workflow experiment and registration of results in openBIS"
-                },
-                "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
-                    "label": "Executed by",
-                    "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
-                }
-            }
-        },
-        "Q_BMI_GENERIC_IMAGING": {
-            "description": "A generic experiment type for biomedical imaging (BMI) measurements. Currently, this type holds for different modalities (CT guided biopsy, dynamic CT, MR, PET, MR-PET) and PET tracers (none, FDG, FLT, RGD, FMISO, choline).",
-            "properties": {
-                "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
-                    "label": "Secondary name",
-                    "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
-                },
-                "Q_EXTERNALDB_ID": {
-                    "type": "VARCHAR",
-                    "label": "External DB identifier",
-                    "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
-                },
-                "Q_BMI_MODALITY": {
-                    "type": "CONTROLLEDVOCABULARY",
-                    "label": "Imaging Modality",
-                    "description": "Distinguishes the type of imaging by its modality (CT guided biopsy, dynamic CT, MR, PET, MR-PET)."
-                },
-                "Q_BMI_PET_TRACER": {
-                    "type": "CONTROLLEDVOCABULARY",
-                    "label": "Tracer compound used for PET",
-                    "description": "Tracer compound used for PET. Applies only if the modality is PET or MR-PET."
-                },
-                "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
-                    "label": "Additional information",
-                    "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                }
-            }
-        },
-        "Q_HT_QPCR": {
-            "description": "High-throughput quantitative real-time PCR experiment as performed by Fluidigm etc.",
-            "properties": {
-                "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
-                    "label": "Secondary name",
-                    "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
-                },
-                "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
-                    "label": "Additional information",
-                    "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                }
-            }
-        },
-        "Q_WF_MS_PEAKPICKING": {
-            "description": "Peak picking (centroiding) on one or multiple mzml files measured in profile mode. Uses openMS or other tools.",
-            "properties": {
-                "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
-                    "label": "Workflow started at",
-                    "description": "Timestamp of the workflow start time."
-                },
-                "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
-                    "label": "Workflow finished at",
-                    "description": "Timestamp of the workflow endpoint."
-                },
-                "Q_WF_NAME": {
-                    "type": "VARCHAR",
-                    "label": "Workflow Name",
-                    "description": "Name of the workflow that is executed in this experiment."
-                },
-                "Q_WF_ID": {
-                    "type": "VARCHAR",
-                    "label": "Workflow ID",
-                    "description": "The identifier of a workflow"
-                },
-                "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
-                    "label": "Runtime of workflow",
-                    "description": "Time between creation of workflow experiment and registration of results in openBIS"
-                },
-                "Q_WF_VERSION": {
-                    "type": "VARCHAR",
-                    "label": "Version of workflow",
-                    "description": "Version of the corresponding workflow"
-                },
-                "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
-                    "label": "Status of workflow",
-                    "description": "Status of the corresponding workflow"
-                },
-                "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
-                    "label": "Executed by",
-                    "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
-                }
-            }
-        },
-        "Q_WF_NGS_16S_TAXONOMIC_PROFILING": {
-            "description": "Workflow for the taxonomic profiling of 16S metagenomics data using MALT.",
-            "properties": {
-                "Q_WF_ID": {
-                    "type": "VARCHAR",
-                    "label": "Workflow ID",
-                    "description": "The identifier of a workflow"
-                },
-                "Q_WF_NAME": {
-                    "type": "VARCHAR",
-                    "label": "Workflow Name",
-                    "description": "Name of the workflow that is executed in this experiment."
-                },
-                "Q_WF_STARTED_AT": {
-                    "type": "TIMESTAMP",
-                    "label": "Workflow started at",
-                    "description": "Timestamp of the workflow start time."
-                },
-                "Q_WF_FINISHED_AT": {
-                    "type": "TIMESTAMP",
-                    "label": "Workflow finished at",
-                    "description": "Timestamp of the workflow endpoint."
-                },
-                "Q_WF_RUNTIME": {
-                    "type": "VARCHAR",
-                    "label": "Runtime of workflow",
-                    "description": "Time between creation of workflow experiment and registration of results in openBIS"
-                },
-                "Q_WF_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
-                    "label": "Status of workflow",
-                    "description": "Status of the corresponding workflow"
-                },
-                "Q_WF_VERSION": {
-                    "type": "VARCHAR",
-                    "label": "Version of workflow",
-                    "description": "Version of the corresponding workflow"
-                },
-                "Q_WF_EXECUTED_BY": {
-                    "type": "VARCHAR",
-                    "label": "Executed by",
-                    "description": "Person who has executed the corresponding workflow"
-                },
-                "Q_PROPERTIES": {
-                    "type": "XML",
-                    "label": "Properties",
-                    "description": "Properties that are characteristic to this biological entity/sample. These could be experimental factors (e.g., duration of treatment) or class information (e.g., WT or KO mouse, healthy versus diseased)."
-                }
-            }
-        },
-        "Q_NGS_EPITOPE_SELECTION": {
-            "description": "Selection of epitopes performed on eptiope prediction result using NeoOptiTope (Interactive Vaccine Designer)",
-            "properties": {
-                "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
-                    "label": "Secondary name",
-                    "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
-                },
-                "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
-                    "label": "Experiment's current status",
-                    "description": "This field is meant to be used for internal use only."
-                },
-                "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
-                    "label": "Additional information",
-                    "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
-                }
-            }
-        },
-        "Q_FASTA_INFO": {
-            "description": "Information about connected fasta data which can be nucleotide or amino acid sequences for example.",
-            "properties": {
-                "Q_CURRENT_STATUS": {
-                    "type": "CONTROLLEDVOCABULARY",
-                    "label": "Experiment's current status",
-                    "description": "This field is meant to be used for internal use only."
-                },
-                "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
-                    "label": "Secondary name",
-                    "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
-                },
-                "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
-                    "label": "Additional information",
-                    "description": "Additional notes about the experiment"
-                },
-                "Q_NOTES": {
-                    "type": "XML",
-                    "label": "Notes",
-                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
-                },
-                "Q_IS_PILOT": {
-                    "type": "BOOLEAN",
-                    "label": "Pilot Project",
-                    "description": "Denotes whether an experiment is part of a pilot project. This flag can be used to offer special options for users."
                 }
             }
         },
@@ -2189,34 +1946,223 @@
             "description": "NMR experiment for small molecule detection.",
             "properties": {
                 "Q_SECONDARY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Secondary name",
                     "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
                 },
                 "Q_CONDUCTED_BY_NAME": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's name",
                     "description": "The person who conducted this experiment."
                 },
                 "Q_CONDUCTED_BY_EMAIL": {
-                    "type": "VARCHAR",
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
                     "label": "Experimentator's e-mail address",
                     "description": "The experimentator's e-mail address for contact purposes."
                 },
                 "NMR_TYPE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "NMR Type",
                     "description": "Nuclear Magnetic Resonance Type"
                 },
-                "Q_MEASUREMENT_DEVICE": {
-                    "type": "CONTROLLEDVOCABULARY",
+                "Q_MEASRUEMENT_DEVICE": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
                     "label": "Measurement device",
-                    "description": "Device used for experiment measurements"
+                    "description": "Experiment measurement device."
                 },
                 "Q_ADDITIONAL_INFO": {
-                    "type": "MULTILINE_VARCHAR",
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
                     "label": "Additional information",
                     "description": "Additional notes about the experiment"
+                },
+                "Q_NMR_QUANTIFICATION_METHOD": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "NMR quantification method",
+                    "description": "Quantification method used for NMR metabolite analysis."
+                }
+            }
+        },
+        "Q_NGS_NANOPORE_RUN": {
+            "description": "Nanopore sequencing experiment on one or more samples",
+            "properties": {
+                "Q_SEQUENCER_DEVICE": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Sequencer device",
+                    "description": "This field's code specifies the actual sequencer device together with its location."
+                },
+                "Q_LIBRARY_PREPKIT": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Library prep kit",
+                    "description": "Specifies the preparation kit that was used to build the DNA/RNA library."
+                },
+                "Q_EXTERNALDB_ID": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "External DB identifier",
+                    "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
+                },
+                "Q_DATA_GENERATION_FACILITY": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Data Generation Facility",
+                    "description": "Facility this experiment data was generated at."
+                },
+                "Q_ADDITIONAL_INFO": {
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
+                    "label": "Additional information",
+                    "description": "Additional notes about the experiment"
+                },
+                "Q_FLOWCELL_POSITION": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Flowcell position",
+                    "description": "Specifies the position on the sequencer (e.g. Promethion) where the flow cell was placed."
+                },
+                "Q_MEASUREMENT_START_DATE": {
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
+                    "label": "Measurement's starting date",
+                    "description": "Specifies the date/time when a measurement is started."
+                },
+                "Q_NGS_BASE_CALLER": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Base caller",
+                    "description": "Software or hardware/software component used to identify/assign a nucleobase to raw NGS read data."
+                },
+                "Q_NANOPORE_HOSTNAME": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Nanopore sequencer hostname",
+                    "description": "Hostname of the nanopore sequencing device as it is found in the log files of a run"
+                },
+                "Q_FLOWCELL_TYPE": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Flow Cell Product Code",
+                    "description": "Type, denoted by product code, of a flow cell"
+                },
+                "Q_ASIC_TEMPERATURE": {
+                    "type": "number",
+                    "openbis_type": "REAL",
+                    "label": "ASIC Temperature",
+                    "description": "Temperature of an application-specific integrated circuit, as it is used in some NGS or other data acquisition devices."
+                },
+                "Q_FLOWCELL_BARCODE": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Flowcell barcode",
+                    "description": "Specifies the flowcell used for the sequencing run."
+                },
+                "Q_SEQUENCING_ADAPTER": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Sequencing Device Adapter",
+                    "description": "Describes adapters and their version, like the \"Flongle\" for Nanopore Sequencing"
+                },
+                "Q_NGS_BASE_CALLER_VERSION": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Base caller version",
+                    "description": "Version of the base calling software"
+                }
+            }
+        },
+        "Q_BMI_GENERIC_IMAGING": {
+            "description": "",
+            "properties": {
+                "Q_IS_PILOT": {
+                    "type": "integer",
+                    "openbis_type": "BOOLEAN",
+                    "label": "Pilot Project",
+                    "description": "is this a pilot project?"
+                },
+                "Q_BMI_MODALITY": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Imaging Modality",
+                    "description": "Distinguishes the type of imaging by its modality (CT guided biopsy, dynamic CT, MR, PET, MR-PET)."
+                },
+                "Q_NOTES": {
+                    "type": "string",
+                    "openbis_type": "XML",
+                    "label": "Notes",
+                    "description": "Notes that can be added by different users. Contains each note, user that added it with full name and timestamp of the addition."
+                },
+                "Q_EXTERNALDB_ID": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "External DB identifier",
+                    "description": "This field facilitates the cross-linking to external databases outside the QBiC (e.g., confidential patient databases)."
+                },
+                "Q_SECONDARY_NAME": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Secondary name",
+                    "description": "While an experiment is unambiguously identified by an unique code, this secondary name might be used as a more descriptive label for the experiment or sample (e.g., \"Shotgun proteomics experiment #120\", \"Plasma sample #33\"). Also, often labs want to keep of their their in-house labels."
+                },
+                "Q_INSTRUMENT_USER": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Instrument User",
+                    "description": "User responsible for data generation using an instrument."
+                },
+                "Q_MEASUREMENT_FINISH_DATE": {
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
+                    "label": "Measurement's finish date",
+                    "description": "Specifies the date/time when a measurement is finished."
+                },
+                "Q_ADDITIONAL_INFO": {
+                    "type": "string",
+                    "openbis_type": "MULTILINE_VARCHAR",
+                    "label": "Additional information",
+                    "description": "Additional notes about the experiment"
+                }
+            }
+        },
+        "Q_PIPELINE_EXPERIMENT": {
+            "description": "Pipeline experiment",
+            "properties": {
+                "Q_WF_ID": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Workflow ID",
+                    "description": "The identifier of a workflow"
+                },
+                "Q_CONDUCTED_BY_NAME": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Experimentator's name",
+                    "description": "The person who conducted this experiment."
+                },
+                "Q_CONDUCTED_BY_EMAIL": {
+                    "type": "string",
+                    "openbis_type": "VARCHAR",
+                    "label": "Experimentator's e-mail address",
+                    "description": "The experimentator's e-mail address for contact purposes."
+                },
+                "Q_PIPELINE_START_DATE": {
+                    "type": "string",
+                    "openbis_type": "TIMESTAMP",
+                    "label": "Pipeline start date",
+                    "description": "Date and time of pipeline run start"
+                },
+                "Q_PIPELINE_INFRASTRUCTURE": {
+                    "type": "string",
+                    "openbis_type": "CONTROLLEDVOCABULARY",
+                    "label": "Computational infrastructure",
+                    "description": "A computional infrastructure/cluster used by QBiC"
                 }
             }
         },
@@ -2226,14 +2172,14 @@
                 
             }
         },
-        "INFO_EXPERIMENT": {
-            "description": "Experiment instance to attach information samples that have datasets",
+        "Q_NGS_READ_MATCH_ALIGNMENT": {
+            "description": "Denotes the use of MALT (MEGAN alignment tool) to create RMA (read-match archive) files that are attached to the corresponding RUN samples.",
             "properties": {
                 
             }
         },
-        "Q_NGS_MTB_DIAGNOSIS": {
-            "description": "Diagnosis based on somatic, germline and structural variants for the molecular tumor board at UKT T\u00fcbingen.",
+        "INFO_EXPERIMENT": {
+            "description": "Experiment instance to attach information samples that have datasets",
             "properties": {
                 
             }
